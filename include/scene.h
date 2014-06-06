@@ -113,6 +113,9 @@ extern "C"
     void irr_ISceneNode_setMaterialTexture(irr_IAnimatedMeshSceneNode* node, int c, irr_ITexture* texture);
 
     irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMeshSceneNode* parent, vector3df pos, vector3df lookAt);
+    irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeFPS(irr_ISceneManager* smgr);
+
+    void irr_ISceneNode_setPosition(irr_IAnimatedMeshSceneNode* node, vector3df pos);
     void irr_ISceneManager_drawAll(irr_ISceneManager* smgr);
 
 #ifdef __cplusplus

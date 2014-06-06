@@ -24,44 +24,20 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_VIDEO_
-#define _CIRRLICHT_VIDEO_
-
+#include <irrlicht.h>
 #include "core.h"
 #include "cirrlicht.h"
-#include "video.h"
+#include "io.h"
 
 #ifdef __cplusplus
 extern "C"
 {
-#endif // __cplusplus
-
-    typedef struct
+#endif
+    void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text)
     {
-        int a;
-        int b;
-        int g;
-        int r;
-    } irr_SColor;
+        reinterpret_cast<irr::io::IFileSystem*>(filesystem)->addFileArchive(text);
+    }
 
-    struct irr_ITexture
-    {
-        const char* name;
-    };
-
-    typedef struct irr_ITexture irr_ITexture;
-
-    struct irr_IrrlichtDevice;
-    struct irr_IVideoDriver;
-    typedef struct irr_IVideoDriver irr_IVideoDriver;
-    bool irr_IVideoDriver_beginScene(irr_IVideoDriver* driver, bool backBuffer, bool zBuffer, irr_SColor color);
-    bool irr_IVideoDriver_endScene(irr_IVideoDriver* driver);
-    irr_IVideoDriver* irr_IrrlichtDevice_getVideoDriver(irr_IrrlichtDevice* device);
-    irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file);
-    int irr_IVideoDriver_getFPS(irr_IVideoDriver* driver);
-    const wchar_t* irr_IVideoDriver_getName(irr_IVideoDriver* driver);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-
-#endif // _CIRRLICHT_VIDEO_

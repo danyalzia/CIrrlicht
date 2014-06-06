@@ -31,12 +31,16 @@
 		<Unit filename="../include/cirrlicht.h" />
 		<Unit filename="../include/core.h" />
 		<Unit filename="../include/gui.h" />
+		<Unit filename="../include/io.h" />
 		<Unit filename="../include/scene.h" />
 		<Unit filename="../include/video.h" />
 		<Unit filename="core.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="gui.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="io.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="irrlicht.c">

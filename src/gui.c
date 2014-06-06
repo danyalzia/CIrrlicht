@@ -41,6 +41,11 @@ extern "C"
         reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border);
     }
 
+    void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value)
+    {
+        reinterpret_cast<irr::gui::ICursorControl*>(cursor)->setVisible(value);
+    }
+
     void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env)
     {
         reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->drawAll();

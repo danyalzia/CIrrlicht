@@ -51,6 +51,16 @@ extern "C"
     {
         return reinterpret_cast<irr_ITexture*>(reinterpret_cast<irr::video::IVideoDriver*>(driver)->getTexture(file));
     }
+
+    int irr_IVideoDriver_getFPS(irr_IVideoDriver* driver)
+    {
+        return reinterpret_cast<irr::video::IVideoDriver*>(driver)->getFPS();
+    }
+
+    const wchar_t* irr_IVideoDriver_getName(irr_IVideoDriver* driver)
+    {
+        return reinterpret_cast<irr::video::IVideoDriver*>(driver)->getName();
+    }
 #ifdef __cplusplus
 }
 #endif // __cplusplus

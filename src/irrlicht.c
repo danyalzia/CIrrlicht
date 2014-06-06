@@ -42,15 +42,36 @@ extern "C"
         return reinterpret_cast<irr::IrrlichtDevice*>(device)->run();
     }
 
+    bool irr_IrrlichtDevice_isWindowActive(irr_IrrlichtDevice* device)
+    {
+        return reinterpret_cast<irr::IrrlichtDevice*>(device)->isWindowActive();
+    }
+
+    void irr_IrrlichtDevice_yield(irr_IrrlichtDevice* device)
+    {
+        reinterpret_cast<irr::IrrlichtDevice*>(device)->yield();
+    }
+
     void irr_IrrlichtDevice_setWindowCaption(irr_IrrlichtDevice* device, const wchar_t* text)
     {
-        return reinterpret_cast<irr::IrrlichtDevice*>(device)->setWindowCaption(text);
+        reinterpret_cast<irr::IrrlichtDevice*>(device)->setWindowCaption(text);
     }
 
     void irr_IrrlichtDevice_setResizable(irr_IrrlichtDevice* device, bool value)
     {
-        return reinterpret_cast<irr::IrrlichtDevice*>(device)->setResizable(value);
+        reinterpret_cast<irr::IrrlichtDevice*>(device)->setResizable(value);
     }
+
+    irr_IFileSystem* irr_IrrlichtDevice_getFileSystem(irr_IrrlichtDevice* device)
+    {
+        return reinterpret_cast<irr_IFileSystem*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getFileSystem());
+    }
+
+    irr_ICursorControl* irr_IrrlichtDevice_getCursorControl(irr_IrrlichtDevice* device)
+    {
+        return reinterpret_cast<irr_ICursorControl*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getCursorControl());
+    }
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus

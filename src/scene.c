@@ -66,6 +66,16 @@ extern "C"
         return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNode(reinterpret_cast<irr::scene::ISceneNode*>(parent), irr::core::vector3df(pos.x, pos.y, pos.z), irr::core::vector3df(lookAt.x, lookAt.y, lookAt.z)));
     }
 
+    irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeFPS(irr_ISceneManager* smgr)
+    {
+        return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNodeFPS());
+    }
+
+    void irr_ISceneNode_setPosition(irr_IAnimatedMeshSceneNode* node, vector3df pos)
+    {
+        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setPosition(irr::core::vector3df(pos.x, pos.y, pos.z));
+    }
+
     void irr_ISceneManager_drawAll(irr_ISceneManager* smgr)
     {
         reinterpret_cast<irr::scene::ISceneManager*>(smgr)->drawAll();

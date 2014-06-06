@@ -25,46 +25,27 @@
 */
 
 
-#ifndef _CIRRLICHT_IRRLICHT_
-#define _CIRRLICHT_IRRLICHT_
+#ifndef _CIRRLICHT_IO_
+#define _CIRRLICHT_IO_
 
 #include "core.h"
 #include "video.h"
 #include "scene.h"
 #include "gui.h"
-#include "io.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
 
-    enum E_DRIVER_TYPE
-	{
-		EDT_NULL,
-		EDT_SOFTWARE,
-		EDT_BURNINGSVIDEO,
-		EDT_DIRECT3D8,
-		EDT_DIRECT3D9,
-		EDT_OPENGL,
-		EDT_COUNT
-	};
+    struct irr_IFileSystem;
+    typedef struct irr_IFileSystem irr_IFileSystem;
 
-    struct irr_IrrlichtDevice;
-    typedef struct irr_IrrlichtDevice irr_IrrlichtDevice;
-    irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, dimension2du res, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false);
-    bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device);
-    bool irr_IrrlichtDevice_isWindowActive(irr_IrrlichtDevice* device);
-    void irr_IrrlichtDevice_yield(irr_IrrlichtDevice* device);
-    void irr_IrrlichtDevice_setWindowCaption(irr_IrrlichtDevice* device, const wchar_t* text);
-    void irr_IrrlichtDevice_setResizable(irr_IrrlichtDevice* device, bool value = false);
-    irr_IFileSystem* irr_IrrlichtDevice_getFileSystem(irr_IrrlichtDevice* device);
+    void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text);
 
-    struct irr_ICursorControl;
-    irr_ICursorControl* irr_IrrlichtDevice_getCursorControl(irr_IrrlichtDevice* device);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
 
 
-#endif // _CIRRLICHT_IRRLICHT_
+#endif // _CIRRLICHT_IO_
