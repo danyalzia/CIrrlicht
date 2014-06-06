@@ -1,0 +1,50 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.objs
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# For MSVC
+*.lastcodeanalysissucceeded
+*.pdb
+*.ilk
+*.obj
+*.pch
+*.log
+*.dll
+*.rar
+*.exe
+*.map
+*.lib
+*.user
+*.sdf
+*.ncb
+*.opensdf
+*.suo
+*.aps
+*.exp
+*.tlog
+Debug
+Release
+
+# For Code::Blocks
+*.layout
+*.depend
+*.cscope_file_list

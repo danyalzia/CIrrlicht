@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="CIrrlicht" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="../lib/CIrrlicht" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output=".obj/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add directory="$(IRRLICHT_ROOT)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libIrrlicht.a" />
+					<Add directory="$(IRRLICHT_ROOT)/lib/Win32-gcc" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../include/cirrlicht.h" />
+		<Unit filename="../include/core.h" />
+		<Unit filename="../include/gui.h" />
+		<Unit filename="../include/scene.h" />
+		<Unit filename="../include/video.h" />
+		<Unit filename="core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gui.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="irrlicht.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="scene.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="video.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
