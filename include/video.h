@@ -44,19 +44,18 @@ extern "C"
         int r;
     } irr_SColor;
 
-    struct irr_ITexture
-    {
-        const char* name;
-    };
-
+    struct irr_ITexture;
     typedef struct irr_ITexture irr_ITexture;
+
+    struct irr_IVideoModeList;
+    typedef struct irr_IVideoModeList irr_IVideoModeList;
 
     struct irr_IrrlichtDevice;
     struct irr_IVideoDriver;
     typedef struct irr_IVideoDriver irr_IVideoDriver;
     bool irr_IVideoDriver_beginScene(irr_IVideoDriver* driver, bool backBuffer, bool zBuffer, irr_SColor color);
     bool irr_IVideoDriver_endScene(irr_IVideoDriver* driver);
-    irr_IVideoDriver* irr_IrrlichtDevice_getVideoDriver(irr_IrrlichtDevice* device);
+
     irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file);
     int irr_IVideoDriver_getFPS(irr_IVideoDriver* driver);
     const wchar_t* irr_IVideoDriver_getName(irr_IVideoDriver* driver);

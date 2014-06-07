@@ -36,7 +36,7 @@ extern "C"
 #endif // __cplusplus
     struct irr_IGUIEnvironment;
     typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
-    irr_IGUIEnvironment* irr_IrrlichtDevice_getGUIEnvironment(irr_IrrlichtDevice* device);
+
     void CIrrlichtDevice_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const recti& rectangle, bool border=false);
     void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
 

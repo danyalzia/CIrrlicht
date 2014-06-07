@@ -4,7 +4,7 @@
 
 int main()
 {
-    dimension2du dim = {800, 600};
+    dimension2du dim = {640, 480};
     irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
 
     irr_IrrlichtDevice_setWindowCaption(device, L"Hello World!");

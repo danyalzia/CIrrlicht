@@ -42,11 +42,6 @@ extern "C"
         return reinterpret_cast<irr::video::IVideoDriver*>(driver)->endScene();
     }
 
-    irr_IVideoDriver* irr_IrrlichtDevice_getVideoDriver(irr_IrrlichtDevice* device)
-    {
-        return reinterpret_cast<irr_IVideoDriver*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getVideoDriver());
-    }
-
     irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file)
     {
         return reinterpret_cast<irr_ITexture*>(reinterpret_cast<irr::video::IVideoDriver*>(driver)->getTexture(file));

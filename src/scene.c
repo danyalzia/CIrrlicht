@@ -31,11 +31,6 @@
 extern "C"
 {
 #endif
-    irr_ISceneManager* irr_IrrlichtDevice_getSceneManager(irr_IrrlichtDevice* device)
-    {
-        return reinterpret_cast<irr_ISceneManager*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getSceneManager());
-    }
-
     irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file)
     {
         return reinterpret_cast<irr_IAnimatedMesh*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMesh(file));
