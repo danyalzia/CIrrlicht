@@ -42,6 +42,26 @@ extern "C"
         return reinterpret_cast<irr::video::IVideoDriver*>(driver)->endScene();
     }
 
+    bool irr_IVideoDriver_queryFeature(irr_IVideoDriver* driver, E_VIDEO_DRIVER_FEATURE feature)
+    {
+        return reinterpret_cast<irr::video::IVideoDriver*>(driver)->queryFeature(irr::video::E_VIDEO_DRIVER_FEATURE(feature));
+    }
+
+    void irr_IVideoDriver_disableFeature(irr_IVideoDriver* driver, E_VIDEO_DRIVER_FEATURE feature, bool flag)
+    {
+        reinterpret_cast<irr::video::IVideoDriver*>(driver)->disableFeature(irr::video::E_VIDEO_DRIVER_FEATURE(feature), flag);
+    }
+
+    const irr_Attributes& irr_IVideoDriver_getDriverAttributes(irr_IVideoDriver* driver)
+    {
+        return reinterpret_cast<const irr_Attributes&>(reinterpret_cast<irr::video::IVideoDriver*>(driver)->getDriverAttributes());
+    }
+
+    bool irr_IVideoDriver_checkDriverReset(irr_IVideoDriver* driver)
+    {
+        return reinterpret_cast<irr::video::IVideoDriver*>(driver)->checkDriverReset();
+    }
+
     irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file)
     {
         return reinterpret_cast<irr_ITexture*>(reinterpret_cast<irr::video::IVideoDriver*>(driver)->getTexture(file));

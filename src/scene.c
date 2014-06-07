@@ -75,6 +75,56 @@ extern "C"
     {
         reinterpret_cast<irr::scene::ISceneManager*>(smgr)->drawAll();
     }
+
+    void irr_ISceneNode_setParent(irr_ISceneNode* node, irr_ISceneNode* newParent)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setParent(reinterpret_cast<irr::scene::ISceneNode*>(newParent));
+    }
+
+    irr_ITriangleSelector* irr_ISceneNode_getTriangleSelector(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr_ITriangleSelector*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getTriangleSelector());
+    }
+
+    void irr_ISceneNode_setTriangleSelector(irr_ISceneNode* node, irr_ITriangleSelector* selector)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setTriangleSelector(reinterpret_cast<irr::scene::ITriangleSelector*>(selector));
+    }
+
+    void irr_ISceneNode_updateAbsolutePosition(irr_ISceneNode* node)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->updateAbsolutePosition();
+    }
+
+    irr_ISceneNode* irr_ISceneNode_getParent(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr_ISceneNode*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getParent());
+    }
+
+    ESCENE_NODE_TYPE irr_ISceneNode_getType(irr_ISceneNode* node)
+    {
+        return *reinterpret_cast<ESCENE_NODE_TYPE*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getType());
+    }
+
+    void irr_ISceneNode_serializeAttributes(irr_ISceneNode* node, irr_IAttributes* out, irr_SAttributeReadWriteOptions* options)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->serializeAttributes(reinterpret_cast<irr::io::IAttributes*>(out), reinterpret_cast<irr::io::SAttributeReadWriteOptions*>(options));
+    }
+
+    void irr_ISceneNode_deserializeAttributes(irr_ISceneNode* node, irr_IAttributes* in, irr_SAttributeReadWriteOptions* options)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->deserializeAttributes(reinterpret_cast<irr::io::IAttributes*>(in), reinterpret_cast<irr::io::SAttributeReadWriteOptions*>(options));
+    }
+
+    irr_ISceneNode* irr_ISceneNode_clone(irr_ISceneNode* node, irr_ISceneNode* newParent, irr_ISceneManager* newManager)
+    {
+        return reinterpret_cast<irr_ISceneNode*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->clone(reinterpret_cast<irr::scene::ISceneNode*>(newParent), reinterpret_cast<irr::scene::ISceneManager*>(newManager)));
+    }
+
+    irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr_ISceneManager*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getSceneManager());
+    }
 #ifdef __cplusplus
 }
 #endif // __cplusplus

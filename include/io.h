@@ -43,6 +43,11 @@ extern "C"
 
     void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text);
 
+    struct irr_IAttributes;
+    typedef struct irr_IAttributes irr_IAttributes;
+
+    struct irr_SAttributeReadWriteOptions;
+    typedef struct irr_SAttributeReadWriteOptions irr_SAttributeReadWriteOptions;
 #ifdef __cplusplus
 }
 #endif // __cplusplus

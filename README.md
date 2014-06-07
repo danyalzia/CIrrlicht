@@ -4,7 +4,7 @@ CIrrlicht - C Bindings for Irrlicht Engine
 Details
 -------
 
-CIrrlicht is the C Bindings for Irrlicht Engine which makes it possible to use Irrlicht Engine from C. The original intention of this software is to make Irrlicht cross-language by making it easy to make bindings for those languages that directly supports C but not C++ such as D, Haskell, Swift, Lua, Python etc.
+CIrrlicht is the C Bindings for Irrlicht Engine which makes it possible to use Irrlicht Engine from C. The original intention of this software is to make Irrlicht cross-language by making it easy to make bindings for those languages that directly support C but not C++ such as D, Haskell, Swift, Lua, Python etc.
 
 Installation
 ------------

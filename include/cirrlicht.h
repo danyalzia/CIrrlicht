@@ -34,6 +34,19 @@
 #include "gui.h"
 #include "io.h"
 
+
+/*! \mainpage CIrrlicht API documentation
+ *
+ * <div align="center"><img src="logobig.png" ></div>
+ *
+ * \section intro Introduction
+ *
+ * Welcome to the CIrrlicht API documentation!
+ * Here you'll find any information you'll need to develop applications with
+ * Using CIrrlicht with C is simple and straighforward.
+ *
+ */
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -41,7 +54,7 @@ extern "C"
 
     enum E_DRIVER_TYPE
 	{
-		EDT_NULL,
+	    EDT_NULL,
 		EDT_SOFTWARE,
 		EDT_BURNINGSVIDEO,
 		EDT_DIRECT3D8,
