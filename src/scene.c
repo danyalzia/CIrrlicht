@@ -66,14 +66,88 @@ extern "C"
         return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNodeFPS());
     }
 
-    void irr_ISceneNode_setPosition(irr_IAnimatedMeshSceneNode* node, vector3df pos)
-    {
-        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setPosition(irr::core::vector3df(pos.x, pos.y, pos.z));
-    }
-
     void irr_ISceneManager_drawAll(irr_ISceneManager* smgr)
     {
         reinterpret_cast<irr::scene::ISceneManager*>(smgr)->drawAll();
+    }
+
+    const vector3df& irr_ISceneNode_getScale(irr_ISceneNode* node)
+    {
+        irr::core::vector3df scale = reinterpret_cast<irr::scene::ISceneNode*>(node)->getScale();
+        vector3df temp = {scale.X, scale.Y, scale.Z};
+        return temp;
+    }
+
+    void irr_ISceneNode_setScale(irr_ISceneNode* node, const vector3df& scale)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setScale(irr::core::vector3df(scale.x, scale.y, scale.z));
+    }
+
+    const vector3df& irr_ISceneNode_getRotation(irr_ISceneNode* node)
+    {
+        irr::core::vector3df rot = reinterpret_cast<irr::scene::ISceneNode*>(node)->getRotation();
+        vector3df temp = {rot.X, rot.Y, rot.Z};
+        return temp;
+    }
+
+    void irr_ISceneNode_setRotation(irr_ISceneNode* node, const vector3df& rotation)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setRotation(irr::core::vector3df(rotation.x, rotation.y, rotation.z));
+    }
+
+    const vector3df& irr_ISceneNode_getPosition(irr_ISceneNode* node)
+    {
+        irr::core::vector3df pos = reinterpret_cast<irr::scene::ISceneNode*>(node)->getPosition();
+        vector3df temp = {pos.X, pos.Y, pos.Z};
+        return temp;
+    }
+
+    void irr_ISceneNode_setPosition(irr_ISceneNode* node, const vector3df& newpos)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setPosition(irr::core::vector3df(newpos.x, newpos.y, newpos.z));
+    }
+
+    vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node)
+    {
+        irr::core::vector3df pos = reinterpret_cast<irr::scene::ISceneNode*>(node)->getAbsolutePosition();
+        vector3df temp = {pos.X, pos.Y, pos.Z};
+        return temp;
+
+    }
+
+    void irr_ISceneNode_setAutomaticCulling(irr_ISceneNode* node, unsigned state)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setAutomaticCulling(state);
+    }
+
+    unsigned irr_ISceneNode_getAutomaticCulling(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr::scene::ISceneNode*>(node)->getAutomaticCulling();
+    }
+
+    void irr_ISceneNode_setDebugDataVisible(irr_ISceneNode* node, unsigned state)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setDebugDataVisible(state);
+    }
+
+    unsigned int irr_ISceneNode_isDebugDataVisible(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr::scene::ISceneNode*>(node)->isDebugDataVisible();
+    }
+
+    void irr_ISceneNode_setIsDebugObject(irr_ISceneNode* node, bool debugObject)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setIsDebugObject(debugObject);
+    }
+
+    bool irr_ISceneNode_isDebugObject(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr::scene::ISceneNode*>(node)->isDebugObject();
+    }
+
+    const irr_list& irr_ISceneNode_getChildren(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<const irr_list&>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getChildren());
     }
 
     void irr_ISceneNode_setParent(irr_ISceneNode* node, irr_ISceneNode* newParent)

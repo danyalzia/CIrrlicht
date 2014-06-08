@@ -233,6 +233,16 @@ extern "C"
     {
         return *reinterpret_cast<E_DEVICE_TYPE*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getType());
     }
+
+    bool irr_IrrlichtDevice_isDriverSupported(irr_IrrlichtDevice* device, E_DRIVER_TYPE type)
+    {
+        return reinterpret_cast<irr::IrrlichtDevice*>(device)->isDriverSupported(irr::video::E_DRIVER_TYPE(type));
+    }
+
+    void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device)
+    {
+        reinterpret_cast<irr::IrrlichtDevice*>(device)->drop();
+    }
 #ifdef __cplusplus
 }
 #endif // __cplusplus

@@ -159,6 +159,9 @@ extern "C"
     unsigned irr_IrrlichtDevice_getDoubleClickTime(irr_IrrlichtDevice* device);
     void irr_IrrlichtDevice_clearSystemMessages(irr_IrrlichtDevice* device);
     E_DEVICE_TYPE irr_IrrlichtDevice_getType(irr_IrrlichtDevice* device);
+    bool irr_IrrlichtDevice_isDriverSupported(irr_IrrlichtDevice* device, E_DRIVER_TYPE type);
+
+    void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

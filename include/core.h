@@ -99,6 +99,11 @@ extern "C"
         vector3df pointB;
         vector3df pointC;
     } Ctriangle3df;
+
+    typedef struct
+    {
+        void* data;
+    } irr_list;
 #ifdef __cplusplus
 }
 #endif // __cplusplus

@@ -151,81 +151,81 @@ extern "C"
 	enum ESCENE_NODE_TYPE
 	{
 		//! of type CSceneManager (note that ISceneManager is not(!) an ISceneNode)
-		ESNT_SCENE_MANAGER  = MAKE_IRR_ID('s','m','n','g'),
+		ESNT_SCENE_MANAGER,
 
 		//! simple cube scene node
-		ESNT_CUBE           = MAKE_IRR_ID('c','u','b','e'),
+		ESNT_CUBE,
 
 		//! Sphere scene node
-		ESNT_SPHERE         = MAKE_IRR_ID('s','p','h','r'),
+		ESNT_SPHERE,
 
 		//! Text Scene Node
-		ESNT_TEXT           = MAKE_IRR_ID('t','e','x','t'),
+		ESNT_TEXT,
 
 		//! Water Surface Scene Node
-		ESNT_WATER_SURFACE  = MAKE_IRR_ID('w','a','t','r'),
+		ESNT_WATER_SURFACE,
 
 		//! Terrain Scene Node
-		ESNT_TERRAIN        = MAKE_IRR_ID('t','e','r','r'),
+		ESNT_TERRAIN,
 
 		//! Sky Box Scene Node
-		ESNT_SKY_BOX        = MAKE_IRR_ID('s','k','y','_'),
+		ESNT_SKY_BOX,
 
 		//! Sky Dome Scene Node
-		ESNT_SKY_DOME       = MAKE_IRR_ID('s','k','y','d'),
+		ESNT_SKY_DOME,
 
 		//! Shadow Volume Scene Node
-		ESNT_SHADOW_VOLUME  = MAKE_IRR_ID('s','h','d','w'),
+		ESNT_SHADOW_VOLUME,
 
 		//! Octree Scene Node
-		ESNT_OCTREE         = MAKE_IRR_ID('o','c','t','r'),
+		ESNT_OCTREE,
 
 		//! Mesh Scene Node
-		ESNT_MESH           = MAKE_IRR_ID('m','e','s','h'),
+		ESNT_MESH,
 
 		//! Light Scene Node
-		ESNT_LIGHT          = MAKE_IRR_ID('l','g','h','t'),
+		ESNT_LIGHT,
 
 		//! Empty Scene Node
-		ESNT_EMPTY          = MAKE_IRR_ID('e','m','t','y'),
+		ESNT_EMPTY,
 
 		//! Dummy Transformation Scene Node
-		ESNT_DUMMY_TRANSFORMATION = MAKE_IRR_ID('d','m','m','y'),
+		ESNT_DUMMY_TRANSFORMATION,
 
 		//! Camera Scene Node
-		ESNT_CAMERA         = MAKE_IRR_ID('c','a','m','_'),
+		ESNT_CAMERA,
 
 		//! Billboard Scene Node
-		ESNT_BILLBOARD      = MAKE_IRR_ID('b','i','l','l'),
+		ESNT_BILLBOARD,
 
 		//! Animated Mesh Scene Node
-		ESNT_ANIMATED_MESH  = MAKE_IRR_ID('a','m','s','h'),
+		ESNT_ANIMATED_MESH,
 
 		//! Particle System Scene Node
-		ESNT_PARTICLE_SYSTEM = MAKE_IRR_ID('p','t','c','l'),
+		ESNT_PARTICLE_SYSTEM,
 
 		//! Quake3 Shader Scene Node
-		ESNT_Q3SHADER_SCENE_NODE  = MAKE_IRR_ID('q','3','s','h'),
+		ESNT_Q3SHADER_SCENE_NODE,
 
 		//! Quake3 Model Scene Node ( has tag to link to )
-		ESNT_MD3_SCENE_NODE  = MAKE_IRR_ID('m','d','3','_'),
+		ESNT_MD3_SCENE_NODE,
 
 		//! Volume Light Scene Node
-		ESNT_VOLUME_LIGHT  = MAKE_IRR_ID('v','o','l','l'),
+		ESNT_VOLUME_LIGHT,
 
 		//! Maya Camera Scene Node
 		/** Legacy, for loading version <= 1.4.x .irr files */
-		ESNT_CAMERA_MAYA    = MAKE_IRR_ID('c','a','m','M'),
+		ESNT_CAMERA_MAYA,
 
 		//! First Person Shooter Camera
 		/** Legacy, for loading version <= 1.4.x .irr files */
-		ESNT_CAMERA_FPS     = MAKE_IRR_ID('c','a','m','F'),
+		ESNT_CAMERA_FPS,
 
 		//! Unknown scene node
-		ESNT_UNKNOWN        = MAKE_IRR_ID('u','n','k','n'),
+		ESNT_UNKNOWN,
 
 		//! Will match with any scene node when checking types
-		ESNT_ANY            = MAKE_IRR_ID('a','n','y','_')
+		ESNT_ANY,
 	};
 
     struct irr_IMesh;
@@ -259,13 +259,25 @@ extern "C"
 
     irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMeshSceneNode* parent, vector3df pos, vector3df lookAt);
     irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeFPS(irr_ISceneManager* smgr);
-
-    void irr_ISceneNode_setPosition(irr_IAnimatedMeshSceneNode* node, vector3df pos);
     void irr_ISceneManager_drawAll(irr_ISceneManager* smgr);
 
     struct irr_IAttributes;
     struct irr_SAttributeReadWriteOptions;
 
+    const vector3df& irr_ISceneNode_getScale(irr_ISceneNode* node);
+    void irr_ISceneNode_setScale(irr_ISceneNode* node, const vector3df& scale);
+    const vector3df& irr_ISceneNode_getRotation(irr_ISceneNode* node);
+    void irr_ISceneNode_setRotation(irr_ISceneNode* node, const vector3df& rotation);
+    const vector3df& irr_ISceneNode_getPosition(irr_ISceneNode* node);
+    void irr_ISceneNode_setPosition(irr_ISceneNode* node, const vector3df& newpos);
+    vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node);
+    void irr_ISceneNode_setAutomaticCulling(irr_ISceneNode* node, unsigned state);
+    unsigned irr_ISceneNode_getAutomaticCulling(irr_ISceneNode* node);
+    void irr_ISceneNode_setDebugDataVisible(irr_ISceneNode* node, unsigned state);
+    unsigned int irr_ISceneNode_isDebugDataVisible(irr_ISceneNode* node);
+    void irr_ISceneNode_setIsDebugObject(irr_ISceneNode* node, bool debugObject);
+    bool irr_ISceneNode_isDebugObject(irr_ISceneNode* node);
+    const irr_list& irr_ISceneNode_getChildren(irr_ISceneNode* node);
     void irr_ISceneNode_setParent(irr_ISceneNode* node, irr_ISceneNode* newParent);
     irr_ITriangleSelector* irr_ISceneNode_getTriangleSelector(irr_ISceneNode* node);
     void irr_ISceneNode_setTriangleSelector(irr_ISceneNode* node, irr_ITriangleSelector* selector);
