@@ -31,7 +31,7 @@
 extern "C"
 {
 #endif
-    void CIrrlichtDevice_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const recti& rectangle, bool border)
+    void CIrrlichtDevice_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border)
     {
         reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border);
     }

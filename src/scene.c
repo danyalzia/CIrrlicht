@@ -31,32 +31,7 @@
 extern "C"
 {
 #endif
-    irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file)
-    {
-        return reinterpret_cast<irr_IAnimatedMesh*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMesh(file));
-    }
-
-    irr_IAnimatedMeshSceneNode* irr_ISceneManager_addAnimatedMeshSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMesh* mesh)
-    {
-        return reinterpret_cast<irr_IAnimatedMeshSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addAnimatedMeshSceneNode(reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)));
-    }
-
-    void irr_ISceneNode_setMaterialFlag(irr_IAnimatedMeshSceneNode* node, E_MATERIAL_FLAG flag, bool newvalue)
-    {
-        reinterpret_cast<irr::scene::ISceneNode*>(node)->setMaterialFlag(irr::video::E_MATERIAL_FLAG(flag), newvalue);
-    }
-
-    void irr_IAnimatedMeshSceneNode_setMD2Animation(irr_IAnimatedMeshSceneNode* node, EMD2_ANIMATION_TYPE value)
-    {
-        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setMD2Animation(irr::scene::EMD2_ANIMATION_TYPE(value));
-    }
-
-    void irr_ISceneNode_setMaterialTexture(irr_IAnimatedMeshSceneNode* node, int c, irr_ITexture* texture)
-    {
-        reinterpret_cast<irr::scene::ISceneNode*>(node)->setMaterialTexture(c, reinterpret_cast<irr::video::ITexture*>(texture));
-    }
-
-    irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMeshSceneNode* parent, vector3df pos, vector3df lookAt)
+    irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMeshSceneNode* parent, irr_vector3df pos, irr_vector3df lookAt)
     {
         return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNode(reinterpret_cast<irr::scene::ISceneNode*>(parent), irr::core::vector3df(pos.x, pos.y, pos.z), irr::core::vector3df(lookAt.x, lookAt.y, lookAt.z)));
     }
@@ -71,46 +46,95 @@ extern "C"
         reinterpret_cast<irr::scene::ISceneManager*>(smgr)->drawAll();
     }
 
-    const vector3df& irr_ISceneNode_getScale(irr_ISceneNode* node)
+    irr_ISceneNode* irr_ISceneManager_addSphereSceneNode(irr_ISceneManager* smgr)
+    {
+        return reinterpret_cast<irr_ISceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addSphereSceneNode());
+    }
+
+    irr_ISceneNode* irr_ISceneManager_addCubeSceneNode(irr_ISceneManager* smgr)
+    {
+        return reinterpret_cast<irr_ISceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCubeSceneNode());
+    }
+
+    irr_ISceneNodeAnimator* irr_ISceneManager_createFlyCircleAnimator(irr_ISceneManager* smgr, const irr_vector3df& center, float radius)
+    {
+        return reinterpret_cast<irr_ISceneNodeAnimator*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->createFlyCircleAnimator(irr::core::vector3df(center.x, center.y, center.z), radius));
+    }
+    void irr_ISceneNode_removeAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->removeAnimator(reinterpret_cast<irr::scene::ISceneNodeAnimator*>(animator));
+    }
+
+    void irr_ISceneNode_removeAnimators(irr_ISceneNode* node)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->removeAnimators();
+    }
+
+    irr_SMaterial& irr_ISceneNode_getMaterial(irr_ISceneNode* node, unsigned int num)
+    {
+        return reinterpret_cast<irr_SMaterial&>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getMaterial(num));
+    }
+
+    unsigned int irr_ISceneNode_getMaterialCount(irr_ISceneNode* node)
+    {
+        return reinterpret_cast<irr::scene::ISceneNode*>(node)->getMaterialCount();
+    }
+
+    void irr_ISceneNode_setMaterialFlag(irr_ISceneNode* node, E_MATERIAL_FLAG flag, bool newvalue)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setMaterialFlag(irr::video::E_MATERIAL_FLAG(flag), newvalue);
+    }
+
+    void irr_ISceneNode_setMaterialTexture(irr_ISceneNode* node, int c, irr_ITexture* texture)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setMaterialTexture(c, reinterpret_cast<irr::video::ITexture*>(texture));
+    }
+
+    void irr_ISceneNode_setMaterialType(irr_ISceneNode* node, E_MATERIAL_TYPE newType)
+    {
+        reinterpret_cast<irr::scene::ISceneNode*>(node)->setMaterialType(irr::video::E_MATERIAL_TYPE(newType));
+    }
+
+    const irr_vector3df& irr_ISceneNode_getScale(irr_ISceneNode* node)
     {
         irr::core::vector3df scale = reinterpret_cast<irr::scene::ISceneNode*>(node)->getScale();
-        vector3df temp = {scale.X, scale.Y, scale.Z};
+        irr_vector3df temp = {scale.X, scale.Y, scale.Z};
         return temp;
     }
 
-    void irr_ISceneNode_setScale(irr_ISceneNode* node, const vector3df& scale)
+    void irr_ISceneNode_setScale(irr_ISceneNode* node, const irr_vector3df& scale)
     {
         reinterpret_cast<irr::scene::ISceneNode*>(node)->setScale(irr::core::vector3df(scale.x, scale.y, scale.z));
     }
 
-    const vector3df& irr_ISceneNode_getRotation(irr_ISceneNode* node)
+    const irr_vector3df& irr_ISceneNode_getRotation(irr_ISceneNode* node)
     {
         irr::core::vector3df rot = reinterpret_cast<irr::scene::ISceneNode*>(node)->getRotation();
-        vector3df temp = {rot.X, rot.Y, rot.Z};
+        irr_vector3df temp = {rot.X, rot.Y, rot.Z};
         return temp;
     }
 
-    void irr_ISceneNode_setRotation(irr_ISceneNode* node, const vector3df& rotation)
+    void irr_ISceneNode_setRotation(irr_ISceneNode* node, const irr_vector3df& rotation)
     {
         reinterpret_cast<irr::scene::ISceneNode*>(node)->setRotation(irr::core::vector3df(rotation.x, rotation.y, rotation.z));
     }
 
-    const vector3df& irr_ISceneNode_getPosition(irr_ISceneNode* node)
+    const irr_vector3df& irr_ISceneNode_getPosition(irr_ISceneNode* node)
     {
         irr::core::vector3df pos = reinterpret_cast<irr::scene::ISceneNode*>(node)->getPosition();
-        vector3df temp = {pos.X, pos.Y, pos.Z};
+        irr_vector3df temp = {pos.X, pos.Y, pos.Z};
         return temp;
     }
 
-    void irr_ISceneNode_setPosition(irr_ISceneNode* node, const vector3df& newpos)
+    void irr_ISceneNode_setPosition(irr_ISceneNode* node, const irr_vector3df& newpos)
     {
         reinterpret_cast<irr::scene::ISceneNode*>(node)->setPosition(irr::core::vector3df(newpos.x, newpos.y, newpos.z));
     }
 
-    vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node)
+    irr_vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node)
     {
         irr::core::vector3df pos = reinterpret_cast<irr::scene::ISceneNode*>(node)->getAbsolutePosition();
-        vector3df temp = {pos.X, pos.Y, pos.Z};
+        irr_vector3df temp = {pos.X, pos.Y, pos.Z};
         return temp;
 
     }
@@ -198,6 +222,36 @@ extern "C"
     irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node)
     {
         return reinterpret_cast<irr_ISceneManager*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getSceneManager());
+    }
+
+    irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file)
+    {
+        return reinterpret_cast<irr_IAnimatedMesh*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMesh(file));
+    }
+
+    irr_IAnimatedMeshSceneNode* irr_ISceneManager_addAnimatedMeshSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMesh* mesh)
+    {
+        return reinterpret_cast<irr_IAnimatedMeshSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addAnimatedMeshSceneNode(reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)));
+    }
+
+    void irr_IAnimatedMeshSceneNode_setMD2Animation(irr_IAnimatedMeshSceneNode* node, EMD2_ANIMATION_TYPE value)
+    {
+        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setMD2Animation(irr::scene::EMD2_ANIMATION_TYPE(value));
+    }
+
+    void irr_IAnimatedMeshSceneNode_setPosition(irr_IAnimatedMeshSceneNode* node, const irr_vector3df& newpos)
+    {
+        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setPosition(irr::core::vector3df(newpos.x, newpos.y, newpos.z));
+    }
+
+    void irr_IAnimatedMeshSceneNode_setMaterialFlag(irr_IAnimatedMeshSceneNode* node, E_MATERIAL_FLAG flag, bool newvalue)
+    {
+        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setMaterialFlag(irr::video::E_MATERIAL_FLAG(flag), newvalue);
+    }
+
+    void irr_IAnimatedMeshSceneNode_setMaterialTexture(irr_IAnimatedMeshSceneNode* node, int c, irr_ITexture* texture)
+    {
+        reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setMaterialTexture(c, reinterpret_cast<irr::video::ITexture*>(texture));
     }
 #ifdef __cplusplus
 }

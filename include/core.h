@@ -36,22 +36,22 @@ extern "C"
     {
         int x;
         int y;
-    } vector2di;
+    } irr_vector2di;
 
-    // irr::core::vector2df
+    // irr::core::irr_vector2df
     typedef struct
     {
         float x;
         float y;
-    } vector2df;
+    } irr_vector2df;
 
-    // irr::core::vector3di
+    // irr::core::irr_vector3di
     typedef struct
     {
         int x;
         int y;
         int z;
-    } vector3di;
+    } irr_vector3di;
 
     // irr::core::vector3df
     typedef struct
@@ -59,7 +59,7 @@ extern "C"
         float x;
         float y;
         float z;
-    } vector3df;
+    } irr_vector3df;
 
     // irr::core::recti
     typedef struct
@@ -68,37 +68,37 @@ extern "C"
         int y;
         int x1;
         int y1;
-    } recti;
+    } irr_recti;
 
     // irr::core::dimension2du
     typedef struct
     {
         unsigned int Width;
         unsigned int Height;
-    } dimension2du;
+    } irr_dimension2du;
 
-    // irr::core::dimension2df
+    // irr::core::irr_dimension2df
     typedef struct
     {
         unsigned int Width;
         unsigned int Height;
-    } dimension2df;
+    } irr_dimension2df;
 
     // irr::core::triangle3di
     typedef struct
     {
-        vector3di pointA;
-        vector3di pointB;
-        vector3di pointC;
-    } Ctriangle3di;
+        irr_vector3di pointA;
+        irr_vector3di pointB;
+        irr_vector3di pointC;
+    } irr_triangle3di;
 
     // irr::core::triangle3df
     typedef struct
     {
-        vector3df pointA;
-        vector3df pointB;
-        vector3df pointC;
-    } Ctriangle3df;
+        irr_vector3df pointA;
+        irr_vector3df pointB;
+        irr_vector3df pointC;
+    } irr_triangle3df;
 
     typedef struct
     {

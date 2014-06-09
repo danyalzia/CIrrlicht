@@ -32,9 +32,9 @@
 extern "C"
 {
 #endif
-    irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, dimension2du res, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync)
+    irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync, irr_IEventReceiver* receiver)
     {
-        return reinterpret_cast<irr_IrrlichtDevice*>(irr::createDevice(static_cast<irr::video::E_DRIVER_TYPE>(driver), irr::core::dimension2du(res.Width, res.Height), bits, fullscreen, stencilbuffer, vsync));
+        return reinterpret_cast<irr_IrrlichtDevice*>(irr::createDevice(static_cast<irr::video::E_DRIVER_TYPE>(driver), irr::core::dimension2du(res.Width, res.Height), bits, fullscreen, stencilbuffer, vsync, reinterpret_cast<irr::IEventReceiver*>(receiver)));
     }
 
     bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device)
@@ -177,7 +177,7 @@ extern "C"
         reinterpret_cast<irr::IrrlichtDevice*>(device)->setResizable(value);
     }
 
-    void irr_IrrlichtDevice_setWindowSize(irr_IrrlichtDevice* device, dimension2du* size)
+    void irr_IrrlichtDevice_setWindowSize(irr_IrrlichtDevice* device, irr_dimension2du* size)
     {
         reinterpret_cast<irr::IrrlichtDevice*>(device)->setWindowSize(irr::core::dimension2du(size->Width, size->Height));
     }
@@ -197,10 +197,10 @@ extern "C"
         reinterpret_cast<irr::IrrlichtDevice*>(device)->restoreWindow();
     }
 
-    vector2di irr_IrrlichtDevice_getWindowPosition(irr_IrrlichtDevice* device)
+    irr_vector2di irr_IrrlichtDevice_getWindowPosition(irr_IrrlichtDevice* device)
     {
         irr::core::vector2di temp = reinterpret_cast<irr::IrrlichtDevice*>(device)->getWindowPosition();
-        vector2di pos = {temp.X, temp.Y};
+        irr_vector2di pos = {temp.X, temp.Y};
         return pos;
     }
 

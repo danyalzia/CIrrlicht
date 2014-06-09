@@ -4,7 +4,7 @@
 
 int main()
 {
-    dimension2du dim = {640, 480};
+    irr_dimension2du dim = {640, 480};
     irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
 
     irr_IrrlichtDevice_setWindowCaption(device, L"Hello World!");
@@ -19,10 +19,10 @@ int main()
     irr_IAnimatedMesh* mesh = irr_ISceneManager_getMesh(smgr, "20kdm2.bsp");
     irr_IAnimatedMeshSceneNode* node = irr_ISceneManager_addAnimatedMeshSceneNode(smgr, mesh);
 
-    vector3df pos = {-1300,-144,-1249};
-    irr_ISceneNode_setPosition(node, pos);
+    irr_vector3df pos = {-1300,-144,-1249};
+    irr_IAnimatedMeshSceneNode_setPosition(node, pos);
 
-    irr_ISceneNode_setMaterialFlag(node, EMF_LIGHTING, false);
+    irr_IAnimatedMeshSceneNode_setMaterialFlag(node, EMF_LIGHTING, false);
     irr_ISceneManager_addCameraSceneNodeFPS(smgr);
 
     irr_ICursorControl* cursor = irr_IrrlichtDevice_getCursorControl(device);
