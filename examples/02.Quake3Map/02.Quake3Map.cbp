@@ -6,8 +6,8 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="Release">
-				<Option output="../../bin/Quake3Map" prefix_auto="1" extension_auto="1" />
+			<Target title="Win32 - Release">
+				<Option output="../../bin/Win32-gcc/Quake3Map" prefix_auto="1" extension_auto="1" />
 				<Option object_output=".obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -22,6 +22,28 @@
 					<Add library="libIrrlicht.a" />
 					<Add directory="../../lib" />
 					<Add directory="$(IRRLICHT_ROOT)/lib/Win32-gcc" />
+				</Linker>
+			</Target>
+			<Target title="Linux - Release">
+				<Option output="../../bin/Linux/Quake3Map" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=pentium4" />
+					<Add option="-O3" />
+					<Add directory="../../include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libCIrrlicht.a" />
+					<Add library="libIrrlicht.a" />
+					<Add library="GL" />
+					<Add library="Xxf86vm" />
+					<Add library="Xext" />
+					<Add library="X11" />
+					<Add directory="../../lib/Linux" />
+					<Add directory="/home/danyalzia/irrlicht/lib/Linux" />
 				</Linker>
 			</Target>
 		</Build>

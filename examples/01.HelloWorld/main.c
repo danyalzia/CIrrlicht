@@ -16,12 +16,12 @@ int main()
     irr_recti pos = { 10,10,260,22 };
     CIrrlichtDevice_addStaticText(gui, L"Hello World!", pos, true);
 
-    irr_IAnimatedMesh* mesh = irr_ISceneManager_getMesh(smgr, "../media/sydney.md2");
+    irr_IAnimatedMesh* mesh = irr_ISceneManager_getMesh(smgr, "../../media/sydney.md2");
     irr_IAnimatedMeshSceneNode* node = irr_ISceneManager_addAnimatedMeshSceneNode(smgr, mesh);
 
     irr_IAnimatedMeshSceneNode_setMaterialFlag(node, EMF_LIGHTING, false);
     irr_IAnimatedMeshSceneNode_setMD2Animation(node, EMAT_STAND);
-    irr_IAnimatedMeshSceneNode_setMaterialTexture(node, 0,  irr_IVideoDriver_getTexture(driver, "../media/sydney.bmp"));
+    irr_IAnimatedMeshSceneNode_setMaterialTexture(node, 0,  irr_IVideoDriver_getTexture(driver, "../../media/sydney.bmp"));
 
     irr_vector3df camPos = {0,30,-40};
     irr_vector3df camLookAt = {0,5,0};

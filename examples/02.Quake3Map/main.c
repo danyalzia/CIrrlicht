@@ -1,20 +1,20 @@
 #include "cirrlicht.h"
 #include <stdio.h>
 #include <string.h>
+#include <wchar.h>
 
 int main()
 {
     irr_dimension2du dim = {640, 480};
     irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
 
-    irr_IrrlichtDevice_setWindowCaption(device, L"Hello World!");
     irr_IrrlichtDevice_setResizable(device, true);
 
     irr_IVideoDriver* driver = irr_IrrlichtDevice_getVideoDriver(device);
     irr_ISceneManager* smgr = irr_IrrlichtDevice_getSceneManager(device);
 
     irr_IFileSystem* filesystem = irr_IrrlichtDevice_getFileSystem(device);
-    irr_IFileSystem_addFileArchive(filesystem, "../media/map-20kdm2.pk3");
+    irr_IFileSystem_addFileArchive(filesystem, "../../media/map-20kdm2.pk3");
 
     irr_IAnimatedMesh* mesh = irr_ISceneManager_getMesh(smgr, "20kdm2.bsp");
     irr_IAnimatedMeshSceneNode* node = irr_ISceneManager_addAnimatedMeshSceneNode(smgr, mesh);
@@ -56,7 +56,7 @@ int main()
                 wcscat(result, str);
 
                 wchar_t fpsTemp[300];
-                swprintf(fpsTemp, L"%d", fps);
+                wprintf(fpsTemp, L"%d", fps);
                 wcscat(result, fpsTemp);
 
                 irr_IrrlichtDevice_setWindowCaption(device, result);

@@ -11,7 +11,7 @@ Installation
 
 On Windows open Dependencies_Path.bat in directory and change environment variable of IRRLICHT_ROOT to the directory of Irrlicht and run it, then in "src/" open the project file (Code::Blocks is only supported) and compile. You will then find the compiled library in "lib/".
 
-If you are not on Windows then you have to manually set IRRLICHT_ROOT.
+On Linux, open MakeFile in src/ and set IrrlichtHome to the root directory of Irrlicht and then use '''make''' in directory to compile.
 
 License
 -------
