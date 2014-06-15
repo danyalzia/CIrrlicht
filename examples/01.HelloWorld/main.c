@@ -3,7 +3,7 @@
 int main()
 {
     irr_dimension2du dim = {800, 600};
-    irr_IrrlichtDevice* device = irr_createDevice(EDT_SOFTWARE, dim, 16, false, false, false);
+    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
 
     irr_IrrlichtDevice_setWindowCaption(device, L"Hello World!");
     irr_IrrlichtDevice_setResizable(device, true);
@@ -14,7 +14,7 @@ int main()
     irr_ISceneManager* smgr = irr_IrrlichtDevice_getSceneManager(device);
 
     irr_recti pos = { 10,10,260,22 };
-    CIrrlichtDevice_addStaticText(gui, L"Hello World!", pos, true);
+    irr_IGUIEnvironment_addStaticText(gui, L"Hello World!", pos, true);
 
     irr_IAnimatedMesh* mesh = irr_ISceneManager_getMesh(smgr, "../../media/sydney.md2");
     irr_IAnimatedMeshSceneNode* node = irr_ISceneManager_addAnimatedMeshSceneNode(smgr, mesh);

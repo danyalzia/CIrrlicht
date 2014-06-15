@@ -36,13 +36,14 @@ extern "C"
 {
 #endif // __cplusplus
 
-    typedef struct
+    struct irr_SColor
     {
         int a;
         int b;
         int g;
         int r;
-    } irr_SColor;
+    };
+    typedef struct irr_SColor irr_SColor;
 
     struct irr_ITexture;
     typedef struct irr_ITexture irr_ITexture;

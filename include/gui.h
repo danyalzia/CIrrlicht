@@ -29,6 +29,7 @@
 
 #include "core.h"
 #include "cirrlicht.h"
+#include "video.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -37,7 +38,17 @@ extern "C"
     struct irr_IGUIEnvironment;
     typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
 
-    void CIrrlichtDevice_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border=false);
+    struct irr_IGUIStaticText;
+    typedef struct irr_IGUIStaticText irr_IGUIStaticText;
+
+    struct irr_IGUIImage;
+    typedef struct irr_IGUIImage irr_IGUIImage;
+
+    irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border=false);
+    irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
+
+    struct irr_SColor;
+    void irr_IGUIStaticText_setOverrideColor(irr_IGUIStaticText* txt, irr_SColor col);
     void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
 
     struct irr_ICursorControl;

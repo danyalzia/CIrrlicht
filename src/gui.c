@@ -31,9 +31,19 @@
 extern "C"
 {
 #endif
-    void CIrrlichtDevice_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border)
+    irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border)
     {
-        reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border);
+        return reinterpret_cast<irr_IGUIStaticText*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border));
+    }
+
+    void irr_IGUIStaticText_setOverrideColor(irr_IGUIStaticText* txt, irr_SColor col)
+    {
+        reinterpret_cast<irr::gui::IGUIStaticText*>(txt)->setOverrideColor(irr::video::SColor(col.a, col.b, col.g, col.r));
+    }
+
+    irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos)
+    {
+        return reinterpret_cast<irr_IGUIImage*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addImage(reinterpret_cast<irr::video::ITexture*>(textures), irr::core::vector2di(pos.x, pos.y)));
     }
 
     void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value)
