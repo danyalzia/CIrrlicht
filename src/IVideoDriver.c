@@ -24,9 +24,9 @@
        source distribution.
 */
 
-#include <irrlicht.h>
+#include <include/irrlicht.h>
 #include "core.h"
-#include "video.h"
+#include "IVideoDriver.h"
 
 #ifdef __cplusplus
 extern "C"

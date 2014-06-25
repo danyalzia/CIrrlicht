@@ -24,6 +24,6 @@ it freely, subject to the following restrictions:
 
 
 
-External libraries used by CIrrlicht
+External libraries, ideas and documentation used by CIrrlicht
 ------------------------------------
-* Irrlicht Rendering Engine - http://www.irrlicht.sf.net
+* Irrlicht - http://www.irrlicht.sf.net

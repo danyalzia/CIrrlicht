@@ -29,9 +29,9 @@
 #define _CIRRLICHT_IO_
 
 #include "core.h"
-#include "video.h"
-#include "scene.h"
-#include "gui.h"
+#include "IVideoDriver.h"
+#include "ISceneManager.h"
+#include "IGUIEnvironment.h"
 
 #ifdef __cplusplus
 extern "C"

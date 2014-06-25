@@ -24,8 +24,8 @@
        source distribution.
 */
 
-#include <irrlicht.h>
-#include "gui.h"
+#include <include/irrlicht.h>
+#include "IGUIEnvironment.h"
 
 #ifdef __cplusplus
 extern "C"

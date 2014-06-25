@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Win32 - Release">
-				<Option output="../lib/CIrrlicht" prefix_auto="1" extension_auto="1" />
+				<Option output="../lib/Win32-gcc/CIrrlicht" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output=".obj/" />
 				<Option type="2" />
@@ -16,7 +16,7 @@
 				<Compiler>
 					<Add option="-O3" />
 					<Add option="-std=c++11" />
-					<Add directory="$(IRRLICHT_ROOT)/include" />
+					<Add directory="$(IRRLICHT_ROOT)/" />
 					<Add directory="../include" />
 				</Compiler>
 				<Linker>
@@ -35,7 +35,7 @@
 				<Compiler>
 					<Add option="-O3" />
 					<Add option="-std=c++11" />
-					<Add directory="/home/danyalzia/irrlicht/include" />
+					<Add directory="$(HOME)/irrlicht/" />
 					<Add directory="../include" />
 				</Compiler>
 				<Linker>
@@ -43,7 +43,7 @@
 					<Add library="GL" />
 					<Add library="Xxf86vm" />
 					<Add library="libIrrlicht.a" />
-					<Add directory="/home/danyalzia/irrlicht/lib/Linux" />
+					<Add directory="$(HOME)/irrlicht/lib/Linux" />
 					<Add directory="/usr/X11R6/lib" />
 					<Add directory="/usr/local/lib" />
 				</Linker>
@@ -52,28 +52,43 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../include/EDriverFeatures.h" />
+		<Unit filename="../include/EMaterialFlags.h" />
+		<Unit filename="../include/EMaterialTypes.h" />
+		<Unit filename="../include/ESceneNodeTypes.h" />
+		<Unit filename="../include/IAnimatedMeshMD2.h" />
+		<Unit filename="../include/IAnimatedMeshSceneNode.h" />
+		<Unit filename="../include/IFileSystem.h" />
+		<Unit filename="../include/IGUIEnvironment.h" />
+		<Unit filename="../include/ISceneManager.h" />
+		<Unit filename="../include/ISceneNode.h" />
+		<Unit filename="../include/IVideoDriver.h" />
+		<Unit filename="../include/IrrlichtDevice.h" />
+		<Unit filename="../include/SColor.h" />
 		<Unit filename="../include/cirrlicht.h" />
 		<Unit filename="../include/core.h" />
-		<Unit filename="../include/gui.h" />
-		<Unit filename="../include/io.h" />
-		<Unit filename="../include/scene.h" />
-		<Unit filename="../include/video.h" />
+		<Unit filename="IAnimatedMeshSceneNode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IFileSystem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IGUIEnvironment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ISceneManager.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ISceneNode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IVideoDriver.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IrrlichtDevice.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="core.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="gui.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="io.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="irrlicht.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="scene.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="video.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

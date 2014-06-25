@@ -24,31 +24,25 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_CIRRLICHT_
-#define _CIRRLICHT_CIRRLICHT_
+#ifndef _CIRRLICHT_SCOLOR_
+#define _CIRRLICHT_SCOLOR_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
 
-    #include "core.h"
-    #include "EDriverFeatures.h"
-    #include "EMaterialFlags.h"
-    #include "EMaterialTypes.h"
-    #include "ESceneNodeTypes.h"
-    #include "IAnimatedMeshMD2.h"
-    #include "IAnimatedMeshSceneNode.h"
-    #include "IFileSystem.h"
-    #include "IGUIEnvironment.h"
-    #include "IrrlichtDevice.h"
-    #include "ISceneManager.h"
-    #include "ISceneNode.h"
-    #include "IVideoDriver.h"
-    #include "SColor.h"
-    
+    struct irr_SColor
+    {
+        int a;
+        int b;
+        int g;
+        int r;
+    };
+    typedef struct irr_SColor irr_SColor;
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus
 
-#endif // _CIRRLICHT_CIRRLICHT_
+#endif // _CIRRLICHT_SCOLOR_

@@ -24,31 +24,47 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_CIRRLICHT_
-#define _CIRRLICHT_CIRRLICHT_
+#ifndef _CIRRLICHT_IANIMATEDMESHMD2_
+#define _CIRRLICHT_IANIMATEDMESHMD2_
+
+#include "core.h"
+#include "cirrlicht.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
 
-    #include "core.h"
-    #include "EDriverFeatures.h"
-    #include "EMaterialFlags.h"
-    #include "EMaterialTypes.h"
-    #include "ESceneNodeTypes.h"
-    #include "IAnimatedMeshMD2.h"
-    #include "IAnimatedMeshSceneNode.h"
-    #include "IFileSystem.h"
-    #include "IGUIEnvironment.h"
-    #include "IrrlichtDevice.h"
-    #include "ISceneManager.h"
-    #include "ISceneNode.h"
-    #include "IVideoDriver.h"
-    #include "SColor.h"
+    //! Types of standard md2 animations
+    enum EMD2_ANIMATION_TYPE
+    {
+        EMAT_STAND,
+        EMAT_RUN,
+        EMAT_ATTACK,
+        EMAT_PAIN_A,
+        EMAT_PAIN_B,
+        EMAT_PAIN_C,
+        EMAT_JUMP,
+        EMAT_FLIP,
+        EMAT_SALUTE,
+        EMAT_FALLBACK,
+        EMAT_WAVE,
+        EMAT_POINT,
+        EMAT_CROUCH_STAND,
+        EMAT_CROUCH_WALK,
+        EMAT_CROUCH_ATTACK,
+        EMAT_CROUCH_PAIN,
+        EMAT_CROUCH_DEATH,
+        EMAT_DEATH_FALLBACK,
+        EMAT_DEATH_FALLFORWARD,
+        EMAT_DEATH_FALLBACKSLOW,
+        EMAT_BOOM,
+        //! Not an animation, but amount of animation types.
+        EMAT_COUNT,
+    };
     
 #ifdef __cplusplus
 }
 #endif // __cplusplus
 
-#endif // _CIRRLICHT_CIRRLICHT_
+#endif // _CIRRLICHT_IANIMATEDMESHMD2_

@@ -100,10 +100,11 @@ extern "C"
         irr_vector3df pointC;
     } irr_triangle3df;
 
-    typedef struct
+    struct irr_list
     {
         void* data;
-    } irr_list;
+    };
+    typedef struct irr_list irr_list;
 #ifdef __cplusplus
 }
 #endif // __cplusplus
