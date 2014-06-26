@@ -1,11 +1,11 @@
 
-CIRRLICHT =  core.o gui.o io.o irrlicht.o scene.o video.o 
+CIRRLICHT =  core.o IAnimatedMesh.o IAnimatedMeshSceneNode.o IFileSystem.o IGUIEnvironment.o IMesh.o IrrlichtDevice.o  ISceneManager.o  ISceneNode.o  IVideoDriver.o   
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
-IrrlichtHome = /home/danyalzia/irrlicht
+IrrlichtHome = $(HOME)/irrlicht
 CC = g++
-CXXINCS = -I $(IrrlichtHome)/include -I../include
+CXXINCS = -I $(IrrlichtHome)/ -I../include
 CPPFLAGS += $(CXXINCS)
 CXXFLAGS += -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
 ifndef NDEBUG

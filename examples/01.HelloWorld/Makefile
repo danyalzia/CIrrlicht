@@ -1,6 +1,6 @@
 Target := HelloWorld
 Sources := main.c
-IrrlichtHome := /home/danyalzia/irrlicht
+IrrlichtHome := $(HOME)/irrlicht
 CIrrlichtHome := ../..
 BinPath = ../../bin/$(SYSTEM)
 
@@ -10,7 +10,7 @@ USERCXXFLAGS = -O3 -ffast-math
 #USERCXXFLAGS = -g -Wall
 USERLDFLAGS =
 
-CPPFLAGS = -I$(IrrlichtHome)/include -I$(CIrrlichtHome)/include
+CPPFLAGS = -I$(IrrlichtHome)/ -I$(CIrrlichtHome)/include
 CXXFLAGS = $(USERCXXFLAGS)
 LDFLAGS = $(USERLDFLAGS)
 

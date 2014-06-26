@@ -24,9 +24,9 @@
        source distribution.
 */
 
-#include <include/irrlicht.h>
 #include "core.h"
-#include "cirrlicht.h"
+#include <include/irrlicht.h>
+#include "IFileSystem.h"
 
 #ifdef __cplusplus
 extern "C"

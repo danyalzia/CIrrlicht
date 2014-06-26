@@ -52,21 +52,43 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../include/EAttributes.h" />
+		<Unit filename="../include/ECullingTypes.h" />
+		<Unit filename="../include/EDebugSceneTypes.h" />
+		<Unit filename="../include/EDeviceTypes.h" />
 		<Unit filename="../include/EDriverFeatures.h" />
+		<Unit filename="../include/EDriverTypes.h" />
+		<Unit filename="../include/EFocusFlags.h" />
+		<Unit filename="../include/EGUIAlignment.h" />
+		<Unit filename="../include/EGUIElementTypes.h" />
+		<Unit filename="../include/EHardwareBufferFlags.h" />
 		<Unit filename="../include/EMaterialFlags.h" />
 		<Unit filename="../include/EMaterialTypes.h" />
+		<Unit filename="../include/EMeshWriteEnums.h" />
+		<Unit filename="../include/EMessageBoxFlags.h" />
+		<Unit filename="../include/EPrimitiveTypes.h" />
+		<Unit filename="../include/ESceneNodeAnimatorTypes.h" />
 		<Unit filename="../include/ESceneNodeTypes.h" />
+		<Unit filename="../include/EShaderTypes.h" />
+		<Unit filename="../include/ETerrainElements.h" />
+		<Unit filename="../include/IAnimatedMesh.h" />
 		<Unit filename="../include/IAnimatedMeshMD2.h" />
 		<Unit filename="../include/IAnimatedMeshSceneNode.h" />
 		<Unit filename="../include/IFileSystem.h" />
 		<Unit filename="../include/IGUIEnvironment.h" />
+		<Unit filename="../include/IMesh.h" />
+		<Unit filename="../include/IMeshBuffer.h" />
 		<Unit filename="../include/ISceneManager.h" />
 		<Unit filename="../include/ISceneNode.h" />
 		<Unit filename="../include/IVideoDriver.h" />
 		<Unit filename="../include/IrrlichtDevice.h" />
 		<Unit filename="../include/SColor.h" />
+		<Unit filename="../include/SMaterial.h" />
 		<Unit filename="../include/cirrlicht.h" />
 		<Unit filename="../include/core.h" />
+		<Unit filename="IAnimatedMesh.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="IAnimatedMeshSceneNode.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -74,6 +96,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="IGUIEnvironment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IMesh.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="ISceneManager.c">

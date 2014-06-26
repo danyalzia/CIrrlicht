@@ -100,6 +100,18 @@ extern "C"
         irr_vector3df pointC;
     } irr_triangle3df;
 
+    typedef struct
+    {
+        irr_vector3di MinEdge;
+        irr_vector3di MaxEdge;
+    } irr_aabbox3di;
+
+    typedef struct
+    {
+        irr_vector3df MinEdge;
+        irr_vector3df MaxEdge;
+    } irr_aabbox3df;
+
     struct irr_list
     {
         void* data;
