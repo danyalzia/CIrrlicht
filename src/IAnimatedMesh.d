@@ -1,1 +1,0 @@
-IAnimatedMesh.o: IAnimatedMesh.c
