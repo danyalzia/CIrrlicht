@@ -50,21 +50,21 @@ extern "C"
     const irr_list& irr_ISceneNode_getAnimators(irr_ISceneNode* node);
     void irr_ISceneNode_removeAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator);
     void irr_ISceneNode_removeAnimators(irr_ISceneNode* node);
-    irr_SMaterial& irr_ISceneNode_getMaterial(irr_ISceneNode* node, unsigned int num);
+    const irr_SMaterial& irr_ISceneNode_getMaterial(irr_ISceneNode* node, unsigned int num);
     unsigned int irr_ISceneNode_getMaterialCount(irr_ISceneNode* node);
     void irr_ISceneNode_setMaterialFlag(irr_ISceneNode* node, E_MATERIAL_FLAG flag, bool newvalue);
     void irr_ISceneNode_setMaterialTexture(irr_ISceneNode* node, int c, irr_ITexture* texture);
     void irr_ISceneNode_setMaterialType(irr_ISceneNode* node, E_MATERIAL_TYPE newType);
-    const irr_vector3df& irr_ISceneNode_getScale(irr_ISceneNode* node);
-    void irr_ISceneNode_setScale(irr_ISceneNode* node, const irr_vector3df& scale);
-    const irr_vector3df& irr_ISceneNode_getRotation(irr_ISceneNode* node);
-    void irr_ISceneNode_setRotation(irr_ISceneNode* node, const irr_vector3df& rotation);
-    const irr_vector3df& irr_ISceneNode_getPosition(irr_ISceneNode* node);
-    void irr_ISceneNode_setPosition(irr_ISceneNode* node, const irr_vector3df& newpos);
+    irr_vector3df irr_ISceneNode_getScale(irr_ISceneNode* node);
+    void irr_ISceneNode_setScale(irr_ISceneNode* node, irr_vector3df scale);
+    irr_vector3df irr_ISceneNode_getRotation(irr_ISceneNode* node);
+    void irr_ISceneNode_setRotation(irr_ISceneNode* node, irr_vector3df rotation);
+    irr_vector3df irr_ISceneNode_getPosition(irr_ISceneNode* node);
+    void irr_ISceneNode_setPosition(irr_ISceneNode* node, irr_vector3df newpos);
     irr_vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node);
-    void irr_ISceneNode_setAutomaticCulling(irr_ISceneNode* node, unsigned state);
+    void irr_ISceneNode_setAutomaticCulling(irr_ISceneNode* node, unsigned int state);
     unsigned irr_ISceneNode_getAutomaticCulling(irr_ISceneNode* node);
-    void irr_ISceneNode_setDebugDataVisible(irr_ISceneNode* node, unsigned state);
+    void irr_ISceneNode_setDebugDataVisible(irr_ISceneNode* node, unsigned int state);
     unsigned int irr_ISceneNode_isDebugDataVisible(irr_ISceneNode* node);
     void irr_ISceneNode_setIsDebugObject(irr_ISceneNode* node, bool debugObject);
     bool irr_ISceneNode_isDebugObject(irr_ISceneNode* node);
@@ -79,7 +79,6 @@ extern "C"
     void irr_ISceneNode_deserializeAttributes(irr_ISceneNode* node, irr_IAttributes* in, irr_SAttributeReadWriteOptions* options=0);
     irr_ISceneNode* irr_ISceneNode_clone(irr_ISceneNode* node, irr_ISceneNode* newParent=0, irr_ISceneManager* newManager=0);
     irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node);
-    irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

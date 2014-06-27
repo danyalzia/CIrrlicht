@@ -67,7 +67,7 @@ extern "C"
     irr_ISceneNode* irr_ISceneManager_addSphereSceneNode(irr_ISceneManager* smgr);
     irr_ISceneNode* irr_ISceneManager_addCubeSceneNode(irr_ISceneManager* smgr);
     void irr_ISceneManager_drawAll(irr_ISceneManager* smgr);
-
+	irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file);
     struct irr_ISceneNodeAnimator;
     typedef struct irr_ISceneNodeAnimator irr_ISceneNodeAnimator;
 

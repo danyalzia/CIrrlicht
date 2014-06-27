@@ -43,7 +43,7 @@
 					<Add library="Xext" />
 					<Add library="X11" />
 					<Add directory="../../lib/Linux" />
-					<Add directory="/home/danyalzia/irrlicht/lib/Linux" />
+					<Add directory="$(HOME)/irrlicht/lib/Linux" />
 				</Linker>
 			</Target>
 		</Build>
