@@ -24,25 +24,19 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SCOLOR_
-#define _CIRRLICHT_SCOLOR_
+#ifndef _CIRRLICHT_IGUISTATICTEXT_
+#define _CIRRLICHT_IGUISTATICTEXT_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
+    struct irr_ICursorControl;
+    typedef struct irr_ICursorControl irr_ICursorControl;
 
-    struct irr_SColor
-    {
-        unsigned int a;
-        unsigned int b;
-        unsigned int g;
-        unsigned int r;
-    };
-    typedef struct irr_SColor irr_SColor;
-
+    void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
 
-#endif // _CIRRLICHT_SCOLOR_
+#endif // _CIRRLICHT_GUI_

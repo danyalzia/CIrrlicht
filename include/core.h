@@ -70,6 +70,15 @@ extern "C"
         int y1;
     } irr_recti;
 
+    // irr::core::rectf
+    typedef struct
+    {
+        float x;
+        float y;
+        float x1;
+        float y1;
+    } irr_rectf;
+
     // irr::core::dimension2du
     typedef struct
     {
@@ -116,6 +125,7 @@ extern "C"
     {
         void* data;
     };
+
     typedef struct irr_list irr_list;
 #ifdef __cplusplus
 }

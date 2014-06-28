@@ -24,25 +24,18 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SCOLOR_
-#define _CIRRLICHT_SCOLOR_
+#ifndef _CIRRLICHT_IGUFONT_
+#define _CIRRLICHT_IGUFONT_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
-
-    struct irr_SColor
-    {
-        unsigned int a;
-        unsigned int b;
-        unsigned int g;
-        unsigned int r;
-    };
-    typedef struct irr_SColor irr_SColor;
+    struct irr_IGUIFont;
+    typedef struct irr_IGUIFont irr_IGUIFont;
 
 #ifdef __cplusplus
 }
 #endif // __cplusplus
 
-#endif // _CIRRLICHT_SCOLOR_
+#endif // _CIRRLICHT_IGUFONT_

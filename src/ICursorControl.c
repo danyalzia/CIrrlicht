@@ -24,32 +24,11 @@
        source distribution.
 */
 
-#include <include/irrlicht.h>
-#include "IGUIEnvironment.h"
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-    irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border)
-    {
-        return reinterpret_cast<irr_IGUIStaticText*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border));
-    }
 
-    irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos)
-    {
-        return reinterpret_cast<irr_IGUIImage*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addImage(reinterpret_cast<irr::video::ITexture*>(textures), irr::core::vector2di(pos.x, pos.y)));
-    }
-
-    void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value)
-    {
-        reinterpret_cast<irr::gui::ICursorControl*>(cursor)->setVisible(value);
-    }
-
-    void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env)
-    {
-        reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->drawAll();
-    }
 #ifdef __cplusplus
 }
 #endif // __cplusplus

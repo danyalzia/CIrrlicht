@@ -43,9 +43,9 @@ extern "C"
 		//! Stretched to fit parent
 		EGUIA_SCALE
 	};
-	
+
 	//! Names for alignments
-	const c8* const GUIAlignmentNames[] =
+	const char* const GUIAlignmentNames[] =
 	{
 		"upperLeft",
 		"lowerRight",

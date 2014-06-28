@@ -74,8 +74,12 @@
 		<Unit filename="../include/IAnimatedMesh.h" />
 		<Unit filename="../include/IAnimatedMeshMD2.h" />
 		<Unit filename="../include/IAnimatedMeshSceneNode.h" />
+		<Unit filename="../include/ICursorControl.h" />
 		<Unit filename="../include/IFileSystem.h" />
 		<Unit filename="../include/IGUIEnvironment.h" />
+		<Unit filename="../include/IGUIFont.h" />
+		<Unit filename="../include/IGUIImage.h" />
+		<Unit filename="../include/IGUIStaticText.h" />
 		<Unit filename="../include/IMesh.h" />
 		<Unit filename="../include/IMeshBuffer.h" />
 		<Unit filename="../include/ISceneManager.h" />
@@ -92,10 +96,22 @@
 		<Unit filename="IAnimatedMeshSceneNode.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="ICursorControl.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="IFileSystem.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="IGUIEnvironment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IGUIFont.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IGUIImage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IGUIStaticText.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="IMesh.c">
