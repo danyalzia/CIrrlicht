@@ -1,11 +1,11 @@
 
-CIRRLICHT =  core.o IAnimatedMesh.o IAnimatedMeshSceneNode.o IFileSystem.o IGUIEnvironment.o IMesh.o IrrlichtDevice.o  ISceneManager.o  ISceneNode.o  IVideoDriver.o   
+CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o  src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o   src/IVideoDriver.o   
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
 IrrlichtHome = $(HOME)/irrlicht
 CC = g++
-CXXINCS = -I $(IrrlichtHome)/ -I../include
+CXXINCS = -I $(IrrlichtHome)/ -Iinclude
 CPPFLAGS += $(CXXINCS)
 CXXFLAGS += -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
 ifndef NDEBUG
@@ -29,7 +29,7 @@ endif
 #Linux specific options
 staticlib sharedlib install: SYSTEM = Linux
 STATIC_LIB = libCIrrlicht.a
-LIB_PATH = ../lib/$(SYSTEM)
+LIB_PATH = lib/$(SYSTEM)
 INSTALL_DIR = /usr/local/lib
 sharedlib install: SHARED_LIB = libCIrrlicht.so
 sharedlib: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm
@@ -45,14 +45,14 @@ all linux: staticlib
 sharedlib: $(LINKOBJ)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -shared -Wl,-soname,$(SONAME) -o $(SHARED_FULLNAME) $^ $(LDFLAGS)
 	mkdir -p $(LIB_PATH)
-	cp $(SHARED_FULLNAME) $(LIB_PATH)
+	mv $(SHARED_FULLNAME) $(LIB_PATH)
 
 $(STATIC_LIB): $(LINKOBJ)
 	$(AR) rs $@ $^
 
 staticlib staticlib_osx: $(STATIC_LIB)
 	mkdir -p $(LIB_PATH)
-	cp $^ $(LIB_PATH)
+	mv $^ $(LIB_PATH)
 
 
 TAGS:
