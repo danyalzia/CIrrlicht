@@ -24,35 +24,34 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EMESSAGEBOXFLAGS_
-#define _CIRRLICHT_EMESSAGEBOXFLAGS_
+#include "IAnimatedMesh.h"
+#include <include/IAnimatedMesh.h>
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
 
-//! enumeration for message box layout flags
-enum EMESSAGE_BOX_FLAG
+unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* mesh)
 {
-    //! Flag for the ok button
-    EMBF_OK = 0x1,
+    return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getFrameCount();
+}
 
-    //! Flag for the cancel button
-    EMBF_CANCEL = 0x2,
+float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh)
+{
+    return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getAnimationSpeed();
+}
 
-    //! Flag for the yes button
-    EMBF_YES = 0x4,
+void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps)
+{
+    reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->setAnimationSpeed(fps);
+}
 
-    //! Flag for the no button
-    EMBF_NO = 0x8,
-
-    //! This value is not used. It only forces this enumeration to compile in 32 bit.
-    EMBF_FORCE_32BIT = 0x7fffffff
-};
+irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel, int startFrameLoop, int endFrameLoop)
+{
+    return reinterpret_cast<irr_IMesh*>(reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getMesh(frame, detailLevel, startFrameLoop, endFrameLoop));
+}
 
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-
-#endif // _CIRRLICHT_EMESSAGEBOXFLAGS_

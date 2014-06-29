@@ -24,35 +24,19 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EMESSAGEBOXFLAGS_
-#define _CIRRLICHT_EMESSAGEBOXFLAGS_
+#ifndef _CIRRLICHT_IIMAGELOADER_
+#define _CIRRLICHT_IIMAGELOADER_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
 
-//! enumeration for message box layout flags
-enum EMESSAGE_BOX_FLAG
-{
-    //! Flag for the ok button
-    EMBF_OK = 0x1,
-
-    //! Flag for the cancel button
-    EMBF_CANCEL = 0x2,
-
-    //! Flag for the yes button
-    EMBF_YES = 0x4,
-
-    //! Flag for the no button
-    EMBF_NO = 0x8,
-
-    //! This value is not used. It only forces this enumeration to compile in 32 bit.
-    EMBF_FORCE_32BIT = 0x7fffffff
-};
+struct irr_IImageLoader;
+typedef struct irr_IImageLoader irr_IImageLoader;
 
 #ifdef __cplusplus
 }
 #endif // __cplusplus
 
-#endif // _CIRRLICHT_EMESSAGEBOXFLAGS_
+#endif // _CIRRLICHT_SCOLOR_

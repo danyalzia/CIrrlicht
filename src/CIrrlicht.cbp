@@ -33,6 +33,7 @@
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
 				<Compiler>
+					<Add option="-march=pentium4" />
 					<Add option="-O3" />
 					<Add option="-std=c++11" />
 					<Add directory="$(HOME)/irrlicht/" />
@@ -76,10 +77,13 @@
 		<Unit filename="../include/IAnimatedMeshSceneNode.h" />
 		<Unit filename="../include/ICursorControl.h" />
 		<Unit filename="../include/IFileSystem.h" />
+		<Unit filename="../include/IGUIElement.h" />
 		<Unit filename="../include/IGUIEnvironment.h" />
 		<Unit filename="../include/IGUIFont.h" />
 		<Unit filename="../include/IGUIImage.h" />
 		<Unit filename="../include/IGUIStaticText.h" />
+		<Unit filename="../include/IImageLoader.h" />
+		<Unit filename="../include/IImageWrite.h" />
 		<Unit filename="../include/IMesh.h" />
 		<Unit filename="../include/IMeshBuffer.h" />
 		<Unit filename="../include/ISceneManager.h" />
@@ -90,48 +94,24 @@
 		<Unit filename="../include/SMaterial.h" />
 		<Unit filename="../include/cirrlicht.h" />
 		<Unit filename="../include/core.h" />
-		<Unit filename="IAnimatedMesh.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IAnimatedMeshSceneNode.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ICursorControl.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IFileSystem.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IGUIEnvironment.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IGUIFont.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IGUIImage.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IGUIStaticText.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IMesh.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ISceneManager.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ISceneNode.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IVideoDriver.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="IrrlichtDevice.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="core.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="IAnimatedMesh.cpp" />
+		<Unit filename="IAnimatedMeshSceneNode.cpp" />
+		<Unit filename="ICursorControl.cpp" />
+		<Unit filename="IFileSystem.cpp" />
+		<Unit filename="IGUIElement.cpp" />
+		<Unit filename="IGUIEnvironment.cpp" />
+		<Unit filename="IGUIFont.cpp" />
+		<Unit filename="IGUIImage.cpp" />
+		<Unit filename="IGUIStaticText.cpp" />
+		<Unit filename="IImageLoader.cpp" />
+		<Unit filename="IImageLoader.h" />
+		<Unit filename="IImageWriter.cpp" />
+		<Unit filename="IMesh.cpp" />
+		<Unit filename="ISceneManager.cpp" />
+		<Unit filename="ISceneNode.cpp" />
+		<Unit filename="IVideoDriver.cpp" />
+		<Unit filename="IrrlichtDevice.cpp" />
+		<Unit filename="core.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

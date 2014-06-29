@@ -35,34 +35,34 @@ extern "C"
 {
 #endif // __cplusplus
 
-    //! Types of standard md2 animations
-    enum EMD2_ANIMATION_TYPE
-    {
-        EMAT_STAND,
-        EMAT_RUN,
-        EMAT_ATTACK,
-        EMAT_PAIN_A,
-        EMAT_PAIN_B,
-        EMAT_PAIN_C,
-        EMAT_JUMP,
-        EMAT_FLIP,
-        EMAT_SALUTE,
-        EMAT_FALLBACK,
-        EMAT_WAVE,
-        EMAT_POINT,
-        EMAT_CROUCH_STAND,
-        EMAT_CROUCH_WALK,
-        EMAT_CROUCH_ATTACK,
-        EMAT_CROUCH_PAIN,
-        EMAT_CROUCH_DEATH,
-        EMAT_DEATH_FALLBACK,
-        EMAT_DEATH_FALLFORWARD,
-        EMAT_DEATH_FALLBACKSLOW,
-        EMAT_BOOM,
-        //! Not an animation, but amount of animation types.
-        EMAT_COUNT,
-    };
-    
+//! Types of standard md2 animations
+enum EMD2_ANIMATION_TYPE
+{
+    EMAT_STAND,
+    EMAT_RUN,
+    EMAT_ATTACK,
+    EMAT_PAIN_A,
+    EMAT_PAIN_B,
+    EMAT_PAIN_C,
+    EMAT_JUMP,
+    EMAT_FLIP,
+    EMAT_SALUTE,
+    EMAT_FALLBACK,
+    EMAT_WAVE,
+    EMAT_POINT,
+    EMAT_CROUCH_STAND,
+    EMAT_CROUCH_WALK,
+    EMAT_CROUCH_ATTACK,
+    EMAT_CROUCH_PAIN,
+    EMAT_CROUCH_DEATH,
+    EMAT_DEATH_FALLBACK,
+    EMAT_DEATH_FALLFORWARD,
+    EMAT_DEATH_FALLBACKSLOW,
+    EMAT_BOOM,
+    //! Not an animation, but amount of animation types.
+    EMAT_COUNT,
+};
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus

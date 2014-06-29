@@ -32,89 +32,89 @@ extern "C"
 {
 #endif // __cplusplus
 
-	//! An enumeration for all types of built-in scene nodes
-	/** A scene node type is represented by a four character code
-	such as 'cube' or 'mesh' instead of simple numbers, to avoid
-	name clashes with external scene nodes.*/
-	enum ESCENE_NODE_TYPE
-	{
-		//! of type CSceneManager (note that ISceneManager is not(!) an ISceneNode)
-		ESNT_SCENE_MANAGER,
+//! An enumeration for all types of built-in scene nodes
+/** A scene node type is represented by a four character code
+such as 'cube' or 'mesh' instead of simple numbers, to avoid
+name clashes with external scene nodes.*/
+enum ESCENE_NODE_TYPE
+{
+    //! of type CSceneManager (note that ISceneManager is not(!) an ISceneNode)
+    ESNT_SCENE_MANAGER,
 
-		//! simple cube scene node
-		ESNT_CUBE,
+    //! simple cube scene node
+    ESNT_CUBE,
 
-		//! Sphere scene node
-		ESNT_SPHERE,
+    //! Sphere scene node
+    ESNT_SPHERE,
 
-		//! Text Scene Node
-		ESNT_TEXT,
+    //! Text Scene Node
+    ESNT_TEXT,
 
-		//! Water Surface Scene Node
-		ESNT_WATER_SURFACE,
+    //! Water Surface Scene Node
+    ESNT_WATER_SURFACE,
 
-		//! Terrain Scene Node
-		ESNT_TERRAIN,
+    //! Terrain Scene Node
+    ESNT_TERRAIN,
 
-		//! Sky Box Scene Node
-		ESNT_SKY_BOX,
+    //! Sky Box Scene Node
+    ESNT_SKY_BOX,
 
-		//! Sky Dome Scene Node
-		ESNT_SKY_DOME,
+    //! Sky Dome Scene Node
+    ESNT_SKY_DOME,
 
-		//! Shadow Volume Scene Node
-		ESNT_SHADOW_VOLUME,
+    //! Shadow Volume Scene Node
+    ESNT_SHADOW_VOLUME,
 
-		//! Octree Scene Node
-		ESNT_OCTREE,
+    //! Octree Scene Node
+    ESNT_OCTREE,
 
-		//! Mesh Scene Node
-		ESNT_MESH,
+    //! Mesh Scene Node
+    ESNT_MESH,
 
-		//! Light Scene Node
-		ESNT_LIGHT,
+    //! Light Scene Node
+    ESNT_LIGHT,
 
-		//! Empty Scene Node
-		ESNT_EMPTY,
+    //! Empty Scene Node
+    ESNT_EMPTY,
 
-		//! Dummy Transformation Scene Node
-		ESNT_DUMMY_TRANSFORMATION,
+    //! Dummy Transformation Scene Node
+    ESNT_DUMMY_TRANSFORMATION,
 
-		//! Camera Scene Node
-		ESNT_CAMERA,
+    //! Camera Scene Node
+    ESNT_CAMERA,
 
-		//! Billboard Scene Node
-		ESNT_BILLBOARD,
+    //! Billboard Scene Node
+    ESNT_BILLBOARD,
 
-		//! Animated Mesh Scene Node
-		ESNT_ANIMATED_MESH,
+    //! Animated Mesh Scene Node
+    ESNT_ANIMATED_MESH,
 
-		//! Particle System Scene Node
-		ESNT_PARTICLE_SYSTEM,
+    //! Particle System Scene Node
+    ESNT_PARTICLE_SYSTEM,
 
-		//! Quake3 Shader Scene Node
-		ESNT_Q3SHADER_SCENE_NODE,
+    //! Quake3 Shader Scene Node
+    ESNT_Q3SHADER_SCENE_NODE,
 
-		//! Quake3 Model Scene Node ( has tag to link to )
-		ESNT_MD3_SCENE_NODE,
+    //! Quake3 Model Scene Node ( has tag to link to )
+    ESNT_MD3_SCENE_NODE,
 
-		//! Volume Light Scene Node
-		ESNT_VOLUME_LIGHT,
+    //! Volume Light Scene Node
+    ESNT_VOLUME_LIGHT,
 
-		//! Maya Camera Scene Node
-		/** Legacy, for loading version <= 1.4.x .irr files */
-		ESNT_CAMERA_MAYA,
+    //! Maya Camera Scene Node
+    /** Legacy, for loading version <= 1.4.x .irr files */
+    ESNT_CAMERA_MAYA,
 
-		//! First Person Shooter Camera
-		/** Legacy, for loading version <= 1.4.x .irr files */
-		ESNT_CAMERA_FPS,
+    //! First Person Shooter Camera
+    /** Legacy, for loading version <= 1.4.x .irr files */
+    ESNT_CAMERA_FPS,
 
-		//! Unknown scene node
-		ESNT_UNKNOWN,
+    //! Unknown scene node
+    ESNT_UNKNOWN,
 
-		//! Will match with any scene node when checking types
-		ESNT_ANY
-	};
+    //! Will match with any scene node when checking types
+    ESNT_ANY
+};
 
 #ifdef __cplusplus
 }

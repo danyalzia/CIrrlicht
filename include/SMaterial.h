@@ -32,8 +32,8 @@ extern "C"
 {
 #endif // __cplusplus
 
-    struct irr_SMaterial;
-    typedef struct irr_SMaterial irr_SMaterial;
+struct irr_SMaterial;
+typedef struct irr_SMaterial irr_SMaterial;
 #ifdef __cplusplus
 }
 #endif // __cplusplus

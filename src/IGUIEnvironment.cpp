@@ -24,34 +24,32 @@
        source distribution.
 */
 
-#include "IAnimatedMesh.h"
-#include <include/IAnimatedMesh.h>
+#include <include/irrlicht.h>
+#include "IGUIEnvironment.h"
 
 #ifdef __cplusplus
 extern "C"
 {
-#endif // __cplusplus
+#endif
+irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border)
+{
+    return reinterpret_cast<irr_IGUIStaticText*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border));
+}
 
-	unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* mesh)
-	{
-		return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getFrameCount();
-	}
+irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos)
+{
+    return reinterpret_cast<irr_IGUIImage*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addImage(reinterpret_cast<irr::video::ITexture*>(textures), irr::core::vector2di(pos.x, pos.y)));
+}
 
-	float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh)
-	{
-        return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getAnimationSpeed();
-	}
+void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value)
+{
+    reinterpret_cast<irr::gui::ICursorControl*>(cursor)->setVisible(value);
+}
 
-	void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps)
-	{
-        reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->setAnimationSpeed(fps);
-	}
-
-	irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel, int startFrameLoop, int endFrameLoop)
-	{
-        return reinterpret_cast<irr_IMesh*>(reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getMesh(frame, detailLevel, startFrameLoop, endFrameLoop));
-	}
-
+void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env)
+{
+    reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->drawAll();
+}
 #ifdef __cplusplus
 }
 #endif // __cplusplus

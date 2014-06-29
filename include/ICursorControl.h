@@ -31,10 +31,10 @@
 extern "C"
 {
 #endif // __cplusplus
-    struct irr_ICursorControl;
-    typedef struct irr_ICursorControl irr_ICursorControl;
+struct irr_ICursorControl;
+typedef struct irr_ICursorControl irr_ICursorControl;
 
-    void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value);
+void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

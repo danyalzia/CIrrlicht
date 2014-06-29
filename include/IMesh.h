@@ -36,20 +36,20 @@ extern "C"
 {
 #endif // __cplusplus
 
-    struct irr_IMesh;
-    typedef struct irr_IMesh irr_IMesh;
+struct irr_IMesh;
+typedef struct irr_IMesh irr_IMesh;
 
-    struct irr_IMeshBuffer;
-    struct irr_SMaterial;
+struct irr_IMeshBuffer;
+struct irr_SMaterial;
 
-    unsigned int irr_IMesh_getMeshBufferCount(irr_IMesh* mesh);
-    irr_IMeshBuffer* irr_IMesh_getMeshBuffer(irr_IMesh* mesh, unsigned int nr);
-    irr_IMeshBuffer* irr_IMesh_getMeshBufferByMaterial(irr_IMesh* mesh, const irr_SMaterial* material);
-    irr_aabbox3df irr_IMesh_getBoundingBox(irr_IMesh* mesh);
-    void irr_IMesh_setBoundingBox(irr_IMesh* mesh, const irr_aabbox3df& box);
-    void irr_IMesh_setMaterialFlag(irr_IMesh* mesh, E_MATERIAL_FLAG flag, bool newvalue);
-    void irr_IMesh_setHardwareMappingHint(irr_IMesh* mesh, E_HARDWARE_MAPPING newMappingHint, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
-    void irr_IMesh_setDirty(irr_IMesh* mesh, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
+unsigned int irr_IMesh_getMeshBufferCount(irr_IMesh* mesh);
+irr_IMeshBuffer* irr_IMesh_getMeshBuffer(irr_IMesh* mesh, unsigned int nr);
+irr_IMeshBuffer* irr_IMesh_getMeshBufferByMaterial(irr_IMesh* mesh, const irr_SMaterial* material);
+irr_aabbox3df irr_IMesh_getBoundingBox(irr_IMesh* mesh);
+void irr_IMesh_setBoundingBox(irr_IMesh* mesh, const irr_aabbox3df& box);
+void irr_IMesh_setMaterialFlag(irr_IMesh* mesh, E_MATERIAL_FLAG flag, bool newvalue);
+void irr_IMesh_setHardwareMappingHint(irr_IMesh* mesh, E_HARDWARE_MAPPING newMappingHint, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
+void irr_IMesh_setDirty(irr_IMesh* mesh, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

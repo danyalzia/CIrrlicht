@@ -4,7 +4,6 @@ EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
 IrrlichtHome = $(HOME)/irrlicht
-CC = g++
 CXXINCS = -I $(IrrlichtHome)/ -Iinclude
 CPPFLAGS += $(CXXINCS)
 CXXFLAGS += -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/danyalzia/CIrrlicht.png?branch=master)](https://travis-ci.org/danyalzia/CIrrlicht)
+
 CIrrlicht - C Bindings for Irrlicht Engine
 ==========================================
 
@@ -11,9 +13,9 @@ It is used as a backend for [DIrrlicht](https://github.com/danyalzia/DIrrlicht)
 Installation
 ------------
 
-On Windows open `Dependencies_Path.bat` in directory and change environment variable of `IRRLICHT_ROOT` to the directory of Irrlicht and run it, then in `src/` open the project file (Code::Blocks is only supported) and compile. You will then find the compiled library in `lib/`.
+On Windows open `Dependencies_Path.bat` in directory and change environment variable of `IRRLICHT_ROOT` to the directory of Irrlicht and run it, then in `src/` open the project file (Code::Blocks is only supported) and compile. You will then find the compiled library in `lib/Win32-gcc`.
 
-On Linux, open Makefile in `src/` and set `IrrlichtHome` to the root directory of Irrlicht and then use `make` in directory to compile.
+On Linux, open Makefile and set `IrrlichtHome` to the root directory of Irrlicht and then use `make` to compile.
 
 License
 -------

@@ -32,21 +32,22 @@ extern "C"
 {
 #endif // __cplusplus
 
-    #include "core.h"
-    #include "EDriverFeatures.h"
-    #include "EMaterialFlags.h"
-    #include "EMaterialTypes.h"
-    #include "ESceneNodeTypes.h"
-    #include "IAnimatedMeshMD2.h"
-    #include "IAnimatedMeshSceneNode.h"
-    #include "IFileSystem.h"
-    #include "IGUIEnvironment.h"
-    #include "IrrlichtDevice.h"
-    #include "ISceneManager.h"
-    #include "ISceneNode.h"
-    #include "IVideoDriver.h"
-    #include "SColor.h"
-    
+#include "core.h"
+#include "EDriverFeatures.h"
+#include "EMaterialFlags.h"
+#include "EMaterialTypes.h"
+#include "ESceneNodeTypes.h"
+#include "IAnimatedMeshMD2.h"
+#include "IAnimatedMeshSceneNode.h"
+#include "IFileSystem.h"
+#include "IGUIEnvironment.h"
+#include "IrrlichtDevice.h"
+#include "ICursorControl.h"
+#include "ISceneManager.h"
+#include "ISceneNode.h"
+#include "IVideoDriver.h"
+#include "SColor.h"
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus

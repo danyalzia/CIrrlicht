@@ -32,8 +32,8 @@ extern "C"
 {
 #endif // __cplusplus
 
-    struct irr_IMeshBuffer;
-    typedef struct irr_IMeshBuffer irr_IMeshBuffer;
+struct irr_IMeshBuffer;
+typedef struct irr_IMeshBuffer irr_IMeshBuffer;
 #ifdef __cplusplus
 }
 #endif // __cplusplus

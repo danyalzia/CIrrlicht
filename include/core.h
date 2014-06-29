@@ -31,102 +31,118 @@
 extern "C"
 {
 #endif // __cplusplus
-    // irr::core::vector2di
-    typedef struct
-    {
-        int x;
-        int y;
-    } irr_vector2di;
+// irr::core::vector2di
+typedef struct
+{
+    int x;
+    int y;
+} irr_vector2di;
 
-    // irr::core::irr_vector2df
-    typedef struct
-    {
-        float x;
-        float y;
-    } irr_vector2df;
+// irr::core::irr_vector2df
+typedef struct
+{
+    float x;
+    float y;
+} irr_vector2df;
 
-    // irr::core::irr_vector3di
-    typedef struct
-    {
-        int x;
-        int y;
-        int z;
-    } irr_vector3di;
+// irr::core::irr_vector3di
+typedef struct
+{
+    int x;
+    int y;
+    int z;
+} irr_vector3di;
 
-    // irr::core::vector3df
-    typedef struct
-    {
-        float x;
-        float y;
-        float z;
-    } irr_vector3df;
+// irr::core::vector3df
+typedef struct
+{
+    float x;
+    float y;
+    float z;
+} irr_vector3df;
 
-    // irr::core::recti
-    typedef struct
-    {
-        int x;
-        int y;
-        int x1;
-        int y1;
-    } irr_recti;
+typedef struct
+{
+	//! Constructor Flags
+	enum eConstructor
+	{
+		EM4CONST_NOTHING = 0,
+		EM4CONST_COPY,
+		EM4CONST_IDENTITY,
+		EM4CONST_TRANSPOSED,
+		EM4CONST_INVERSE,
+		EM4CONST_INVERSE_TRANSPOSED
+	};
 
-    // irr::core::rectf
-    typedef struct
-    {
-        float x;
-        float y;
-        float x1;
-        float y1;
-    } irr_rectf;
+	float M[16];
+} irr_matrix4;
 
-    // irr::core::dimension2du
-    typedef struct
-    {
-        unsigned int Width;
-        unsigned int Height;
-    } irr_dimension2du;
+// irr::core::recti
+typedef struct
+{
+    int x;
+    int y;
+    int x1;
+    int y1;
+} irr_recti;
 
-    // irr::core::irr_dimension2df
-    typedef struct
-    {
-        unsigned int Width;
-        unsigned int Height;
-    } irr_dimension2df;
+// irr::core::rectf
+typedef struct
+{
+    float x;
+    float y;
+    float x1;
+    float y1;
+} irr_rectf;
 
-    // irr::core::triangle3di
-    typedef struct
-    {
-        irr_vector3di pointA;
-        irr_vector3di pointB;
-        irr_vector3di pointC;
-    } irr_triangle3di;
+// irr::core::dimension2du
+typedef struct
+{
+    unsigned int Width;
+    unsigned int Height;
+} irr_dimension2du;
 
-    // irr::core::triangle3df
-    typedef struct
-    {
-        irr_vector3df pointA;
-        irr_vector3df pointB;
-        irr_vector3df pointC;
-    } irr_triangle3df;
+// irr::core::irr_dimension2df
+typedef struct
+{
+    unsigned int Width;
+    unsigned int Height;
+} irr_dimension2df;
 
-    typedef struct
-    {
-        irr_vector3di MinEdge;
-        irr_vector3di MaxEdge;
-    } irr_aabbox3di;
+// irr::core::triangle3di
+typedef struct
+{
+    irr_vector3di pointA;
+    irr_vector3di pointB;
+    irr_vector3di pointC;
+} irr_triangle3di;
 
-    typedef struct
-    {
-        irr_vector3df MinEdge;
-        irr_vector3df MaxEdge;
-    } irr_aabbox3df;
+// irr::core::triangle3df
+typedef struct
+{
+    irr_vector3df pointA;
+    irr_vector3df pointB;
+    irr_vector3df pointC;
+} irr_triangle3df;
 
-    struct irr_list
-    {
-        void* data;
-    };
+typedef struct
+{
+    irr_vector3di MinEdge;
+    irr_vector3di MaxEdge;
+} irr_aabbox3di;
 
-    typedef struct irr_list irr_list;
+typedef struct
+{
+    irr_vector3df MinEdge;
+    irr_vector3df MaxEdge;
+} irr_aabbox3df;
+
+struct irr_list
+{
+    void* data;
+};
+
+typedef struct irr_list irr_list;
 #ifdef __cplusplus
 }
 #endif // __cplusplus

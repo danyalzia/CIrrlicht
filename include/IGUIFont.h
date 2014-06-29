@@ -31,8 +31,8 @@
 extern "C"
 {
 #endif // __cplusplus
-    struct irr_IGUIFont;
-    typedef struct irr_IGUIFont irr_IGUIFont;
+struct irr_IGUIFont;
+typedef struct irr_IGUIFont irr_IGUIFont;
 
 #ifdef __cplusplus
 }
