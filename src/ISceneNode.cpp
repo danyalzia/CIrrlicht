@@ -27,11 +27,6 @@
 #include <include/irrlicht.h>
 #include "ISceneNode.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 void irr_ISceneNode_addAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator)
 {
     reinterpret_cast<irr::scene::ISceneNode*>(node)->addAnimator(reinterpret_cast<irr::scene::ISceneNodeAnimator*>(animator));
@@ -210,6 +205,3 @@ irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char
 {
     return reinterpret_cast<irr_IAnimatedMesh*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMesh(file));
 }
-#ifdef __cplusplus
-}
-#endif // __cplusplus

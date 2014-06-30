@@ -27,11 +27,6 @@
 #ifndef _CIRRLICHT_EDRIVERFEATURES_
 #define _CIRRLICHT_EDRIVERFEATURES_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
 enum E_VIDEO_DRIVER_FEATURE
 {
     //! Is driver able to render to a surface?
@@ -148,9 +143,5 @@ enum E_VIDEO_DRIVER_FEATURE
     //! Only used for counting the elements of this enum
     EVDF_COUNT
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_EDRIVERFEATURES_

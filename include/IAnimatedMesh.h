@@ -24,13 +24,10 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IMESH_
-#define _CIRRLICHT_IMESH_
+#ifndef _CIRRLICHT_IANIMATEDMESH_
+#define _CIRRLICHT_IANIMATEDMESH_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#include "CompileConfig.h"
 
 //! Possible types of (animated) meshes.
 enum E_ANIMATED_MESH_TYPE
@@ -79,16 +76,9 @@ typedef struct irr_IAnimatedMesh irr_IAnimatedMesh;
 
 struct irr_IMesh;
 
-unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* mesh);
-float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh);
-void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps);
-irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel=255, int startFrameLoop=-1, int endFrameLoop=-1);
-E_ANIMATED_MESH_TYPE irr_IAnimatedMesh_getMeshType()
-{
-    return EAMT_UNKNOWN;
-}
-#ifdef __cplusplus
-}
-#endif // __cplusplus
+CIRRLICHT_API unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* mesh);
+CIRRLICHT_API float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh);
+CIRRLICHT_API void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps);
+CIRRLICHT_API irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel=255, int startFrameLoop=-1, int endFrameLoop=-1);
 
-#endif // _CIRRLICHT_IMESH_
+#endif // _CIRRLICHT_IANIMATEDMESH_

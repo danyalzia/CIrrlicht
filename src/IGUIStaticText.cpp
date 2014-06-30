@@ -28,11 +28,6 @@
 #include <include/SColor.h>
 #include "IGUIStaticText.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 void irr_IGUIStaticText_setOverrideFont(irr_IGUIStaticText* txt, irr_IGUIFont* font)
 {
     reinterpret_cast<irr::gui::IGUIStaticText*>(txt)->setOverrideFont(reinterpret_cast<irr::gui::IGUIFont*>(font));
@@ -141,7 +136,3 @@ bool irr_IGUIStaticText_isRightToLeft(irr_IGUIStaticText* txt)
 {
     return reinterpret_cast<irr::gui::IGUIStaticText*>(txt)->isRightToLeft();
 }
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus

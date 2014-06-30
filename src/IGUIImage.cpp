@@ -27,11 +27,6 @@
 #include "IGUIImage.h"
 #include <include/IGUIImage.h>
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 void irr_IGUIImage_setImage(irr_IGUIImage* img, irr_ITexture* tex)
 {
     reinterpret_cast<irr::gui::IGUIImage*>(img)->setImage(reinterpret_cast<irr::video::ITexture*>(tex));
@@ -99,7 +94,3 @@ irr_rectf irr_IGUIImage_getDrawBounds(irr_IGUIImage* img)
     irr_rectf rec = {temp.UpperLeftCorner.X, temp.UpperLeftCorner.Y, temp.LowerRightCorner.X, temp.LowerRightCorner.Y};
     return rec;
 }
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus

@@ -24,13 +24,8 @@
        source distribution.
 */
 
-#include <include/irrlicht.h>
+#include <include/IAnimatedMeshSceneNode.h>
 #include "cirrlicht.h"
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 void irr_IAnimatedMeshSceneNode_addAnimator(irr_IAnimatedMeshSceneNode* node, irr_ISceneNodeAnimator* animator)
 {
@@ -196,6 +191,3 @@ void irr_IAnimatedMeshSceneNode_setRenderFromIdentity(irr_IAnimatedMeshSceneNode
 {
     reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setRenderFromIdentity(On);
 }
-#ifdef __cplusplus
-}
-#endif // __cplusplus

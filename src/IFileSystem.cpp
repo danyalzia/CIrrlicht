@@ -28,15 +28,7 @@
 #include <include/irrlicht.h>
 #include "IFileSystem.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text)
 {
     reinterpret_cast<irr::io::IFileSystem*>(filesystem)->addFileArchive(text);
 }
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus

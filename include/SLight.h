@@ -24,25 +24,32 @@
        source distribution.
 */
 
-#include "IAnimatedMesh.h"
-#include <include/IAnimatedMesh.h>
+#ifndef _CIRRLICHT_SLIGHT_
+#define _CIRRLICHT_SLIGHT_
 
-unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* mesh)
+//! Enumeration for different types of lights
+enum E_LIGHT_TYPE
 {
-    return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getFrameCount();
-}
+	//! point light, it has a position in space and radiates light in all directions
+	ELT_POINT,
+	//! spot light, it has a position in space, a direction, and a limited cone of influence
+	ELT_SPOT,
+	//! directional light, coming from a direction from an infinite distance
+	ELT_DIRECTIONAL,
 
-float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh)
-{
-    return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getAnimationSpeed();
-}
+	//! Only used for counting the elements of this enum
+	ELT_COUNT
+};
 
-void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps)
+//! Names for light types
+const char* const LightTypeNames[] =
 {
-    reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->setAnimationSpeed(fps);
-}
+	"Point",
+	"Spot",
+	"Directional",
+	0
+};
 
-irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel, int startFrameLoop, int endFrameLoop)
-{
-    return reinterpret_cast<irr_IMesh*>(reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getMesh(frame, detailLevel, startFrameLoop, endFrameLoop));
-}
+typedef struct irr_SLight irr_SLight;
+
+#endif // _CIRRLICHT_SLIGHT_

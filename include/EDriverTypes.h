@@ -27,11 +27,6 @@
 #ifndef _CIRRLICHT_EDRIVERTYPES_
 #define _CIRRLICHT_EDRIVERTYPES_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
 //! An enum for all types of drivers the Irrlicht Engine supports.
 enum E_DRIVER_TYPE
 {
@@ -77,9 +72,5 @@ enum E_DRIVER_TYPE
     //! No driver, just for counting the elements
     EDT_COUNT
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_EDRIVERTYPES_

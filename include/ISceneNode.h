@@ -27,15 +27,12 @@
 #ifndef _CIRRLICHT_ISCENENODE_
 #define _CIRRLICHT_ISCENENODE_
 
+#include "CompileConfig.h"
 #include "core.h"
 #include "EMaterialFlags.h"
 #include "EMaterialTypes.h"
 #include "ESceneNodeTypes.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
 struct irr_ISceneNode;
 struct irr_ISceneNodeAnimator;
 struct irr_SMaterial;
@@ -46,41 +43,38 @@ struct irr_SAttributeReadWriteOptions;
 struct irr_ISceneManager;
 struct irr_IAnimatedMesh;
 
-void irr_ISceneNode_addAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator);
-const irr_list& irr_ISceneNode_getAnimators(irr_ISceneNode* node);
-void irr_ISceneNode_removeAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator);
-void irr_ISceneNode_removeAnimators(irr_ISceneNode* node);
-const irr_SMaterial& irr_ISceneNode_getMaterial(irr_ISceneNode* node, unsigned int num);
-unsigned int irr_ISceneNode_getMaterialCount(irr_ISceneNode* node);
-void irr_ISceneNode_setMaterialFlag(irr_ISceneNode* node, E_MATERIAL_FLAG flag, bool newvalue);
-void irr_ISceneNode_setMaterialTexture(irr_ISceneNode* node, int c, irr_ITexture* texture);
-void irr_ISceneNode_setMaterialType(irr_ISceneNode* node, E_MATERIAL_TYPE newType);
-irr_vector3df irr_ISceneNode_getScale(irr_ISceneNode* node);
-void irr_ISceneNode_setScale(irr_ISceneNode* node, irr_vector3df scale);
-irr_vector3df irr_ISceneNode_getRotation(irr_ISceneNode* node);
-void irr_ISceneNode_setRotation(irr_ISceneNode* node, irr_vector3df rotation);
-irr_vector3df irr_ISceneNode_getPosition(irr_ISceneNode* node);
-void irr_ISceneNode_setPosition(irr_ISceneNode* node, irr_vector3df newpos);
-irr_vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node);
-void irr_ISceneNode_setAutomaticCulling(irr_ISceneNode* node, unsigned int state);
-unsigned irr_ISceneNode_getAutomaticCulling(irr_ISceneNode* node);
-void irr_ISceneNode_setDebugDataVisible(irr_ISceneNode* node, unsigned int state);
-unsigned int irr_ISceneNode_isDebugDataVisible(irr_ISceneNode* node);
-void irr_ISceneNode_setIsDebugObject(irr_ISceneNode* node, bool debugObject);
-bool irr_ISceneNode_isDebugObject(irr_ISceneNode* node);
-const irr_list& irr_ISceneNode_getChildren(irr_ISceneNode* node);
-void irr_ISceneNode_setParent(irr_ISceneNode* node, irr_ISceneNode* newParent);
-irr_ITriangleSelector* irr_ISceneNode_getTriangleSelector(irr_ISceneNode* node);
-void irr_ISceneNode_setTriangleSelector(irr_ISceneNode* node, irr_ITriangleSelector* selector);
-void irr_ISceneNode_updateAbsolutePosition(irr_ISceneNode* node);
-irr_ISceneNode* irr_ISceneNode_getParent(irr_ISceneNode* node);
-ESCENE_NODE_TYPE irr_ISceneNode_getType(irr_ISceneNode* node);
-void irr_ISceneNode_serializeAttributes(irr_ISceneNode* node, irr_IAttributes* out, irr_SAttributeReadWriteOptions* options=0);
-void irr_ISceneNode_deserializeAttributes(irr_ISceneNode* node, irr_IAttributes* in, irr_SAttributeReadWriteOptions* options=0);
-irr_ISceneNode* irr_ISceneNode_clone(irr_ISceneNode* node, irr_ISceneNode* newParent=0, irr_ISceneManager* newManager=0);
-irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node);
-#ifdef __cplusplus
-}
-#endif // __cplusplus
+CIRRLICHT_API void irr_ISceneNode_addAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator);
+CIRRLICHT_API const irr_list& irr_ISceneNode_getAnimators(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_removeAnimator(irr_ISceneNode* node, irr_ISceneNodeAnimator* animator);
+CIRRLICHT_API void irr_ISceneNode_removeAnimators(irr_ISceneNode* node);
+CIRRLICHT_API const irr_SMaterial& irr_ISceneNode_getMaterial(irr_ISceneNode* node, unsigned int num);
+CIRRLICHT_API unsigned int irr_ISceneNode_getMaterialCount(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setMaterialFlag(irr_ISceneNode* node, E_MATERIAL_FLAG flag, bool newvalue);
+CIRRLICHT_API void irr_ISceneNode_setMaterialTexture(irr_ISceneNode* node, int c, irr_ITexture* texture);
+CIRRLICHT_API void irr_ISceneNode_setMaterialType(irr_ISceneNode* node, E_MATERIAL_TYPE newType);
+CIRRLICHT_API irr_vector3df irr_ISceneNode_getScale(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setScale(irr_ISceneNode* node, irr_vector3df scale);
+CIRRLICHT_API irr_vector3df irr_ISceneNode_getRotation(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setRotation(irr_ISceneNode* node, irr_vector3df rotation);
+CIRRLICHT_API irr_vector3df irr_ISceneNode_getPosition(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setPosition(irr_ISceneNode* node, irr_vector3df newpos);
+CIRRLICHT_API irr_vector3df irr_ISceneNode_getAbsolutePosition(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setAutomaticCulling(irr_ISceneNode* node, unsigned int state);
+CIRRLICHT_API unsigned irr_ISceneNode_getAutomaticCulling(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setDebugDataVisible(irr_ISceneNode* node, unsigned int state);
+CIRRLICHT_API unsigned int irr_ISceneNode_isDebugDataVisible(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setIsDebugObject(irr_ISceneNode* node, bool debugObject);
+CIRRLICHT_API bool irr_ISceneNode_isDebugObject(irr_ISceneNode* node);
+CIRRLICHT_API const irr_list& irr_ISceneNode_getChildren(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setParent(irr_ISceneNode* node, irr_ISceneNode* newParent);
+CIRRLICHT_API irr_ITriangleSelector* irr_ISceneNode_getTriangleSelector(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_setTriangleSelector(irr_ISceneNode* node, irr_ITriangleSelector* selector);
+CIRRLICHT_API void irr_ISceneNode_updateAbsolutePosition(irr_ISceneNode* node);
+CIRRLICHT_API irr_ISceneNode* irr_ISceneNode_getParent(irr_ISceneNode* node);
+CIRRLICHT_API ESCENE_NODE_TYPE irr_ISceneNode_getType(irr_ISceneNode* node);
+CIRRLICHT_API void irr_ISceneNode_serializeAttributes(irr_ISceneNode* node, irr_IAttributes* out, irr_SAttributeReadWriteOptions* options=0);
+CIRRLICHT_API void irr_ISceneNode_deserializeAttributes(irr_ISceneNode* node, irr_IAttributes* in, irr_SAttributeReadWriteOptions* options=0);
+CIRRLICHT_API irr_ISceneNode* irr_ISceneNode_clone(irr_ISceneNode* node, irr_ISceneNode* newParent=0, irr_ISceneManager* newManager=0);
+CIRRLICHT_API irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node);
 
 #endif // _CIRRLICHT_ISCENENODE_

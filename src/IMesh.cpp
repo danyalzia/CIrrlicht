@@ -27,11 +27,6 @@
 #include "IMesh.h"
 #include <include/irrlicht.h>
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
 unsigned int irr_IMesh_getMeshBufferCount(irr_IMesh* mesh)
 {
     return reinterpret_cast<irr::scene::IMesh*>(mesh)->getMeshBufferCount();
@@ -78,7 +73,3 @@ void irr_IMesh_setDirty(irr_IMesh* mesh, E_BUFFER_TYPE buffer)
 {
     reinterpret_cast<irr::scene::IMesh*>(mesh)->setDirty(irr::scene::E_BUFFER_TYPE(buffer));
 }
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus

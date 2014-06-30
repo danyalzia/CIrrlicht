@@ -137,12 +137,28 @@ typedef struct
     irr_vector3df MaxEdge;
 } irr_aabbox3df;
 
-struct irr_list
+typedef struct
+{
+    irr_vector3di Normal;
+    int D;
+} irr_plane3di;
+
+typedef struct
+{
+    irr_vector3df Normal;
+    float D;
+} irr_plane3df;
+
+typedef struct
 {
     void* data;
-};
+} irr_list;
 
-typedef struct irr_list irr_list;
+typedef struct
+{
+    void* data;
+} irr_array;
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus

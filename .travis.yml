@@ -1,12 +1,12 @@
 language: cpp
 
 compiler:
-	- gcc
-	- clang
+  - gcc
+  - clang
 
 before_script:
-	- svn checkout http://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
-	- cd irrlicht/source/irrlicht/
-	- ./make
-	
-script: ./make
+  - svn checkout http://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
+  - cd irrlicht/source/irrlicht/
+  - ./make
+
+script: ./make sharedlib

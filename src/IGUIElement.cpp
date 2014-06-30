@@ -25,12 +25,3 @@
 */
 
 #include <include/irrlicht.h>
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus

@@ -28,10 +28,6 @@
 #include "core.h"
 #include "IrrlichtDevice.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync, irr_IEventReceiver* receiver)
 {
     return reinterpret_cast<irr_IrrlichtDevice*>(irr::createDevice(static_cast<irr::video::E_DRIVER_TYPE>(driver), irr::core::dimension2du(res.Width, res.Height), bits, fullscreen, stencilbuffer, vsync, reinterpret_cast<irr::IEventReceiver*>(receiver)));
@@ -243,6 +239,3 @@ void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device)
 {
     reinterpret_cast<irr::IrrlichtDevice*>(device)->drop();
 }
-#ifdef __cplusplus
-}
-#endif // __cplusplus

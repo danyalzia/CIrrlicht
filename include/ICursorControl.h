@@ -27,16 +27,8 @@
 #ifndef _CIRRLICHT_IGUISTATICTEXT_
 #define _CIRRLICHT_IGUISTATICTEXT_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-struct irr_ICursorControl;
 typedef struct irr_ICursorControl irr_ICursorControl;
 
-void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value);
-#ifdef __cplusplus
-}
-#endif // __cplusplus
+CIRRLICHT_API void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value);
 
 #endif // _CIRRLICHT_GUI_

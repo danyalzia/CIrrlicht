@@ -27,41 +27,35 @@
 #ifndef _CIRRLICHT_IGUISTATICTEXT_
 #define _CIRRLICHT_IGUISTATICTEXT_
 
+#include "CompileConfig.h"
 #include "SColor.h"
 #include "EGUIAlignment.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
 struct irr_IGUIStaticText;
 typedef struct irr_IGUIStaticText irr_IGUIStaticText;
 
 struct irr_IGUIFont;
 
-void irr_IGUIStaticText_setOverrideFont(irr_IGUIStaticText* txt, irr_IGUIFont* font=0);
-irr_IGUIFont* irr_IGUIStaticText_getOverrideFont(irr_IGUIStaticText* txt);
-irr_IGUIFont* irr_IGUIStaticText_getActiveFont(irr_IGUIStaticText* txt);
-void irr_IGUIStaticText_setOverrideColor(irr_IGUIStaticText* txt, irr_SColor col);
-irr_SColor irr_IGUIStaticText_getOverrideColor(irr_IGUIStaticText* txt);
-void irr_IGUIStaticText_enableOverrideColor(irr_IGUIStaticText* txt, bool enable);
-bool irr_IGUIStaticText_isOverrideColorEnabled(irr_IGUIStaticText* txt);
-void irr_IGUIStaticText_setBackgroundColor(irr_IGUIStaticText* txt, irr_SColor color);
-void irr_IGUIStaticText_setDrawBackground(irr_IGUIStaticText* txt, bool draw);
-bool irr_IGUIStaticText_isDrawBackgroundEnabled(irr_IGUIStaticText* txt);
-irr_SColor irr_IGUIStaticText_getBackgroundColor(irr_IGUIStaticText* txt);
-void irr_IGUIStaticText_setDrawBorder(irr_IGUIStaticText* txt, bool draw);
-bool irr_IGUIStaticText_isDrawBorderEnabled(irr_IGUIStaticText* txt);
-void irr_IGUIStaticText_setTextAlignment(irr_IGUIStaticText* txt, EGUI_ALIGNMENT horizontal, EGUI_ALIGNMENT vertical);
-void irr_IGUIStaticText_setWordWrap(irr_IGUIStaticText* txt, bool enable);
-bool irr_IGUIStaticText_isWordWrapEnabled(irr_IGUIStaticText* txt);
-int irr_IGUIStaticText_getTextHeight(irr_IGUIStaticText* txt);
-int irr_IGUIStaticText_getTextWidth(irr_IGUIStaticText* txt);
-bool irr_IGUIStaticText_isTextRestrainedInside(irr_IGUIStaticText* txt);
-void irr_IGUIStaticText_setRightToLeft(irr_IGUIStaticText* txt, bool rtl);
-bool irr_IGUIStaticText_isRightToLeft(irr_IGUIStaticText* txt);
-#ifdef __cplusplus
-}
-#endif // __cplusplus
+CIRRLICHT_API void irr_IGUIStaticText_setOverrideFont(irr_IGUIStaticText* txt, irr_IGUIFont* font=0);
+CIRRLICHT_API irr_IGUIFont* irr_IGUIStaticText_getOverrideFont(irr_IGUIStaticText* txt);
+CIRRLICHT_API irr_IGUIFont* irr_IGUIStaticText_getActiveFont(irr_IGUIStaticText* txt);
+CIRRLICHT_API void irr_IGUIStaticText_setOverrideColor(irr_IGUIStaticText* txt, irr_SColor col);
+CIRRLICHT_API irr_SColor irr_IGUIStaticText_getOverrideColor(irr_IGUIStaticText* txt);
+CIRRLICHT_API void irr_IGUIStaticText_enableOverrideColor(irr_IGUIStaticText* txt, bool enable);
+CIRRLICHT_API bool irr_IGUIStaticText_isOverrideColorEnabled(irr_IGUIStaticText* txt);
+CIRRLICHT_API void irr_IGUIStaticText_setBackgroundColor(irr_IGUIStaticText* txt, irr_SColor color);
+CIRRLICHT_API void irr_IGUIStaticText_setDrawBackground(irr_IGUIStaticText* txt, bool draw);
+CIRRLICHT_API bool irr_IGUIStaticText_isDrawBackgroundEnabled(irr_IGUIStaticText* txt);
+CIRRLICHT_API irr_SColor irr_IGUIStaticText_getBackgroundColor(irr_IGUIStaticText* txt);
+CIRRLICHT_API void irr_IGUIStaticText_setDrawBorder(irr_IGUIStaticText* txt, bool draw);
+CIRRLICHT_API bool irr_IGUIStaticText_isDrawBorderEnabled(irr_IGUIStaticText* txt);
+CIRRLICHT_API void irr_IGUIStaticText_setTextAlignment(irr_IGUIStaticText* txt, EGUI_ALIGNMENT horizontal, EGUI_ALIGNMENT vertical);
+CIRRLICHT_API void irr_IGUIStaticText_setWordWrap(irr_IGUIStaticText* txt, bool enable);
+CIRRLICHT_API bool irr_IGUIStaticText_isWordWrapEnabled(irr_IGUIStaticText* txt);
+CIRRLICHT_API int irr_IGUIStaticText_getTextHeight(irr_IGUIStaticText* txt);
+CIRRLICHT_API int irr_IGUIStaticText_getTextWidth(irr_IGUIStaticText* txt);
+CIRRLICHT_API bool irr_IGUIStaticText_isTextRestrainedInside(irr_IGUIStaticText* txt);
+CIRRLICHT_API void irr_IGUIStaticText_setRightToLeft(irr_IGUIStaticText* txt, bool rtl);
+CIRRLICHT_API bool irr_IGUIStaticText_isRightToLeft(irr_IGUIStaticText* txt);
 
 #endif // _CIRRLICHT_GUI_

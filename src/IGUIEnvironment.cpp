@@ -27,10 +27,6 @@
 #include <include/irrlicht.h>
 #include "IGUIEnvironment.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border)
 {
     return reinterpret_cast<irr_IGUIStaticText*>(reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->addStaticText(text, irr::core::recti(rectangle.x, rectangle.y, rectangle.x1, rectangle.y1), border));
@@ -50,6 +46,3 @@ void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env)
 {
     reinterpret_cast<irr::gui::IGUIEnvironment*>(env)->drawAll();
 }
-#ifdef __cplusplus
-}
-#endif // __cplusplus

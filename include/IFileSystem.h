@@ -25,32 +25,20 @@
 */
 
 
-#ifndef _CIRRLICHT_IO_
-#define _CIRRLICHT_IO_
+#ifndef _CIRRLICHT_IFILESYSTEM_
+#define _CIRRLICHT_IFILESYSTEM_
 
+#include "CompileConfig.h"
 #include "core.h"
 #include "IVideoDriver.h"
 #include "ISceneManager.h"
 #include "IGUIEnvironment.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
-struct irr_IFileSystem;
 typedef struct irr_IFileSystem irr_IFileSystem;
 
-void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text);
+CIRRLICHT_API void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text);
 
-struct irr_IAttributes;
-typedef struct irr_IAttributes irr_IAttributes;
-
-struct irr_SAttributeReadWriteOptions;
 typedef struct irr_SAttributeReadWriteOptions irr_SAttributeReadWriteOptions;
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 
-#endif // _CIRRLICHT_IO_
+#endif // _CIRRLICHT_IFILESYSTEM_

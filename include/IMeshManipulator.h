@@ -24,16 +24,9 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IIMAGEWRITER_
-#define _CIRRLICHT_IIMAGEWRITER_
+#ifndef _CIRRLICHT_IMESHMANIPULATOR_
+#define _CIRRLICHT_IMESHMANIPULATOR_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+typedef struct irr_IMeshManipulator irr_IMeshManipulator;
 
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_IIMAGEWRITER_
+#endif // _CIRRLICHT_IMESHMANIPULATOR_

@@ -27,11 +27,6 @@
 #ifndef _CIRRLICHT_SCOLOR_
 #define _CIRRLICHT_SCOLOR_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
 //! An enum for the color format of textures used by the Irrlicht Engine.
 /** A color format specifies how color information is stored. */
 enum ECOLOR_FORMAT
@@ -109,9 +104,5 @@ struct irr_SColorf
     float r;
 };
 typedef struct irr_SColorf irr_SColorf;
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_SCOLOR_

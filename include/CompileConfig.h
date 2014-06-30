@@ -24,25 +24,4 @@
        source distribution.
 */
 
-#include "IAnimatedMesh.h"
-#include <include/IAnimatedMesh.h>
-
-unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* mesh)
-{
-    return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getFrameCount();
-}
-
-float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh)
-{
-    return reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getAnimationSpeed();
-}
-
-void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps)
-{
-    reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->setAnimationSpeed(fps);
-}
-
-irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel, int startFrameLoop, int endFrameLoop)
-{
-    return reinterpret_cast<irr_IMesh*>(reinterpret_cast<irr::scene::IAnimatedMesh*>(mesh)->getMesh(frame, detailLevel, startFrameLoop, endFrameLoop));
-}
+#define CIRRLICHT_API extern "C" __attribute__ ((__visibility__ ("default")))

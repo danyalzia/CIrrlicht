@@ -25,43 +25,15 @@
 */
 
 
-#ifndef _CIRRLICHT_IRRLICHT_
-#define _CIRRLICHT_IRRLICHT_
+#ifndef _CIRRLICHT_IRRLICHTDEVICE_
+#define _CIRRLICHT_IRRLICHTDEVICE_
 
+#include "CompileConfig.h"
 #include "core.h"
 #include "IVideoDriver.h"
 #include "ISceneManager.h"
 #include "IGUIEnvironment.h"
 #include "IFileSystem.h"
-
-
-/*! \mainpage CIrrlicht API documentation
- *
- * <div align="center"><img src="logobig.png" ></div>
- *
- * \section intro Introduction
- *
- * Welcome to the CIrrlicht API documentation!
- * Here you'll find any information you'll need to develop applications with
- * Using CIrrlicht with C is simple and straighforward.
- *
- */
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
-enum E_DRIVER_TYPE
-{
-    EDT_NULL,
-    EDT_SOFTWARE,
-    EDT_BURNINGSVIDEO,
-    EDT_DIRECT3D8,
-    EDT_DIRECT3D9,
-    EDT_OPENGL,
-    EDT_COUNT
-};
 
 struct irr_IrrlichtDevice;
 typedef struct irr_IrrlichtDevice irr_IrrlichtDevice;
@@ -252,9 +224,9 @@ typedef struct
 
 } irr_IEventReceiver;
 
-irr_IEventReceiver* irr_IEventReceiver_init();
-bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver);
-bool irr_IEventReceiver_IsKeyDown(irr_IEventReceiver* receiver, EKEY_CODE keyCode);
+CIRRLICHT_API irr_IEventReceiver* irr_IEventReceiver_init();
+CIRRLICHT_API bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver);
+CIRRLICHT_API bool irr_IEventReceiver_IsKeyDown(irr_IEventReceiver* receiver, EKEY_CODE keyCode);
 
 enum E_DEVICE_TYPE
 {
@@ -268,107 +240,49 @@ enum E_DEVICE_TYPE
     EIDT_BEST
 };
 
-irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false, irr_IEventReceiver* receiver=0);
-bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_yield(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_sleep(irr_IrrlichtDevice* device, unsigned int timeMs, bool pauseTimer=false);
-irr_IVideoDriver* irr_IrrlichtDevice_getVideoDriver(irr_IrrlichtDevice* device);
-irr_IFileSystem* irr_IrrlichtDevice_getFileSystem(irr_IrrlichtDevice* device);
-irr_IGUIEnvironment* irr_IrrlichtDevice_getGUIEnvironment(irr_IrrlichtDevice* device);
-irr_ISceneManager* irr_IrrlichtDevice_getSceneManager(irr_IrrlichtDevice* device);
-irr_ICursorControl* irr_IrrlichtDevice_getCursorControl(irr_IrrlichtDevice* device);
-irr_ILogger* irr_IrrlichtDevice_getLogger(irr_IrrlichtDevice* device);
-irr_IVideoModeList* irr_IrrlichtDevice_getVideoModeList(irr_IrrlichtDevice* device);
-irr_IOSOperator* irr_IrrlichtDevice_getOSOperator(irr_IrrlichtDevice* device);
-irr_ITimer* irr_IrrlichtDevice_getTimer(irr_IrrlichtDevice* device);
-irr_IRandomizer* irr_IrrlichtDevice_getRandomizer(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_setRandomizer(irr_IrrlichtDevice* device, irr_IRandomizer* randomizer);
-irr_IRandomizer* irr_IrrlichtDevice_createDefaultRandomizer(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_setWindowCaption(irr_IrrlichtDevice* device, const wchar_t* text);
-bool irr_IrrlichtDevice_isWindowActive(irr_IrrlichtDevice* device);
-bool irr_IrrlichtDevice_isWindowFocused(irr_IrrlichtDevice* device);
-bool irr_IrrlichtDevice_isWindowMinimized(irr_IrrlichtDevice* device);
-bool irr_IrrlichtDevice_isFullscreen(irr_IrrlichtDevice* device);
-ECOLOR_FORMAT irr_IrrlichtDevice_getColorFormat(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_closeDevice(irr_IrrlichtDevice* device);
-const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventReceiver* receiver);
-irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device);
-bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent* event);
-void irr_IrrlichtDevice_setInputReceivingSceneManager(irr_IrrlichtDevice* device, irr_ISceneManager* smgr);
-void irr_IrrlichtDevice_setResizable(irr_IrrlichtDevice* device, bool value = false);
-void irr_IrrlichtDevice_setWindowSize(irr_IrrlichtDevice* device, irr_dimension2du* size);
-void irr_IrrlichtDevice_minimizeWindow(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_maximizeWindow(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_restoreWindow(irr_IrrlichtDevice* device);
-irr_vector2di irr_IrrlichtDevice_getWindowPosition(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false, irr_IEventReceiver* receiver=0);
+CIRRLICHT_API bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_yield(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_sleep(irr_IrrlichtDevice* device, unsigned int timeMs, bool pauseTimer=false);
+CIRRLICHT_API irr_IVideoDriver* irr_IrrlichtDevice_getVideoDriver(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_IFileSystem* irr_IrrlichtDevice_getFileSystem(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_IGUIEnvironment* irr_IrrlichtDevice_getGUIEnvironment(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_ISceneManager* irr_IrrlichtDevice_getSceneManager(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_ICursorControl* irr_IrrlichtDevice_getCursorControl(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_ILogger* irr_IrrlichtDevice_getLogger(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_IVideoModeList* irr_IrrlichtDevice_getVideoModeList(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_IOSOperator* irr_IrrlichtDevice_getOSOperator(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_ITimer* irr_IrrlichtDevice_getTimer(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_IRandomizer* irr_IrrlichtDevice_getRandomizer(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_setRandomizer(irr_IrrlichtDevice* device, irr_IRandomizer* randomizer);
+CIRRLICHT_API irr_IRandomizer* irr_IrrlichtDevice_createDefaultRandomizer(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_setWindowCaption(irr_IrrlichtDevice* device, const wchar_t* text);
+CIRRLICHT_API bool irr_IrrlichtDevice_isWindowActive(irr_IrrlichtDevice* device);
+CIRRLICHT_API bool irr_IrrlichtDevice_isWindowFocused(irr_IrrlichtDevice* device);
+CIRRLICHT_API bool irr_IrrlichtDevice_isWindowMinimized(irr_IrrlichtDevice* device);
+CIRRLICHT_API bool irr_IrrlichtDevice_isFullscreen(irr_IrrlichtDevice* device);
+CIRRLICHT_API ECOLOR_FORMAT irr_IrrlichtDevice_getColorFormat(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_closeDevice(irr_IrrlichtDevice* device);
+CIRRLICHT_API const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventReceiver* receiver);
+CIRRLICHT_API irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device);
+CIRRLICHT_API bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent* event);
+CIRRLICHT_API void irr_IrrlichtDevice_setInputReceivingSceneManager(irr_IrrlichtDevice* device, irr_ISceneManager* smgr);
+CIRRLICHT_API void irr_IrrlichtDevice_setResizable(irr_IrrlichtDevice* device, bool value = false);
+CIRRLICHT_API void irr_IrrlichtDevice_setWindowSize(irr_IrrlichtDevice* device, irr_dimension2du* size);
+CIRRLICHT_API void irr_IrrlichtDevice_minimizeWindow(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_maximizeWindow(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_restoreWindow(irr_IrrlichtDevice* device);
+CIRRLICHT_API irr_vector2di irr_IrrlichtDevice_getWindowPosition(irr_IrrlichtDevice* device);
 //bool activateJoysticks
-bool irr_IrrlichtDevice_setGammaRamp(irr_IrrlichtDevice* device, float red, float green, float blue, float relativebrightness, float relativecontrast);
-bool irr_IrrlichtDevice_getGammaRamp(irr_IrrlichtDevice* device, float& red, float& green, float& blue, float& relativebrightness, float& relativecontrast);
-void irr_IrrlichtDevice_setDoubleClickTime(irr_IrrlichtDevice* device, unsigned timeMs);
-unsigned irr_IrrlichtDevice_getDoubleClickTime(irr_IrrlichtDevice* device);
-void irr_IrrlichtDevice_clearSystemMessages(irr_IrrlichtDevice* device);
-E_DEVICE_TYPE irr_IrrlichtDevice_getType(irr_IrrlichtDevice* device);
-bool irr_IrrlichtDevice_isDriverSupported(irr_IrrlichtDevice* device, E_DRIVER_TYPE type);
-void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device);
-
-enum EEVENT_TYPE
-{
-    //! An event of the graphical user interface.
-    /** GUI events are created by the GUI environment or the GUI elements in response
-    to mouse or keyboard events. When a GUI element receives an event it will either
-    process it and return true, or pass the event to its parent. If an event is not absorbed
-    before it reaches the root element then it will then be passed to the user receiver. */
-    EET_GUI_EVENT = 0,
-
-    //! A mouse input event.
-    /** Mouse events are created by the device and passed to IrrlichtDevice::postEventFromUser
-    in response to mouse input received from the operating system.
-    Mouse events are first passed to the user receiver, then to the GUI environment and its elements,
-    then finally the input receiving scene manager where it is passed to the active camera.
-    */
-    EET_MOUSE_INPUT_EVENT,
-
-    //! A key input event.
-    /** Like mouse events, keyboard events are created by the device and passed to
-    IrrlichtDevice::postEventFromUser. They take the same path as mouse events. */
-    EET_KEY_INPUT_EVENT,
-
-    //! A joystick (joypad, gamepad) input event.
-    /** Joystick events are created by polling all connected joysticks once per
-    device run() and then passing the events to IrrlichtDevice::postEventFromUser.
-    They take the same path as mouse events.
-    Windows, SDL: Implemented.
-    Linux: Implemented, with POV hat issues.
-    MacOS / Other: Not yet implemented.
-    */
-    EET_JOYSTICK_INPUT_EVENT,
-
-    //! A log event
-    /** Log events are only passed to the user receiver if there is one. If they are absorbed by the
-    user receiver then no text will be sent to the console. */
-    EET_LOG_TEXT_EVENT,
-
-    //! A user event with user data.
-    /** This is not used by Irrlicht and can be used to send user
-    specific data though the system. The Irrlicht 'window handle'
-    can be obtained from IrrlichtDevice::getExposedVideoData()
-    The usage and behavior depends on the operating system:
-    Windows: send a WM_USER message to the Irrlicht Window; the
-    	wParam and lParam will be used to populate the
-    	UserData1 and UserData2 members of the SUserEvent.
-    Linux: send a ClientMessage via XSendEvent to the Irrlicht
-    	Window; the data.l[0] and data.l[1] members will be
-    	casted to s32 and used as UserData1 and UserData2.
-    MacOS: Not yet implemented
-    */
-    EET_USER_EVENT,
-
-    //! This enum is never used, it only forces the compiler to
-    //! compile these enumeration values to 32 bit.
-    EGUIET_FORCE_32_BIT = 0x7fffffff
-
-};
+CIRRLICHT_API bool irr_IrrlichtDevice_setGammaRamp(irr_IrrlichtDevice* device, float red, float green, float blue, float relativebrightness, float relativecontrast);
+CIRRLICHT_API bool irr_IrrlichtDevice_getGammaRamp(irr_IrrlichtDevice* device, float& red, float& green, float& blue, float& relativebrightness, float& relativecontrast);
+CIRRLICHT_API void irr_IrrlichtDevice_setDoubleClickTime(irr_IrrlichtDevice* device, unsigned timeMs);
+CIRRLICHT_API unsigned irr_IrrlichtDevice_getDoubleClickTime(irr_IrrlichtDevice* device);
+CIRRLICHT_API void irr_IrrlichtDevice_clearSystemMessages(irr_IrrlichtDevice* device);
+CIRRLICHT_API E_DEVICE_TYPE irr_IrrlichtDevice_getType(irr_IrrlichtDevice* device);
+CIRRLICHT_API bool irr_IrrlichtDevice_isDriverSupported(irr_IrrlichtDevice* device, E_DRIVER_TYPE type);
+CIRRLICHT_API void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device);
 
 //! Enumeration for all mouse input events
 enum EMOUSE_INPUT_EVENT
@@ -441,9 +355,5 @@ enum E_MOUSE_BUTTON_STATE_MASK
 
     EMBSM_FORCE_32_BIT = 0x7fffffff
 };
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
-
-#endif // _CIRRLICHT_IRRLICHT_
+#endif // _CIRRLICHT_IRRLICHTDEVICE_

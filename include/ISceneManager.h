@@ -24,16 +24,13 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SCENE_
-#define _CIRRLICHT_SCENE_
+#ifndef _CIRRLICHT_ISCENEMANAGER_
+#define _CIRRLICHT_ISCENEMANAGER_
 
+#include "CompileConfig.h"
 #include "core.h"
 #include "cirrlicht.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
 struct irr_IrrlichtDevice;
 
 struct irr_IMesh;
@@ -62,37 +59,25 @@ typedef struct irr_SMaterial irr_SMaterial;
 
 struct irr_ITexture;
 
-irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMeshSceneNode* parent, irr_vector3df pos, irr_vector3df lookAt);
-irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeFPS(irr_ISceneManager* smgr);
-irr_ISceneNode* irr_ISceneManager_addSphereSceneNode(irr_ISceneManager* smgr);
-irr_ISceneNode* irr_ISceneManager_addCubeSceneNode(irr_ISceneManager* smgr);
-void irr_ISceneManager_drawAll(irr_ISceneManager* smgr);
-irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file);
-struct irr_ISceneNodeAnimator;
+CIRRLICHT_API irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_IAnimatedMeshSceneNode* parent, irr_vector3df pos, irr_vector3df lookAt);
+CIRRLICHT_API irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeFPS(irr_ISceneManager* smgr);
+CIRRLICHT_API irr_ISceneNode* irr_ISceneManager_addSphereSceneNode(irr_ISceneManager* smgr);
+CIRRLICHT_API irr_ISceneNode* irr_ISceneManager_addCubeSceneNode(irr_ISceneManager* smgr);
+CIRRLICHT_API void irr_ISceneManager_drawAll(irr_ISceneManager* smgr);
+CIRRLICHT_API irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file);
+
 typedef struct irr_ISceneNodeAnimator irr_ISceneNodeAnimator;
 
-irr_ISceneNodeAnimator* irr_ISceneManager_createFlyCircleAnimator(irr_ISceneManager* smgr, const irr_vector3df& center, float radius=100.f);
-irr_ISceneNodeAnimator* irr_ISceneManager_createFlyStraightAnimator(irr_ISceneManager* smgr, const irr_vector3df& startPoint, const irr_vector3df& endPoint, unsigned int timeForWay, bool loop=false, bool pingpong = false);
+CIRRLICHT_API irr_ISceneNodeAnimator* irr_ISceneManager_createFlyCircleAnimator(irr_ISceneManager* smgr, const irr_vector3df& center, float radius=100.f);
+CIRRLICHT_API irr_ISceneNodeAnimator* irr_ISceneManager_createFlyStraightAnimator(irr_ISceneManager* smgr, const irr_vector3df& startPoint, const irr_vector3df& endPoint, unsigned int timeForWay, bool loop=false, bool pingpong = false);
 
 struct irr_IAttributes;
 struct irr_SAttributeReadWriteOptions;
-
 struct irr_ISceneNodeAnimator;
-typedef irr_ISceneNodeAnimator irr_ISceneNodeAnimator;
+typedef struct irr_ISceneNodeAnimator irr_ISceneNodeAnimator;
+typedef struct irr_IShadowVolumeSceneNode irr_IShadowVolumeSceneNode;
+typedef struct irr_IBoneSceneNode irr_IBoneSceneNode;
+typedef struct irr_IAnimationEndCallBack irr_IAnimationEndCallBack;
+typedef struct irr_SMD3QuaternionTag irr_SMD3QuaternionTag;
 
-struct irr_IShadowVolumeSceneNode;
-typedef irr_IShadowVolumeSceneNode irr_IShadowVolumeSceneNode;
-
-struct irr_IBoneSceneNode;
-typedef irr_IBoneSceneNode irr_IBoneSceneNode;
-
-struct irr_IAnimationEndCallBack;
-typedef irr_IAnimationEndCallBack irr_IAnimationEndCallBack;
-
-struct irr_SMD3QuaternionTag;
-typedef irr_SMD3QuaternionTag irr_SMD3QuaternionTag;
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_SCENE_
+#endif // _CIRRLICHT_ISCENEMANAGER_

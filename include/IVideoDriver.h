@@ -27,14 +27,12 @@
 #ifndef _CIRRLICHT_IVIDEODRIVER_
 #define _CIRRLICHT_IVIDEODRIVER_
 
+#include "CompileConfig.h"
 #include "core.h"
 #include "EDriverFeatures.h"
+#include "EDriverTypes.h"
 #include "SColor.h"
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#include "ITexture.h"
 
 //! enumeration for geometry transformation states
 enum E_TRANSFORMATION_STATE
@@ -125,6 +123,9 @@ const char* const FogTypeNames[] =
     0
 };
 
+typedef struct irr_SOverrideMaterial irr_SOverrideMaterial;
+typedef struct irr_IRenderTarget irr_IRenderTarget;
+
 struct irr_ITexture;
 typedef struct irr_ITexture irr_ITexture;
 
@@ -143,48 +144,106 @@ struct irr_IImage;
 struct irr_SMaterial;
 struct irr_ISceneNode;
 struct irr_IMesh;
+struct irr_SLight;
+struct irr_IWriteFile;
+struct irr_IImage;
+struct irr_IMaterialRenderer;
+struct irr_SExposedVideoData;
+struct irr_IGPUProgrammingServices;
+struct irr_IMeshManipulator;
+struct irr_IAttributes;
+struct irr_SAttributeReadWriteOptions;
 
-bool irr_IVideoDriver_beginScene(irr_IVideoDriver* driver, bool backBuffer, bool zBuffer, irr_SColor color);
-bool irr_IVideoDriver_endScene(irr_IVideoDriver* driver);
-bool irr_IVideoDriver_queryFeature(irr_IVideoDriver* driver, E_VIDEO_DRIVER_FEATURE feature);
-void irr_IVideoDriver_disableFeature(irr_IVideoDriver* driver, E_VIDEO_DRIVER_FEATURE feature, bool flag=true);
-const irr_Attributes& irr_IVideoDriver_getDriverAttributes(irr_IVideoDriver* driver);
-bool irr_IVideoDriver_checkDriverReset(irr_IVideoDriver* driver);
-void irr_IVideoDriver_setTransform(irr_IVideoDriver* driver, E_TRANSFORMATION_STATE state, irr_matrix4 mat);
-irr_matrix4 irr_IVideoDriver_getTransform(irr_IVideoDriver* driver, E_TRANSFORMATION_STATE state);
-unsigned int irr_IVideoDriver_getImageLoaderCount(irr_IVideoDriver* driver);
-irr_IImageLoader* irr_IVideoDriver_getImageLoader(irr_IVideoDriver* driver, unsigned int n);
-unsigned int irr_IVideoDriver_getImageWriterCount(irr_IVideoDriver* driver);
-irr_IImageWriter* irr_IVideoDriver_getImageWriter(irr_IVideoDriver* driver, unsigned int n);
-void irr_IVideoDriver_setMaterial(irr_IVideoDriver* driver, irr_SMaterial* material);
-irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file);
-irr_ITexture* irr_IVideoDriver_getTextureByIndex(irr_IVideoDriver* driver, unsigned int index);
-unsigned int irr_IVideoDriver_getTextureCount(irr_IVideoDriver* driver);
-void irr_IVideoDriver_renameTexture(irr_IVideoDriver* driver, irr_ITexture* texture, const char* newName);
-irr_ITexture* irr_IVideoDriver_addTexture(irr_IVideoDriver* driver, irr_dimension2du size, const char* name, ECOLOR_FORMAT format = ECF_A8R8G8B8);
+CIRRLICHT_API bool irr_IVideoDriver_beginScene(irr_IVideoDriver* driver, bool backBuffer, bool zBuffer, irr_SColor color);
+CIRRLICHT_API bool irr_IVideoDriver_endScene(irr_IVideoDriver* driver);
+CIRRLICHT_API bool irr_IVideoDriver_queryFeature(irr_IVideoDriver* driver, E_VIDEO_DRIVER_FEATURE feature);
+CIRRLICHT_API void irr_IVideoDriver_disableFeature(irr_IVideoDriver* driver, E_VIDEO_DRIVER_FEATURE feature, bool flag=true);
+CIRRLICHT_API const irr_Attributes& irr_IVideoDriver_getDriverAttributes(irr_IVideoDriver* driver);
+CIRRLICHT_API bool irr_IVideoDriver_checkDriverReset(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_setTransform(irr_IVideoDriver* driver, E_TRANSFORMATION_STATE state, irr_matrix4 mat);
+CIRRLICHT_API irr_matrix4 irr_IVideoDriver_getTransform(irr_IVideoDriver* driver, E_TRANSFORMATION_STATE state);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getImageLoaderCount(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_IImageLoader* irr_IVideoDriver_getImageLoader(irr_IVideoDriver* driver, unsigned int n);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getImageWriterCount(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_IImageWriter* irr_IVideoDriver_getImageWriter(irr_IVideoDriver* driver, unsigned int n);
+CIRRLICHT_API void irr_IVideoDriver_setMaterial(irr_IVideoDriver* driver, irr_SMaterial* material);
+CIRRLICHT_API irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file);
+CIRRLICHT_API irr_ITexture* irr_IVideoDriver_getTextureByIndex(irr_IVideoDriver* driver, unsigned int index);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getTextureCount(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_renameTexture(irr_IVideoDriver* driver, irr_ITexture* texture, const char* newName);
+CIRRLICHT_API irr_ITexture* irr_IVideoDriver_addTexture(irr_IVideoDriver* driver, irr_dimension2du size, const char* name, ECOLOR_FORMAT format = ECF_A8R8G8B8);
 //irr_ITexture* irr_IVideoDriver_addTexture(const char* name, irr_IImage* image, void* mipmapData);
-irr_ITexture* irr_IVideoDriver_addRenderTargetTexture(irr_IVideoDriver* driver, irr_dimension2du size, const char* name = "rt", const ECOLOR_FORMAT format = ECF_UNKNOWN);
-void irr_IVideoDriver_removeTexture(irr_IVideoDriver* driver, irr_ITexture* texture);
-void irr_IVideoDriver_removeAllTextures(irr_IVideoDriver* driver);
-void irr_IVideoDriver_removeHardwareBuffer(irr_IVideoDriver* driver, irr_IMeshBuffer* mb);
-void irr_IVideoDriver_removeAllHardwareBuffers(irr_IVideoDriver* driver);
-void irr_IVideoDriver_addOcclusionQuery(irr_IVideoDriver* driver, irr_ISceneNode* node, irr_IMesh* mesh=0);
-void irr_IVideoDriver_removeOcclusionQuery(irr_IVideoDriver* driver, irr_ISceneNode* node);
-void irr_IVideoDriver_removeAllOcclusionQueries(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_ITexture* irr_IVideoDriver_addRenderTargetTexture(irr_IVideoDriver* driver, irr_dimension2du size, const char* name = "rt", const ECOLOR_FORMAT format = ECF_UNKNOWN);
+CIRRLICHT_API void irr_IVideoDriver_removeTexture(irr_IVideoDriver* driver, irr_ITexture* texture);
+CIRRLICHT_API void irr_IVideoDriver_removeAllTextures(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_removeHardwareBuffer(irr_IVideoDriver* driver, irr_IMeshBuffer* mb);
+CIRRLICHT_API void irr_IVideoDriver_removeAllHardwareBuffers(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_addOcclusionQuery(irr_IVideoDriver* driver, irr_ISceneNode* node, irr_IMesh* mesh=0);
+CIRRLICHT_API void irr_IVideoDriver_removeOcclusionQuery(irr_IVideoDriver* driver, irr_ISceneNode* node);
+CIRRLICHT_API void irr_IVideoDriver_removeAllOcclusionQueries(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_runOcclusionQuery(irr_IVideoDriver* driver, irr_ISceneNode* node, bool visible=false);
+CIRRLICHT_API void irr_IVideoDriver_runAllOcclusionQueries(irr_IVideoDriver* driver, bool visible=false);
+CIRRLICHT_API void irr_IVideoDriver_updateOcclusionQuery(irr_IVideoDriver* driver, irr_ISceneNode* node, bool block=true);
+CIRRLICHT_API void irr_IVideoDriver_updateAllOcclusionQueries(irr_IVideoDriver* driver, bool block=true);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getOcclusionQueryResult(irr_IVideoDriver* driver, irr_ISceneNode* node);
+CIRRLICHT_API void irr_IVideoDriver_makeColorKeyTexture(irr_IVideoDriver* driver, irr_ITexture* texture, irr_SColor color, bool zeroTexels = false);
+CIRRLICHT_API void irr_IVideoDriver_makeNormalMapTexture(irr_IVideoDriver* driver, irr_ITexture* texture, float amplitude=1.0f);
+CIRRLICHT_API bool irr_IVideoDriver_setRenderTarget(irr_IVideoDriver* driver, irr_ITexture* texture, bool clearBackBuffer=true, bool clearZBuffer=true, irr_SColor color={0,0,0,0});
+CIRRLICHT_API bool irr_IVideoDriver_setRenderTargetByEnum(irr_IVideoDriver* driver, E_RENDER_TARGET target, bool clearTarget=true, bool clearZBuffer=true, irr_SColor color={0,0,0,0});
 
-int irr_IVideoDriver_getFPS(irr_IVideoDriver* driver);
-const wchar_t* irr_IVideoDriver_getName(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_setViewPort(irr_IVideoDriver* driver, irr_recti area);
+CIRRLICHT_API irr_recti irr_IVideoDriver_getViewPort(irr_IVideoDriver* driver);
 
-irr_SMaterial* irr_IVideoDriver_getMaterial2D(irr_IVideoDriver* driver);
-void irr_IVideoDriver_enableMaterial2D(irr_IVideoDriver* driver, bool enable=true);
-const char* irr_IVideoDriver_getVendorInfo(irr_IVideoDriver* driver);
-void irr_IVideoDriver_setAmbientLight(irr_IVideoDriver* driver, irr_SColorf color);
-void irr_IVideoDriver_setAllowZWriteOnTransparent(irr_IVideoDriver* driver, bool flag);
-irr_dimension2du irr_IVideoDriver_getMaxTextureSize(irr_IVideoDriver* driver);
-void irr_IVideoDriver_convertColor(irr_IVideoDriver* driver, const void* sP, ECOLOR_FORMAT sF, int sN, void* dP, ECOLOR_FORMAT dF);
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
+CIRRLICHT_API void irr_IVideoDriver_setFog(irr_IVideoDriver* driver, irr_SColor color={0,255,255,255}, E_FOG_TYPE fogType=EFT_FOG_LINEAR, float start=50.0f, float end=100.0f, float density=0.01f, bool pixelFog=false, bool rangeFog=false);
+CIRRLICHT_API void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor* color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog);
+CIRRLICHT_API ECOLOR_FORMAT irr_IVideoDriver_getColorFormat(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_dimension2du irr_IVideoDriver_getScreenSize(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_dimension2du irr_IVideoDriver_getCurrentRenderTargetSize(irr_IVideoDriver* driver);
+CIRRLICHT_API int irr_IVideoDriver_getFPS(irr_IVideoDriver* driver);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getPrimitiveCountDrawn(irr_IVideoDriver* driver, unsigned int mode =0);
+CIRRLICHT_API void irr_IVideoDriver_deleteAllDynamicLights(irr_IVideoDriver* driver);
+CIRRLICHT_API int irr_IVideoDriver_addDynamicLight(irr_IVideoDriver* driver, irr_SLight* light);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getMaximalDynamicLightAmount(irr_IVideoDriver* driver);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getDynamicLightCount(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_SLight* irr_IVideoDriver_getDynamicLight(irr_IVideoDriver* driver, unsigned int idx);
+CIRRLICHT_API void irr_IVideoDriver_turnLightOn(irr_IVideoDriver* driver, int lightIndex, bool turnOn);
+CIRRLICHT_API const wchar_t* irr_IVideoDriver_getName(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_addExternalImageLoader(irr_IVideoDriver* driver, irr_IImageLoader* loader);
+CIRRLICHT_API void irr_IVideoDriver_addExternalImageWriter(irr_IVideoDriver* driver, irr_IImageWriter* writer);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getMaximalPrimitiveCount(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_setTextureCreationFlag(irr_IVideoDriver* driver, E_TEXTURE_CREATION_FLAG flag, bool enabled=true);
+CIRRLICHT_API bool irr_IVideoDriver_getTextureCreationFlag(irr_IVideoDriver* driver, E_TEXTURE_CREATION_FLAG flag);
+CIRRLICHT_API irr_IImage* irr_IVideoDriver_createImageFromFile(irr_IVideoDriver* driver, const char* file);
+CIRRLICHT_API bool irr_IVideoDriver_writeImageToFile(irr_IVideoDriver* driver, irr_IImage* image, const char* filename, unsigned int param = 0);
+//CIRRLICHT_API bool irr_IVideoDriver_writeImageToFile(irr_IVideoDriver* driver, irr_IImage* image, irr_IWriteFile* file, unsigned int param =0);
+CIRRLICHT_API irr_IImage* irr_IVideoDriver_createImageFromData(irr_IVideoDriver* driver, ECOLOR_FORMAT format, irr_dimension2du size, void *data, bool ownForeignMemory=false, bool deleteMemory = true);
+CIRRLICHT_API irr_IImage* irr_IVideoDriver_createEmptyImage(irr_IVideoDriver* driver, ECOLOR_FORMAT format, irr_dimension2du size);
+CIRRLICHT_API irr_IImage* irr_IVideoDriver_createImage(irr_IVideoDriver* driver, irr_ITexture* texture, irr_vector2di pos, irr_dimension2du size);
+CIRRLICHT_API void irr_IVideoDriver_OnResize(irr_IVideoDriver* driver, irr_dimension2du size);
+CIRRLICHT_API int irr_IVideoDriver_addMaterialRenderer(irr_IVideoDriver* driver, irr_IMaterialRenderer* renderer, const char* name =0);
+CIRRLICHT_API irr_IMaterialRenderer* irr_IVideoDriver_getMaterialRenderer(irr_IVideoDriver* driver, unsigned int idx);
+CIRRLICHT_API unsigned int irr_IVideoDriver_getMaterialRendererCount(irr_IVideoDriver* driver);
+CIRRLICHT_API const char* irr_IVideoDriver_getMaterialRendererName(irr_IVideoDriver* driver, unsigned int idx);
+CIRRLICHT_API void irr_IVideoDriver_setMaterialRendererName(irr_IVideoDriver* driver, int idx, const char* name);
+CIRRLICHT_API irr_IAttributes* irr_IVideoDriver_createAttributesFromMaterial(irr_IVideoDriver* driver, irr_SMaterial* material, irr_SAttributeReadWriteOptions* options=0);
+CIRRLICHT_API void irr_IVideoDriver_fillMaterialStructureFromAttributes(irr_IVideoDriver* driver, irr_SMaterial* outMaterial, irr_IAttributes* attributes);
+CIRRLICHT_API irr_SExposedVideoData* irr_IVideoDriver_getExposedVideoData(irr_IVideoDriver* driver);
+CIRRLICHT_API E_DRIVER_TYPE irr_IVideoDriver_getDriverType(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_IGPUProgrammingServices* irr_IVideoDriver_getGPUProgrammingServices(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_IMeshManipulator* irr_IVideoDriver_getMeshManipulator(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_clearZBuffer(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_IImage* irr_IVideoDriver_createScreenShot(irr_IVideoDriver* driver, ECOLOR_FORMAT format=ECF_UNKNOWN, E_RENDER_TARGET target=ERT_FRAME_BUFFER);
+CIRRLICHT_API irr_ITexture* irr_IVideoDriver_findTexture(irr_IVideoDriver* driver, const char* filename);
+CIRRLICHT_API bool irr_IVideoDriver_setClipPlane(irr_IVideoDriver* driver, unsigned int index, irr_plane3df plane, bool enable=false);
+CIRRLICHT_API void irr_IVideoDriver_enableClipPlane(irr_IVideoDriver* driver, unsigned int index, bool enable);
+CIRRLICHT_API void irr_IVideoDriver_setMinHardwareBufferVertexCount(irr_IVideoDriver* driver, unsigned int count);
+CIRRLICHT_API irr_SOverrideMaterial* irr_IVideoDriver_getOverrideMaterial(irr_IVideoDriver* driver);
+CIRRLICHT_API irr_SMaterial* irr_IVideoDriver_getMaterial2D(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_enableMaterial2D(irr_IVideoDriver* driver, bool enable=true);
+CIRRLICHT_API const char* irr_IVideoDriver_getVendorInfo(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_setAmbientLight(irr_IVideoDriver* driver, irr_SColorf color);
+CIRRLICHT_API void irr_IVideoDriver_setAllowZWriteOnTransparent(irr_IVideoDriver* driver, bool flag);
+CIRRLICHT_API irr_dimension2du irr_IVideoDriver_getMaxTextureSize(irr_IVideoDriver* driver);
+CIRRLICHT_API void irr_IVideoDriver_convertColor(irr_IVideoDriver* driver, const void* sP, ECOLOR_FORMAT sF, int sN, void* dP, ECOLOR_FORMAT dF);
 
 #endif // _CIRRLICHT_IVIDEODRIVER_

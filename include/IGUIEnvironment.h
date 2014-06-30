@@ -31,21 +31,16 @@
 #include "cirrlicht.h"
 #include "IVideoDriver.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-struct irr_IGUIEnvironment;
 typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
 
 struct irr_IGUIStaticText;
 struct irr_IGUIImage;
 
-irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border=false);
-irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
+CIRRLICHT_API irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, const irr_recti& rectangle, bool border=false);
+CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
 
 struct irr_SColor;
-void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
+CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
 
 //! Enumeration for all events which are sendable by the gui system
 enum EGUI_EVENT_TYPE
@@ -155,8 +150,5 @@ enum EGUI_EVENT_TYPE
     //! No real event. Just for convenience to get number of events
     EGET_COUNT
 };
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_IGUIENVIRONMENT_

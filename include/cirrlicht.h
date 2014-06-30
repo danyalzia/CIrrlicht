@@ -27,29 +27,63 @@
 #ifndef _CIRRLICHT_CIRRLICHT_
 #define _CIRRLICHT_CIRRLICHT_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
 #include "core.h"
+#include "EAttributes.h"
+#include "ECullingTypes.h"
+#include "EDebugSceneTypes.h"
 #include "EDriverFeatures.h"
+#include "EDriverTypes.h"
+#include "EFocusFlags.h"
+#include "EGUIAlignment.h"
+#include "EGUIElementTypes.h"
+#include "EHardwareBufferFlags.h"
 #include "EMaterialFlags.h"
 #include "EMaterialTypes.h"
+#include "EMeshWriteEnums.h"
+#include "EMessageBoxFlags.h"
+#include "EPrimitiveTypes.h"
+#include "ESceneNodeAnimatorTypes.h"
 #include "ESceneNodeTypes.h"
+#include "ETerrainElements.h"
+#include "IAnimatedMesh.h"
 #include "IAnimatedMeshMD2.h"
 #include "IAnimatedMeshSceneNode.h"
-#include "IFileSystem.h"
-#include "IGUIEnvironment.h"
-#include "IrrlichtDevice.h"
+#include "IAttributeExchangingObject.h"
+#include "IAttributes.h"
 #include "ICursorControl.h"
+#include "IFileSystem.h"
+#include "IGPUProgrammingServices.h"
+#include "IGUIElement.h"
+#include "IGUIEnvironment.h"
+#include "IGUIFont.h"
+#include "IGUIImage.h"
+#include "IGUIStaticText.h"
+#include "IImageLoader.h"
+#include "IImageWriter.h"
+#include "IMaterialRenderer.h"
+#include "IMesh.h"
+#include "IMeshBuffer.h"
+#include "IrrlichtDevice.h"
 #include "ISceneManager.h"
 #include "ISceneNode.h"
+#include "ITexture.h"
 #include "IVideoDriver.h"
+#include "IWriteFile.h"
 #include "SColor.h"
+#include "SExposedVideoData.h"
+#include "SLight.h"
+#include "SMaterial.h"
 
-#ifdef __cplusplus
-}
-#endif // __cplusplus
+/*! \mainpage CIrrlicht API documentation
+ *
+ * <div align="center"><img src="logobig.png" ></div>
+ *
+ * \section intro Introduction
+ *
+ * Welcome to the CIrrlicht API documentation!
+ * Here you'll find any information you'll need to develop applications with
+ * Using CIrrlicht with C is simple and straighforward.
+ *
+ */
 
 #endif // _CIRRLICHT_CIRRLICHT_

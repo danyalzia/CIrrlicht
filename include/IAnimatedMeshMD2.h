@@ -30,11 +30,6 @@
 #include "core.h"
 #include "cirrlicht.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
 //! Types of standard md2 animations
 enum EMD2_ANIMATION_TYPE
 {
@@ -62,9 +57,5 @@ enum EMD2_ANIMATION_TYPE
     //! Not an animation, but amount of animation types.
     EMAT_COUNT,
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_IANIMATEDMESHMD2_

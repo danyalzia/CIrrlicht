@@ -27,14 +27,6 @@
 #ifndef _CIRRLICHT_IGUIIMAGE_
 #define _CIRRLICHT_IGUIIMAGE_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-struct irr_IGUIElement;
 typedef struct irr_IGUIElement irr_IGUIElement;
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_IGUIIMAGE_

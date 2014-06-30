@@ -123,7 +123,7 @@ enum EGUI_ELEMENT_TYPE
 };
 
 //! Names for built-in element types
-const c8* const GUIElementTypeNames[] =
+const char* const GUIElementTypeNames[] =
 {
     "button",
     "checkBox",

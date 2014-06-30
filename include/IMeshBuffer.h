@@ -27,15 +27,6 @@
 #ifndef _CIRRLICHT_IMESHBUFFER_
 #define _CIRRLICHT_IMESHBUFFER_
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
-
-struct irr_IMeshBuffer;
 typedef struct irr_IMeshBuffer irr_IMeshBuffer;
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #endif // _CIRRLICHT_IMESHBUFFER_
