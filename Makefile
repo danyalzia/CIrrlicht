@@ -2,18 +2,18 @@ VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
 
-CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o  src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o   src/IVideoDriver.o   
+CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshMD2.o src/IMeshSceneNode.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o  src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o   src/IVideoDriver.o   
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
 IrrlichtHome = $(HOME)/irrlicht
 CXXINCS = -I $(IrrlichtHome)/ -Iinclude
 CPPFLAGS += $(CXXINCS)
-CXXFLAGS += -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
+CXXFLAGS += -std=c++11 -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
 ifndef NDEBUG
 CXXFLAGS += -g -D_DEBUG
 else
-CXXFLAGS += -std=c++11 -fexpensive-optimizations -O3
+CXXFLAGS += -fexpensive-optimizations -O3
 endif
 ifdef PROFILE
 CXXFLAGS += -pg

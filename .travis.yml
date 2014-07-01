@@ -9,4 +9,4 @@ before_script:
   - cd irrlicht/source/irrlicht/
   - ./make
 
-script: ./make sharedlib
+script: ./make
