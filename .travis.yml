@@ -4,7 +4,10 @@ compiler:
   - gcc
   - clang
 
+install: make get-deps
+
 before_script:
+  - cd ../
   - svn checkout http://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
   - cd irrlicht/source/irrlicht/
   - ./make

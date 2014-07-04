@@ -164,7 +164,7 @@ CIRRLICHT_API irr_ILightSceneNode* irr_ISceneManager_addLightSceneNode(irr_IScen
 CIRRLICHT_API irr_IBillboardSceneNode* irr_ISceneManager_addBillboardSceneNode(irr_ISceneManager* smgr, irr_ISceneNode* parent = 0,
         irr_dimension2df size = {10.0f, 10.0f},
         irr_vector3df position = {0,0,0}, int id=-1,
-        irr_SColor colorTop = {0xFFFFFFFF>>24, (0xFFFFFFFF>>16) & 0xff, (0xFFFFFFFF>>8) & 0xff, 0xFFFFFFFF & 0xff}, irr_SColor colorBottom = {0xFFFFFFFF>>24, (0xFFFFFFFF>>16) & 0xff, (0xFFFFFFFF>>8) & 0xff, 0xFFFFFFFF & 0xff});
+        irr_SColor colorTop = {0, 0, 0, 0}, irr_SColor colorBottom = {0, 0, 0, 0});
 
 CIRRLICHT_API irr_ISceneNode* irr_ISceneManager_addSkyBoxSceneNode(irr_ISceneManager* smgr, irr_ITexture* top, irr_ITexture* bottom,
         irr_ITexture* left, irr_ITexture* right, irr_ITexture* front,

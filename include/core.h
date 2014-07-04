@@ -105,8 +105,8 @@ typedef struct
 // irr::core::irr_dimension2df
 typedef struct
 {
-    unsigned int Width;
-    unsigned int Height;
+    float Width;
+    float Height;
 } irr_dimension2df;
 
 // irr::core::triangle3di

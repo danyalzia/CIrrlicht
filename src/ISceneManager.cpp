@@ -119,36 +119,66 @@ irr_IMeshSceneNode* irr_ISceneManager_addOctreeSceneNode2(irr_ISceneManager* smg
 	return reinterpret_cast<irr_IMeshSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addOctreeSceneNode(reinterpret_cast<irr::scene::IMesh*>(mesh), reinterpret_cast<irr::scene::ISceneNode*>(parent), id, minimalPolysPerNode, alsoAddIfMeshPointerZero));
 }
 
-irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_ISceneNode* parent, irr_vector3df pos, irr_vector3df lookAt, int id, bool makeActive);
+irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNode(irr_ISceneManager* smgr, irr_ISceneNode* parent, irr_vector3df pos, irr_vector3df lookAt, int id, bool makeActive)
+{
+    auto temppos = irr::core::vector3df(pos.x, pos.y, pos.z);
+    auto templookAt = irr::core::vector3df(lookAt.x, lookAt.y, lookAt.z);
+	return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNode(reinterpret_cast<irr::scene::ISceneNode*>(parent), temppos, templookAt, id, makeActive));
+}
+
 irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeMaya(irr_ISceneManager* smgr, irr_ISceneNode* parent,
         float rotateSpeed, float zoomSpeed,
         float translationSpeed, int id, float distance,
-        bool makeActive);
+        bool makeActive)
+{
+	return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNodeMaya(reinterpret_cast<irr::scene::ISceneNode*>(parent), rotateSpeed, zoomSpeed, translationSpeed, id, distance, makeActive));
+}
 
 irr_ICameraSceneNode* irr_ISceneManager_addCameraSceneNodeFPS(irr_ISceneManager* smgr, irr_ISceneNode* parent,
         float rotateSpeed, float moveSpeed, int id,
         irr_SKeyMap* keyMapArray, int keyMapSize, bool noVerticalMovement,
         float jumpSpeed, bool invertMouse,
-        bool makeActive);
+        bool makeActive)
+{
+	return reinterpret_cast<irr_ICameraSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addCameraSceneNodeFPS(reinterpret_cast<irr::scene::ISceneNode*>(parent), rotateSpeed, moveSpeed, id, reinterpret_cast<irr::SKeyMap*>(keyMapArray), keyMapSize, noVerticalMovement, jumpSpeed, invertMouse, makeActive));
+}
 
 irr_ILightSceneNode* irr_ISceneManager_addLightSceneNode(irr_ISceneManager* smgr, irr_ISceneNode* parent,
         irr_vector3df position,
         irr_SColorf color,
-        float radius, int id);
+        float radius, int id)
+{
+    auto temppos = irr::core::vector3df(position.x, position.y, position.z);
+    auto tempcolor = irr::video::SColorf(color.a, color.b, color.g, color.r);
+	return reinterpret_cast<irr_ILightSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addLightSceneNode(reinterpret_cast<irr::scene::ISceneNode*>(parent), temppos, tempcolor, radius, id));
+}
 
 irr_IBillboardSceneNode* irr_ISceneManager_addBillboardSceneNode(irr_ISceneManager* smgr, irr_ISceneNode* parent,
         irr_dimension2df size,
         irr_vector3df position, int id,
-        irr_SColor colorTop, irr_SColor colorBottom);
+        irr_SColor colorTop, irr_SColor colorBottom)
+{
+    auto tempsize = irr::core::dimension2df(size.Width, size.Height);
+    auto temppos = irr::core::vector3df(position.x, position.y, position.z);
+    auto tempcolorTop = irr::video::SColor(colorTop.a, colorTop.b, colorTop.g, colorTop.r);
+    auto tempcolorBottom = irr::video::SColor(colorBottom.a, colorBottom.b, colorBottom.g, colorBottom.r);
+	return reinterpret_cast<irr_IBillboardSceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addBillboardSceneNode(reinterpret_cast<irr::scene::ISceneNode*>(parent), tempsize, temppos, id, tempcolorTop, tempcolorBottom));
+}
 
 irr_ISceneNode* irr_ISceneManager_addSkyBoxSceneNode(irr_ISceneManager* smgr, irr_ITexture* top, irr_ITexture* bottom,
         irr_ITexture* left, irr_ITexture* right, irr_ITexture* front,
-        irr_ITexture* back, irr_ISceneNode* parent, int id);
+        irr_ITexture* back, irr_ISceneNode* parent, int id)
+{
+	return reinterpret_cast<irr_ISceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addSkyBoxSceneNode(reinterpret_cast<irr::video::ITexture*>(top), reinterpret_cast<irr::video::ITexture*>(bottom), reinterpret_cast<irr::video::ITexture*>(left), reinterpret_cast<irr::video::ITexture*>(right), reinterpret_cast<irr::video::ITexture*>(front), reinterpret_cast<irr::video::ITexture*>(back), reinterpret_cast<irr::scene::ISceneNode*>(parent), id));
+}
 
 irr_ISceneNode* irr_ISceneManager_addSkyDomeSceneNode(irr_ISceneManager* smgr, irr_ITexture* texture,
         unsigned int horiRes, unsigned int vertRes,
         float texturePercentage, float spherePercentage,float radius,
-        irr_ISceneNode* parent, int id);
+        irr_ISceneNode* parent, int id)
+{
+	return reinterpret_cast<irr_ISceneNode*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addSkyDomeSceneNode(reinterpret_cast<irr::video::ITexture*>(texture), horiRes, vertRes, texturePercentage, spherePercentage, radius, reinterpret_cast<irr::scene::ISceneNode*>(parent), id));
+}
 
 irr_IParticleSystemSceneNode* irr_ISceneManager_addParticleSystemSceneNode(irr_ISceneManager* smgr,
         bool withDefaultEmitter, irr_ISceneNode* parent, int id,

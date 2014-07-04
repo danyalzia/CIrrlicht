@@ -219,11 +219,6 @@ enum EKEY_CODE
 struct irr_SEvent;
 typedef struct irr_SEvent irr_SEvent;
 
-typedef struct
-{
-
-} irr_IEventReceiver;
-
 CIRRLICHT_API irr_IEventReceiver* irr_IEventReceiver_init();
 CIRRLICHT_API bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver);
 CIRRLICHT_API bool irr_IEventReceiver_IsKeyDown(irr_IEventReceiver* receiver, EKEY_CODE keyCode);

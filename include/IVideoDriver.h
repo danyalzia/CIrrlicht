@@ -33,6 +33,9 @@
 #include "EDriverTypes.h"
 #include "SColor.h"
 #include "ITexture.h"
+#include "S3DVertex.h"
+#include "SVertexIndex.h"
+#include "EPrimitiveTypes.h"
 
 //! enumeration for geometry transformation states
 enum E_TRANSFORMATION_STATE
@@ -139,6 +142,7 @@ typedef struct irr_IVideoDriver irr_IVideoDriver;
 struct irr_Attributes;
 struct irr_IImageLoader;
 struct irr_IImageWriter;
+struct irr_IReadFile;
 struct irr_IMeshBuffer;
 struct irr_IImage;
 struct irr_SMaterial;
@@ -153,6 +157,8 @@ struct irr_IGPUProgrammingServices;
 struct irr_IMeshManipulator;
 struct irr_IAttributes;
 struct irr_SAttributeReadWriteOptions;
+struct irr_S3DVertex2TCoords;
+struct irr_S3DVertexTangents;
 
 CIRRLICHT_API bool irr_IVideoDriver_beginScene(irr_IVideoDriver* driver, bool backBuffer, bool zBuffer, irr_SColor color);
 CIRRLICHT_API bool irr_IVideoDriver_endScene(irr_IVideoDriver* driver);
@@ -168,11 +174,13 @@ CIRRLICHT_API unsigned int irr_IVideoDriver_getImageWriterCount(irr_IVideoDriver
 CIRRLICHT_API irr_IImageWriter* irr_IVideoDriver_getImageWriter(irr_IVideoDriver* driver, unsigned int n);
 CIRRLICHT_API void irr_IVideoDriver_setMaterial(irr_IVideoDriver* driver, irr_SMaterial* material);
 CIRRLICHT_API irr_ITexture* irr_IVideoDriver_getTexture(irr_IVideoDriver* driver, const char* file);
+irr_ITexture* irr_IVideoDriver_getTextureByFile(irr_IVideoDriver* driver, irr_IReadFile* file);
+
 CIRRLICHT_API irr_ITexture* irr_IVideoDriver_getTextureByIndex(irr_IVideoDriver* driver, unsigned int index);
 CIRRLICHT_API unsigned int irr_IVideoDriver_getTextureCount(irr_IVideoDriver* driver);
 CIRRLICHT_API void irr_IVideoDriver_renameTexture(irr_IVideoDriver* driver, irr_ITexture* texture, const char* newName);
 CIRRLICHT_API irr_ITexture* irr_IVideoDriver_addTexture(irr_IVideoDriver* driver, irr_dimension2du size, const char* name, ECOLOR_FORMAT format = ECF_A8R8G8B8);
-//irr_ITexture* irr_IVideoDriver_addTexture(const char* name, irr_IImage* image, void* mipmapData);
+irr_ITexture* irr_IVideoDriver_addTexture2(const char* name, irr_IImage* image, void* mipmapData);
 CIRRLICHT_API irr_ITexture* irr_IVideoDriver_addRenderTargetTexture(irr_IVideoDriver* driver, irr_dimension2du size, const char* name = "rt", const ECOLOR_FORMAT format = ECF_UNKNOWN);
 CIRRLICHT_API void irr_IVideoDriver_removeTexture(irr_IVideoDriver* driver, irr_ITexture* texture);
 CIRRLICHT_API void irr_IVideoDriver_removeAllTextures(irr_IVideoDriver* driver);
@@ -187,12 +195,63 @@ CIRRLICHT_API void irr_IVideoDriver_updateOcclusionQuery(irr_IVideoDriver* drive
 CIRRLICHT_API void irr_IVideoDriver_updateAllOcclusionQueries(irr_IVideoDriver* driver, bool block=true);
 CIRRLICHT_API unsigned int irr_IVideoDriver_getOcclusionQueryResult(irr_IVideoDriver* driver, irr_ISceneNode* node);
 CIRRLICHT_API void irr_IVideoDriver_makeColorKeyTexture(irr_IVideoDriver* driver, irr_ITexture* texture, irr_SColor color, bool zeroTexels = false);
+void irr_IVideoDriver_makeColorKeyTexture(irr_IVideoDriver* driver, irr_ITexture* texture, irr_vector2di colorKeyPixelPos, bool zeroTexels = false);
+
 CIRRLICHT_API void irr_IVideoDriver_makeNormalMapTexture(irr_IVideoDriver* driver, irr_ITexture* texture, float amplitude=1.0f);
 CIRRLICHT_API bool irr_IVideoDriver_setRenderTarget(irr_IVideoDriver* driver, irr_ITexture* texture, bool clearBackBuffer=true, bool clearZBuffer=true, irr_SColor color={0,0,0,0});
 CIRRLICHT_API bool irr_IVideoDriver_setRenderTargetByEnum(irr_IVideoDriver* driver, E_RENDER_TARGET target, bool clearTarget=true, bool clearZBuffer=true, irr_SColor color={0,0,0,0});
+bool irr_IVideoDriver_setMultipleRenderTarget(irr_IVideoDriver* driver, irr_array target, bool clearBackBuffer=true, bool clearZBuffer=true, irr_SColor color={0,0,0,0});
 
 CIRRLICHT_API void irr_IVideoDriver_setViewPort(irr_IVideoDriver* driver, irr_recti area);
 CIRRLICHT_API irr_recti irr_IVideoDriver_getViewPort(irr_IVideoDriver* driver);
+
+void irr_IVideoDriver_drawVertexPrimitiveList(irr_IVideoDriver* driver, const void* vertices, unsigned int vertexCount,
+				const void* indexList, unsigned int primCount,
+				E_VERTEX_TYPE vType=EVT_STANDARD,
+                E_PRIMITIVE_TYPE pType=EPT_TRIANGLES,
+				E_INDEX_TYPE iType=EIT_16BIT);
+
+void irr_IVideoDriver_draw2DVertexPrimitiveList(irr_IVideoDriver* driver, const void* vertices, unsigned int vertexCount,
+				const void* indexList, unsigned int primCount,
+				E_VERTEX_TYPE vType=EVT_STANDARD,
+				E_PRIMITIVE_TYPE pType=EPT_TRIANGLES,
+				E_INDEX_TYPE iType=EIT_16BIT);
+
+void irr_IVideoDriver_drawIndexedTriangleList(irr_IVideoDriver* driver, const irr_S3DVertex* vertices,
+			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+{
+    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_STANDARD, EPT_TRIANGLES, EIT_16BIT);
+};
+
+void irr_IVideoDriver_drawIndexedTriangleList2(irr_IVideoDriver* driver, const irr_S3DVertex2TCoords* vertices,
+			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+{
+    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_2TCOORDS, EPT_TRIANGLES, EIT_16BIT);
+};
+
+void irr_IVideoDriver_drawIndexedTriangleList3(irr_IVideoDriver* driver, const irr_S3DVertexTangents* vertices,
+			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+{
+    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_TANGENTS, EPT_TRIANGLES, EIT_16BIT);
+};
+
+void irr_IVideoDriver_drawIndexedTriangleFan(irr_IVideoDriver* driver, const irr_S3DVertex* vertices,
+			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+{
+    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_STANDARD, EPT_TRIANGLE_FAN, EIT_16BIT);
+};
+
+void irr_IVideoDriver_drawIndexedTriangleFan2(irr_IVideoDriver* driver, const irr_S3DVertex2TCoords* vertices,
+			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+{
+    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_2TCOORDS, EPT_TRIANGLE_FAN, EIT_16BIT);
+};
+
+void irr_IVideoDriver_drawIndexedTriangleFan3(irr_IVideoDriver* driver, const irr_S3DVertexTangents* vertices,
+			unsigned int  vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+{
+    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_TANGENTS, EPT_TRIANGLE_FAN, EIT_16BIT);
+};
 
 CIRRLICHT_API void irr_IVideoDriver_setFog(irr_IVideoDriver* driver, irr_SColor color={0,255,255,255}, E_FOG_TYPE fogType=EFT_FOG_LINEAR, float start=50.0f, float end=100.0f, float density=0.01f, bool pixelFog=false, bool rangeFog=false);
 CIRRLICHT_API void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor* color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog);
@@ -214,8 +273,13 @@ CIRRLICHT_API unsigned int irr_IVideoDriver_getMaximalPrimitiveCount(irr_IVideoD
 CIRRLICHT_API void irr_IVideoDriver_setTextureCreationFlag(irr_IVideoDriver* driver, E_TEXTURE_CREATION_FLAG flag, bool enabled=true);
 CIRRLICHT_API bool irr_IVideoDriver_getTextureCreationFlag(irr_IVideoDriver* driver, E_TEXTURE_CREATION_FLAG flag);
 CIRRLICHT_API irr_IImage* irr_IVideoDriver_createImageFromFile(irr_IVideoDriver* driver, const char* file);
+irr_IImage* irr_IVideoDriver_createImageFromReadFile(irr_IVideoDriver* driver, irr_IReadFile* file);
+
+
 CIRRLICHT_API bool irr_IVideoDriver_writeImageToFile(irr_IVideoDriver* driver, irr_IImage* image, const char* filename, unsigned int param = 0);
-//CIRRLICHT_API bool irr_IVideoDriver_writeImageToFile(irr_IVideoDriver* driver, irr_IImage* image, irr_IWriteFile* file, unsigned int param =0);
+bool irr_IVideoDriver_writeImageToFile(irr_IVideoDriver* driver, irr_IImage* image, irr_IWriteFile* file, unsigned int param =0);
+
+
 CIRRLICHT_API irr_IImage* irr_IVideoDriver_createImageFromData(irr_IVideoDriver* driver, ECOLOR_FORMAT format, irr_dimension2du size, void *data, bool ownForeignMemory=false, bool deleteMemory = true);
 CIRRLICHT_API irr_IImage* irr_IVideoDriver_createEmptyImage(irr_IVideoDriver* driver, ECOLOR_FORMAT format, irr_dimension2du size);
 CIRRLICHT_API irr_IImage* irr_IVideoDriver_createImage(irr_IVideoDriver* driver, irr_ITexture* texture, irr_vector2di pos, irr_dimension2du size);

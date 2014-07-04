@@ -10,6 +10,11 @@ CIrrlicht is the C Bindings for Irrlicht Engine which makes it possible to use I
 
 It is used as a backend for [DIrrlicht](https://github.com/danyalzia/DIrrlicht)
 
+Status
+------
+
+It's in very early beta stage. Several functions still aren't wrapped. It is subject to API changes.
+
 Installation
 ------------
 
