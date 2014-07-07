@@ -135,7 +135,7 @@ bool irr_IrrlichtDevice_isFullscreen(irr_IrrlichtDevice* device)
 
 ECOLOR_FORMAT irr_IrrlichtDevice_getColorFormat(irr_IrrlichtDevice* device)
 {
-    return *reinterpret_cast<ECOLOR_FORMAT*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getColorFormat());
+    return ECOLOR_FORMAT(reinterpret_cast<irr::IrrlichtDevice*>(device)->getColorFormat());
 }
 
 void irr_IrrlichtDevice_closeDevice(irr_IrrlichtDevice* device)
@@ -198,6 +198,11 @@ irr_vector2di irr_IrrlichtDevice_getWindowPosition(irr_IrrlichtDevice* device)
     irr::core::vector2di temp = reinterpret_cast<irr::IrrlichtDevice*>(device)->getWindowPosition();
     irr_vector2di pos = {temp.X, temp.Y};
     return pos;
+}
+
+bool irr_IrrlichtDevice_activateJoysticks(irr_IrrlichtDevice* device, irr_array* joystickInfo)
+{
+	return reinterpret_cast<irr::IrrlichtDevice*>(device)->activateJoysticks(reinterpret_cast<irr::core::array<irr::SJoystickInfo> &>(joystickInfo->data));
 }
 
 bool irr_IrrlichtDevice_setGammaRamp(irr_IrrlichtDevice* device, float red, float green, float blue, float relativebrightness, float relativecontrast)

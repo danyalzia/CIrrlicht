@@ -205,53 +205,100 @@ bool irr_IVideoDriver_setMultipleRenderTarget(irr_IVideoDriver* driver, irr_arra
 CIRRLICHT_API void irr_IVideoDriver_setViewPort(irr_IVideoDriver* driver, irr_recti area);
 CIRRLICHT_API irr_recti irr_IVideoDriver_getViewPort(irr_IVideoDriver* driver);
 
-void irr_IVideoDriver_drawVertexPrimitiveList(irr_IVideoDriver* driver, const void* vertices, unsigned int vertexCount,
+CIRRLICHT_API void irr_IVideoDriver_drawVertexPrimitiveList(irr_IVideoDriver* driver, const void* vertices, unsigned int vertexCount,
 				const void* indexList, unsigned int primCount,
 				E_VERTEX_TYPE vType=EVT_STANDARD,
                 E_PRIMITIVE_TYPE pType=EPT_TRIANGLES,
 				E_INDEX_TYPE iType=EIT_16BIT);
 
-void irr_IVideoDriver_draw2DVertexPrimitiveList(irr_IVideoDriver* driver, const void* vertices, unsigned int vertexCount,
+CIRRLICHT_API void irr_IVideoDriver_draw2DVertexPrimitiveList(irr_IVideoDriver* driver, const void* vertices, unsigned int vertexCount,
 				const void* indexList, unsigned int primCount,
 				E_VERTEX_TYPE vType=EVT_STANDARD,
 				E_PRIMITIVE_TYPE pType=EPT_TRIANGLES,
 				E_INDEX_TYPE iType=EIT_16BIT);
 
-void irr_IVideoDriver_drawIndexedTriangleList(irr_IVideoDriver* driver, const irr_S3DVertex* vertices,
-			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
-{
-    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_STANDARD, EPT_TRIANGLES, EIT_16BIT);
-};
+//void irr_IVideoDriver_drawIndexedTriangleList_1(irr_IVideoDriver* driver, const irr_S3DVertex* vertices,
+//			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+//{
+//    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_STANDARD, EPT_TRIANGLES, EIT_16BIT);
+//};
+//
+//void irr_IVideoDriver_drawIndexedTriangleList_2(irr_IVideoDriver* driver, const irr_S3DVertex2TCoords* vertices,
+//			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+//{
+//    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_2TCOORDS, EPT_TRIANGLES, EIT_16BIT);
+//};
+//
+//void irr_IVideoDriver_drawIndexedTriangleList_3(irr_IVideoDriver* driver, const irr_S3DVertexTangents* vertices,
+//			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+//{
+//    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_TANGENTS, EPT_TRIANGLES, EIT_16BIT);
+//};
+//
+//void irr_IVideoDriver_drawIndexedTriangleFan_1(irr_IVideoDriver* driver, const irr_S3DVertex* vertices,
+//			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+//{
+//    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_STANDARD, EPT_TRIANGLE_FAN, EIT_16BIT);
+//};
+//
+//void irr_IVideoDriver_drawIndexedTriangleFan_2(irr_IVideoDriver* driver, const irr_S3DVertex2TCoords* vertices,
+//			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+//{
+//    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_2TCOORDS, EPT_TRIANGLE_FAN, EIT_16BIT);
+//};
+//
+//void irr_IVideoDriver_drawIndexedTriangleFan_3(irr_IVideoDriver* driver, const irr_S3DVertexTangents* vertices,
+//			unsigned int  vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
+//{
+//    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_TANGENTS, EPT_TRIANGLE_FAN, EIT_16BIT);
+//};
 
-void irr_IVideoDriver_drawIndexedTriangleList2(irr_IVideoDriver* driver, const irr_S3DVertex2TCoords* vertices,
-			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
-{
-    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_2TCOORDS, EPT_TRIANGLES, EIT_16BIT);
-};
-
-void irr_IVideoDriver_drawIndexedTriangleList3(irr_IVideoDriver* driver, const irr_S3DVertexTangents* vertices,
-			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
-{
-    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_TANGENTS, EPT_TRIANGLES, EIT_16BIT);
-};
-
-void irr_IVideoDriver_drawIndexedTriangleFan(irr_IVideoDriver* driver, const irr_S3DVertex* vertices,
-			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
-{
-    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_STANDARD, EPT_TRIANGLE_FAN, EIT_16BIT);
-};
-
-void irr_IVideoDriver_drawIndexedTriangleFan2(irr_IVideoDriver* driver, const irr_S3DVertex2TCoords* vertices,
-			unsigned int vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
-{
-    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_2TCOORDS, EPT_TRIANGLE_FAN, EIT_16BIT);
-};
-
-void irr_IVideoDriver_drawIndexedTriangleFan3(irr_IVideoDriver* driver, const irr_S3DVertexTangents* vertices,
-			unsigned int  vertexCount, const unsigned short int* indexList, unsigned int triangleCount)
-{
-    irr_IVideoDriver_drawVertexPrimitiveList(driver, vertices, vertexCount, indexList, triangleCount, EVT_TANGENTS, EPT_TRIANGLE_FAN, EIT_16BIT);
-};
+CIRRLICHT_API void irr_IVideoDriver_draw3DLine(irr_IVideoDriver* driver, irr_vector3df start, irr_vector3df end, irr_SColor color = {255,255,255,255});
+CIRRLICHT_API void irr_IVideoDriver_draw3DTriangle(irr_IVideoDriver* driver, irr_triangle3df triangle, irr_SColor color = {255,255,255,255});
+CIRRLICHT_API void irr_IVideoDriver_draw3DBox(irr_IVideoDriver* driver, irr_aabbox3df box, irr_SColor color = {255,255,255,255});
+CIRRLICHT_API void irr_IVideoDriver_draw2DImage1(irr_IVideoDriver* driver, const irr_ITexture* texture, irr_vector2di destPos);
+CIRRLICHT_API void irr_IVideoDriver_draw2DImage2(irr_IVideoDriver* driver, const irr_ITexture* texture, irr_vector2di destPos, irr_recti sourceRect, const irr_recti* clipRect=0, irr_SColor color={255,255,255,255}, bool useAlphaChannelOfTexture=false);
+CIRRLICHT_API void irr_IVideoDriver_draw2DImageBatch(irr_IVideoDriver* driver, const irr_ITexture* texture,
+				irr_vector2di pos,
+				irr_array* sourceRects,
+				irr_array* indices,
+				int kerningWidth=0,
+				const irr_recti* clipRect=0,
+				irr_SColor color={255,255,255,255},
+				bool useAlphaChannelOfTexture=false);
+CIRRLICHT_API void irr_IVideoDriver_draw2DImageBatch2(irr_IVideoDriver* driver, const irr_ITexture* texture,
+				irr_array* positions,
+				irr_array* sourceRects,
+				irr_recti* clipRect=0,
+				irr_SColor color={255,255,255,255},
+				bool useAlphaChannelOfTexture=false);
+CIRRLICHT_API void irr_IVideoDriver_draw2DImage3(irr_IVideoDriver* driver, const irr_ITexture* texture, irr_recti destRect,
+			irr_recti sourceRect, const irr_recti* clipRect =0,
+			const irr_SColor* colors=0, bool useAlphaChannelOfTexture=false);
+CIRRLICHT_API void irr_IVideoDriver_draw2DRectangle(irr_IVideoDriver* driver, irr_SColor color, irr_recti pos,
+			const irr_recti* clip =0);
+CIRRLICHT_API void irr_IVideoDriver_draw2DRectangle2(irr_IVideoDriver* driver, irr_recti pos,
+				irr_SColor colorLeftUp, irr_SColor colorRightUp,
+				irr_SColor colorLeftDown, irr_SColor colorRightDown,
+				const irr_recti* clip =0);
+CIRRLICHT_API void irr_IVideoDriver_draw2DRectangleOutline(irr_IVideoDriver* driver, irr_recti pos,
+				irr_SColor color={255,255,255,255});
+CIRRLICHT_API void irr_IVideoDriver_draw2DLine(irr_IVideoDriver* driver, irr_vector2di start,
+					irr_vector2di end,
+					irr_SColor color={255,255,255,255});
+CIRRLICHT_API void irr_IVideoDriver_drawPixel(irr_IVideoDriver* driver, unsigned int x, unsigned int y, irr_SColor color);
+CIRRLICHT_API void irr_IVideoDriver_draw2DPolygon(irr_IVideoDriver* driver, irr_vector2di center,
+				float radius,
+				irr_SColor color={100,255,255,255},
+				int vertexCount=10);
+CIRRLICHT_API void irr_IVideoDriver_drawStencilShadowVolume(irr_IVideoDriver* driver, irr_array* triangles, bool zfail=true, unsigned int debugDataVisible=0);
+CIRRLICHT_API void irr_IVideoDriver_drawStencilShadow(irr_IVideoDriver* driver, bool clearStencilBuffer=false,
+			irr_SColor leftUpEdge = {255,0,0,0},
+			irr_SColor rightUpEdge = {255,0,0,0},
+			irr_SColor leftDownEdge = {255,0,0,0},
+			irr_SColor rightDownEdge = {255,0,0,0});
+CIRRLICHT_API void irr_IVideoDriver_drawMeshBuffer(irr_IVideoDriver* driver, irr_IMeshBuffer* mb);
+CIRRLICHT_API void irr_IVideoDriver_drawMeshBufferNormals(irr_IVideoDriver* driver, irr_IMeshBuffer* mb, float length=10.f, irr_SColor color={0,0,0,0});
 
 CIRRLICHT_API void irr_IVideoDriver_setFog(irr_IVideoDriver* driver, irr_SColor color={0,255,255,255}, E_FOG_TYPE fogType=EFT_FOG_LINEAR, float start=50.0f, float end=100.0f, float density=0.01f, bool pixelFog=false, bool rangeFog=false);
 CIRRLICHT_API void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor* color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog);

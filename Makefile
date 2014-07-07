@@ -2,7 +2,7 @@ VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
 
-CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshMD2.o src/IMeshSceneNode.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o src/IReadFile.o src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IImageWriter.o src/IImageLoader.o src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o   src/IVideoDriver.o src/IEventReceiver.o  
+CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshMD2.o src/IMeshSceneNode.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o src/IReadFile.o src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IImageWriter.o src/IImageLoader.o src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o src/IVideoDriver.o src/IEventReceiver.o  
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 

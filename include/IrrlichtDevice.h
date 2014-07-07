@@ -219,10 +219,6 @@ enum EKEY_CODE
 struct irr_SEvent;
 typedef struct irr_SEvent irr_SEvent;
 
-CIRRLICHT_API irr_IEventReceiver* irr_IEventReceiver_init();
-CIRRLICHT_API bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver);
-CIRRLICHT_API bool irr_IEventReceiver_IsKeyDown(irr_IEventReceiver* receiver, EKEY_CODE keyCode);
-
 enum E_DEVICE_TYPE
 {
     EIDT_WIN32,
@@ -269,7 +265,7 @@ CIRRLICHT_API void irr_IrrlichtDevice_minimizeWindow(irr_IrrlichtDevice* device)
 CIRRLICHT_API void irr_IrrlichtDevice_maximizeWindow(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_restoreWindow(irr_IrrlichtDevice* device);
 CIRRLICHT_API irr_vector2di irr_IrrlichtDevice_getWindowPosition(irr_IrrlichtDevice* device);
-//bool activateJoysticks
+CIRRLICHT_API bool irr_IrrlichtDevice_activateJoysticks(irr_IrrlichtDevice* device, irr_array* joystickInfo);
 CIRRLICHT_API bool irr_IrrlichtDevice_setGammaRamp(irr_IrrlichtDevice* device, float red, float green, float blue, float relativebrightness, float relativecontrast);
 CIRRLICHT_API bool irr_IrrlichtDevice_getGammaRamp(irr_IrrlichtDevice* device, float& red, float& green, float& blue, float& relativebrightness, float& relativecontrast);
 CIRRLICHT_API void irr_IrrlichtDevice_setDoubleClickTime(irr_IrrlichtDevice* device, unsigned timeMs);

@@ -287,8 +287,8 @@ CIRRLICHT_API irr_IMetaTriangleSelector* irr_ISceneManager_createMetaTriangleSel
 CIRRLICHT_API irr_ITriangleSelector* irr_ISceneManager_createTerrainTriangleSelector(irr_ISceneManager* smgr,
         irr_ITerrainSceneNode* node, int LOD=0);
 CIRRLICHT_API void irr_ISceneManager_addExternalMeshLoader(irr_ISceneManager* smgr, irr_IMeshLoader* externalLoader);
-CIRRLICHT_API int irr_ISceneManager_getMeshLoaderCount(irr_ISceneManager* smgr);
-CIRRLICHT_API irr_IMeshLoader* irr_ISceneManager_getMeshLoader(irr_ISceneManager* smgr, int index);
+CIRRLICHT_API unsigned int irr_ISceneManager_getMeshLoaderCount(irr_ISceneManager* smgr);
+CIRRLICHT_API irr_IMeshLoader* irr_ISceneManager_getMeshLoader(irr_ISceneManager* smgr, unsigned int index);
 CIRRLICHT_API void irr_ISceneManager_addExternalSceneLoader(irr_ISceneManager* smgr, irr_ISceneLoader* externalLoader);
 CIRRLICHT_API unsigned int irr_ISceneManager_getSceneLoaderCount(irr_ISceneManager* smgr);
 CIRRLICHT_API irr_ISceneLoader* irr_ISceneManager_getSceneLoader(irr_ISceneManager* smgr, unsigned int index);

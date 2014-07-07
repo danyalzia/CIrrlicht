@@ -217,7 +217,6 @@ bool irr_IVideoDriver_setRenderTargetByEnum(irr_IVideoDriver* driver, E_RENDER_T
     return reinterpret_cast<irr::video::IVideoDriver*>(driver)->setRenderTarget(irr::video::E_RENDER_TARGET(target), clearTarget, clearZBuffer, irr::video::SColor(color.a, color.b, color.g, color.r));
 }
 
-
 void irr_IVideoDriver_setViewPort(irr_IVideoDriver* driver, irr_recti area)
 {
     irr::core::recti temp = irr::core::recti(area.x, area.y, area.x1, area.y1);
@@ -231,6 +230,107 @@ irr_recti irr_IVideoDriver_getViewPort(irr_IVideoDriver* driver)
     return size;
 }
 
+void irr_IVideoDriver_draw3DLine(irr_IVideoDriver* driver, irr_vector3df start, irr_vector3df end, irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw3DLine(irr::core::vector3df(start.x, start.y, start.z), irr::core::vector3df(end.x, end.y, end.z), irr::video::SColor(color.a, color.b, color.g, color.r));
+}
+
+void irr_IVideoDriver_draw3DTriangle(irr_IVideoDriver* driver, irr_triangle3df triangle, irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw3DTriangle(irr::core::triangle3df(irr::core::vector3df(triangle.pointA.x, triangle.pointA.y, triangle.pointA.z), irr::core::vector3df(triangle.pointB.x, triangle.pointB.y, triangle.pointB.z), irr::core::vector3df(triangle.pointC.x, triangle.pointC.y, triangle.pointC.z)), irr::video::SColor(color.a, color.b, color.g, color.r));
+}
+
+void irr_IVideoDriver_draw3DBox(irr_IVideoDriver* driver, irr_aabbox3df box, irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw3DBox(irr::core::aabbox3df(irr::core::vector3df(box.MaxEdge.x, box.MaxEdge.y, box.MaxEdge.z), irr::core::vector3df(box.MinEdge.x, box.MinEdge.y, box.MinEdge.z)), irr::video::SColor(color.a, color.b, color.g, color.r));
+}
+
+void irr_IVideoDriver_draw2DImage1(irr_IVideoDriver* driver, const irr_ITexture* texture, irr_vector2di destPos)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw2DImage(reinterpret_cast<const irr::video::ITexture*>(texture), irr::core::vector2di(destPos.x, destPos.y));
+}
+
+//void irr_IVideoDriver_draw2DImage2(irr_IVideoDriver* driver, const irr_ITexture* texture, irr_vector2di destPos, irr_recti sourceRect, const irr_recti* clipRect, irr_SColor color, bool useAlphaChannelOfTexture)
+//{
+//    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw2DImage(reinterpret_cast<const irr::video::ITexture*>(texture), irr::core::vector2di(destPos.x, destPos.y), irr::core::recti(sourceRect.x, sourceRect.y, sourceRect.x1, sourceRect.y1), irr::core::recti(clipRect->x, clipRect->y, clipRect->x1, clipRect->y1), irr::video::SColor(color.a, color.b, color.g, color.r), useAlphaChannelOfTexture);
+//}
+
+void irr_IVideoDriver_draw2DImageBatch(irr_IVideoDriver* driver, const irr_ITexture* texture,
+				irr_vector2di pos,
+				irr_array* sourceRects,
+				irr_array* indices,
+				int kerningWidth,
+				const irr_recti* clipRect,
+				irr_SColor color,
+				bool useAlphaChannelOfTexture);
+void irr_IVideoDriver_draw2DImageBatch(irr_IVideoDriver* driver, const irr_ITexture* texture,
+				irr_array* positions,
+				irr_array* sourceRects,
+				irr_recti* clipRect,
+				irr_SColor color,
+				bool useAlphaChannelOfTexture);
+void irr_IVideoDriver_draw2DImage3(irr_IVideoDriver* driver, const irr_ITexture* texture, irr_recti destRect,
+			irr_recti sourceRect, const irr_recti* clipRect,
+			const irr_SColor* colors, bool useAlphaChannelOfTexture);
+void irr_IVideoDriver_draw2DRectangle1(irr_IVideoDriver* driver, irr_SColor color, irr_recti pos,
+			const irr_recti* clip);
+//void irr_IVideoDriver_draw2DRectangle2(irr_IVideoDriver* driver, irr_recti pos,
+//				irr_SColor colorLeftUp, irr_SColor colorRightUp,
+//				irr_SColor colorLeftDown, irr_SColor colorRightDown,
+//				const irr_recti* clip)
+//{
+//    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw2DRectangle(irr::core::recti(pos.x, pos.y, pos.x1, pos.y1), irr::video::SColor(colorLeftUp.a, colorLeftUp.b, colorLeftUp.g, colorLeftUp.r), irr::video::SColor(colorRightUp.a, colorRightUp.b, colorRightUp.g, colorRightUp.r), irr::video::SColor(colorLeftDown.a, colorLeftDown.b, colorLeftDown.g, colorLeftDown.r), irr::video::SColor(colorRightDown.a, colorRightDown.b, colorRightDown.g, colorRightDown.r), irr::core::recti(clip->x, clip->y, clip->x1, clip->y1));
+//}
+
+void irr_IVideoDriver_draw2DRectangleOutline(irr_IVideoDriver* driver, irr_recti pos,
+				irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw2DRectangleOutline(irr::core::recti(pos.x, pos.y, pos.x1, pos.y1), irr::video::SColor(color.a, color.b, color.g, color.r));
+}
+
+void irr_IVideoDriver_draw2DLine(irr_IVideoDriver* driver, irr_vector2di start,
+					irr_vector2di end,
+					irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw2DLine(irr::core::vector2di(start.x, start.y), irr::core::vector2di(end.x, end.y), irr::video::SColor(color.a, color.b, color.g, color.r));
+}
+
+void irr_IVideoDriver_drawPixel(irr_IVideoDriver* driver, unsigned int x, unsigned int y, irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->drawPixel(x, y, irr::video::SColor(color.a, color.b, color.g, color.r));
+}
+
+void irr_IVideoDriver_draw2DPolygon(irr_IVideoDriver* driver, irr_vector2di center,
+				float radius,
+				irr_SColor color,
+				int vertexCount)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->draw2DPolygon(irr::core::vector2di(center.x, center.y), radius, irr::video::SColor(color.a, color.b, color.g, color.r), vertexCount);
+}
+
+void irr_IVideoDriver_drawStencilShadowVolume(irr_IVideoDriver* driver, irr_array* triangles, bool zfail, unsigned int debugDataVisible)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->drawStencilShadowVolume(reinterpret_cast<irr::core::array<irr::core::vector3df> &>(triangles->data), zfail, debugDataVisible);
+}
+
+void irr_IVideoDriver_drawStencilShadow(irr_IVideoDriver* driver, bool clearStencilBuffer,
+			irr_SColor leftUpEdge,
+			irr_SColor rightUpEdge,
+			irr_SColor leftDownEdge,
+			irr_SColor rightDownEdge)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->drawStencilShadow(clearStencilBuffer, irr::video::SColor(leftUpEdge.a, leftUpEdge.b, leftUpEdge.g, leftUpEdge.r),  irr::video::SColor(rightUpEdge.a, rightUpEdge.b, rightUpEdge.g, rightUpEdge.r),  irr::video::SColor(leftDownEdge.a, leftDownEdge.b, leftDownEdge.g, leftDownEdge.r),  irr::video::SColor(rightDownEdge.a, rightDownEdge.b, rightDownEdge.g, rightDownEdge.r));
+}
+
+void irr_IVideoDriver_drawMeshBuffer(irr_IVideoDriver* driver, irr_IMeshBuffer* mb)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->drawMeshBuffer(reinterpret_cast<irr::scene::IMeshBuffer*>(mb));
+}
+
+void irr_IVideoDriver_drawMeshBufferNormals(irr_IVideoDriver* driver, irr_IMeshBuffer* mb, float length, irr_SColor color)
+{
+    reinterpret_cast<irr::video::IVideoDriver*>(driver)->drawMeshBufferNormals(reinterpret_cast<irr::scene::IMeshBuffer*>(mb), length, irr::video::SColor(color.a, color.b, color.g, color.r));
+}
 
 void irr_IVideoDriver_setFog(irr_IVideoDriver* driver, irr_SColor color, E_FOG_TYPE fogType, float start, float end, float density, bool pixelFog, bool rangeFog)
 {

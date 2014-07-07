@@ -456,12 +456,12 @@ void irr_ISceneManager_addExternalMeshLoader(irr_ISceneManager* smgr, irr_IMeshL
     reinterpret_cast<irr::scene::ISceneManager*>(smgr)->addExternalMeshLoader(reinterpret_cast<irr::scene::IMeshLoader*>(externalLoader));
 }
 
-int irr_ISceneManager_getMeshLoaderCount(irr_ISceneManager* smgr)
+unsigned int irr_ISceneManager_getMeshLoaderCount(irr_ISceneManager* smgr)
 {
     return reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMeshLoaderCount();
 }
 
-irr_IMeshLoader* irr_ISceneManager_getMeshLoader(irr_ISceneManager* smgr, int index)
+irr_IMeshLoader* irr_ISceneManager_getMeshLoader(irr_ISceneManager* smgr, unsigned int index)
 {
 	return reinterpret_cast<irr_IMeshLoader*>(reinterpret_cast<irr_ISceneManager*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMeshLoader(index)));
 }

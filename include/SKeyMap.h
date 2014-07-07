@@ -24,15 +24,31 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IEVENTRECEIVER_
-#define _CIRRLICHT_IEVENTRECEIVER_
+#ifndef _CIRRLICHT_SKEYMAP_
+#define _CIRRLICHT_SKEYMAP_
 
-#include "CompileConfig.h"
+#include "IrrlichtDevice.h"
 
-typedef struct irr_IEventReceiver irr_IEventReceiver;
+//! enumeration for key actions. Used for example in the FPS Camera.
+enum EKEY_ACTION
+{
+	EKA_MOVE_FORWARD = 0,
+	EKA_MOVE_BACKWARD,
+	EKA_STRAFE_LEFT,
+	EKA_STRAFE_RIGHT,
+	EKA_JUMP_UP,
+	EKA_CROUCH,
+	EKA_COUNT,
 
-struct irr_SEvent;
+	//! This value is not used. It only forces this enumeration to compile in 32 bit.
+	EKA_FORCE_32BIT = 0x7fffffff
+};
+	
+typedef struct
+{
+    EKEY_ACTION Action;
+    EKEY_CODE KeyCode;
+} irr_SKeyMap;
 
-CIRRLICHT_API bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, const irr_SEvent* event);
 
-#endif // _CIRRLICHT_IEVENTRECEIVER_
+#endif // _CIRRLICHT_SKEYMAP_

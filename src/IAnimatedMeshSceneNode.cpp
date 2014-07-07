@@ -72,7 +72,7 @@ void irr_IAnimatedMeshSceneNode_setCurrentFrame(irr_IAnimatedMeshSceneNode* node
     reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setCurrentFrame(frame);
 }
 
-void irr_IAnimatedMeshSceneNode_setFrameLoop(irr_IAnimatedMeshSceneNode* node, int begin, int end)
+bool irr_IAnimatedMeshSceneNode_setFrameLoop(irr_IAnimatedMeshSceneNode* node, int begin, int end)
 {
     reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setFrameLoop(begin, end);
 }
