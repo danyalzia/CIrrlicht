@@ -5,8 +5,8 @@ compiler:
   - clang
 
 before_script:
-  - sudo svn checkout http://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
-  - cd irrlicht/source/irrlicht/
+  - sudo svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
+  - cd irrlicht/source/Irrlicht/
   - ./make shared && sudo make install
   
 script: ./make sharedlib
