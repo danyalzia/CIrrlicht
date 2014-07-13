@@ -5,6 +5,7 @@ compiler:
   - clang
 
 before_script:
+  - sudo apt-get install libx11-dev
   - sudo svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
   - cd irrlicht/source/Irrlicht/
   - sudo make sharedlib && sudo make install
