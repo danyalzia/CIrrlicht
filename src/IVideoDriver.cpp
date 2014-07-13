@@ -202,6 +202,11 @@ void irr_IVideoDriver_makeColorKeyTexture(irr_IVideoDriver* driver, irr_ITexture
     reinterpret_cast<irr::video::IVideoDriver*>(driver)->makeColorKeyTexture(reinterpret_cast<irr::video::ITexture*>(texture), irr::video::SColor(color.a, color.b, color.g, color.r), zeroTexels);
 }
 
+void irr_IVideoDriver_makeColorKeyTexture2(irr_IVideoDriver* driver, irr_ITexture* texture, irr_vector2di colorKeyPixelPos, bool zeroTexels)
+{
+	reinterpret_cast<irr::video::IVideoDriver*>(driver)->makeColorKeyTexture(reinterpret_cast<irr::video::ITexture*>(texture), irr::core::vector2di(colorKeyPixelPos.x, colorKeyPixelPos.y), zeroTexels);
+}
+
 void irr_IVideoDriver_makeNormalMapTexture(irr_IVideoDriver* driver, irr_ITexture* texture, float amplitude)
 {
     reinterpret_cast<irr::video::IVideoDriver*>(driver)->makeColorKeyTexture(reinterpret_cast<irr::video::ITexture*>(texture), amplitude);

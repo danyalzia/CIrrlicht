@@ -26,8 +26,12 @@
 
 #include <include/IEventReceiver.h>
 #include "IEventReceiver.h"
+#include "assert.h"
+#include "ConvertEvent.h"
 
-bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, const irr_SEvent* event)
+
+bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, irr_SEvent event)
 {
-	return reinterpret_cast<irr::IEventReceiver*>(receiver)->OnEvent(reinterpret_cast<const irr::SEvent&>(*receiver));
+	assert(receiver != 0);
+	return reinterpret_cast<irr::IEventReceiver*>(receiver)->OnEvent(convertEvent(event));
 }

@@ -27,6 +27,8 @@
 #include <include/irrlicht.h>
 #include "core.h"
 #include "IrrlichtDevice.h"
+#include "assert.h"
+#include "ConvertEvent.h"
 
 irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync, irr_IEventReceiver* receiver)
 {
@@ -155,12 +157,14 @@ void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventR
 
 irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device)
 {
-    return reinterpret_cast<irr_IEventReceiver*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getEventReceiver());
+    auto receiver = reinterpret_cast<irr_IEventReceiver*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getEventReceiver());
+	assert(receiver != 0);
+	return receiver;
 }
 
-bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent* event)
+bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent event)
 {
-    return reinterpret_cast<irr::IrrlichtDevice*>(device)->postEventFromUser(*reinterpret_cast<irr::SEvent*>(event));
+    return reinterpret_cast<irr::IrrlichtDevice*>(device)->postEventFromUser(convertEvent(event));
 }
 
 void irr_IrrlichtDevice_setInputReceivingSceneManager(irr_IrrlichtDevice* device, irr_ISceneManager* smgr)
@@ -173,9 +177,9 @@ void irr_IrrlichtDevice_setResizable(irr_IrrlichtDevice* device, bool value)
     reinterpret_cast<irr::IrrlichtDevice*>(device)->setResizable(value);
 }
 
-void irr_IrrlichtDevice_setWindowSize(irr_IrrlichtDevice* device, irr_dimension2du* size)
+void irr_IrrlichtDevice_setWindowSize(irr_IrrlichtDevice* device, irr_dimension2du size)
 {
-    reinterpret_cast<irr::IrrlichtDevice*>(device)->setWindowSize(irr::core::dimension2du(size->Width, size->Height));
+    reinterpret_cast<irr::IrrlichtDevice*>(device)->setWindowSize(irr::core::dimension2du(size.Width, size.Height));
 }
 
 void irr_IrrlichtDevice_minimizeWindow(irr_IrrlichtDevice* device)

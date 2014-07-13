@@ -7,6 +7,6 @@ compiler:
 before_script:
   - sudo svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
   - cd irrlicht/source/Irrlicht/
-  - make sharedlib && sudo make install
+  - sudo make sharedlib && sudo make install
   
-script: make sharedlib
+script: sudo make sharedlib

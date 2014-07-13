@@ -24,21 +24,16 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIENVIRONMENT_
-#define _CIRRLICHT_IGUIENVIRONMENT_
+#ifndef _CIRRLICHT_IRANDOMIZER_
+#define _CIRRLICHT_IRANDOMIZER_
 
-#include "core.h"
-#include "cirrlicht.h"
-#include "IVideoDriver.h"
+#include "CompileConfig.h"
 
-typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
+typedef struct irr_IRandomizer irr_IRandomizer;
 
-struct irr_IGUIStaticText;
-struct irr_IGUIImage;
+CIRRLICHT_API void irr_IRandomizer_reset(irr_IRandomizer* randomizer, int value=0x0f0f0f0f);
+CIRRLICHT_API int irr_IRandomizer_rand(irr_IRandomizer* randomizer);
+CIRRLICHT_API float irr_IRandomizer_frand(irr_IRandomizer* randomizer);
+CIRRLICHT_API int irr_IRandomizer_randMax(irr_IRandomizer* randomizer);
 
-CIRRLICHT_API irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, irr_recti rectangle, bool border=false);
-CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
-
-struct irr_SColor;
-CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
-#endif // _CIRRLICHT_IGUIENVIRONMENT_
+#endif // _CIRRLICHT_IRANDOMIZER_

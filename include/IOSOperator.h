@@ -24,21 +24,17 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIENVIRONMENT_
-#define _CIRRLICHT_IGUIENVIRONMENT_
+#ifndef _CIRRLICHT_IOSOPERATOR_
+#define _CIRRLICHT_IOSOPERATOR_
 
-#include "core.h"
-#include "cirrlicht.h"
-#include "IVideoDriver.h"
+#include "CompileConfig.h"
 
-typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
+typedef struct irr_IOSOperator irr_IOSOperator;
 
-struct irr_IGUIStaticText;
-struct irr_IGUIImage;
+CIRRLICHT_API const char* irr_IOSOperator_getOperatingSystemVersion(irr_IOSOperator* op);
+CIRRLICHT_API void irr_IOSOperator_copyToClipboard(irr_IOSOperator* op, const char* text);
+CIRRLICHT_API const char* irr_IOSOperator_getTextFromClipboard(irr_IOSOperator* op);
+CIRRLICHT_API bool irr_IOSOperator_getProcessorSpeedMHz(irr_IOSOperator* op, unsigned int* MHz);
+CIRRLICHT_API bool irr_IOSOperator_getSystemMemory(irr_IOSOperator* op, unsigned int* Total, unsigned int* Avail);
 
-CIRRLICHT_API irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, irr_recti rectangle, bool border=false);
-CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
-
-struct irr_SColor;
-CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
-#endif // _CIRRLICHT_IGUIENVIRONMENT_
+#endif // _CIRRLICHT_IOSOPERATOR_

@@ -102,6 +102,7 @@
 		<Unit filename="../include/IVideoDriver.h" />
 		<Unit filename="../include/IWriteFile.h" />
 		<Unit filename="../include/IrrlichtDevice.h" />
+		<Unit filename="../include/Keycodes.h" />
 		<Unit filename="../include/S3DVertex.h" />
 		<Unit filename="../include/SColor.h" />
 		<Unit filename="../include/SExposedVideoData.h" />

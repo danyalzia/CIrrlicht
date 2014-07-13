@@ -24,21 +24,31 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIENVIRONMENT_
-#define _CIRRLICHT_IGUIENVIRONMENT_
+#include "IOSOperator.h"
+#include <include/IOSOperator.h>
 
-#include "core.h"
-#include "cirrlicht.h"
-#include "IVideoDriver.h"
+const char* irr_IOSOperator_getOperatingSystemVersion(irr_IOSOperator* op)
+{
+	auto str = reinterpret_cast<irr::IOSOperator*>(op)->getOperatingSystemVersion();
+	return str.c_str();
+}
 
-typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
+void irr_IOSOperator_copyToClipboard(irr_IOSOperator* op, const char* text)
+{
+	reinterpret_cast<irr::IOSOperator*>(op)->copyToClipboard(text);
+}
 
-struct irr_IGUIStaticText;
-struct irr_IGUIImage;
+const char* irr_IOSOperator_getTextFromClipboard(irr_IOSOperator* op)
+{
+	return reinterpret_cast<irr::IOSOperator*>(op)->getTextFromClipboard();
+}
 
-CIRRLICHT_API irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, irr_recti rectangle, bool border=false);
-CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
+bool irr_IOSOperator_getProcessorSpeedMHz(irr_IOSOperator* op, unsigned int* MHz)
+{
+	return reinterpret_cast<irr::IOSOperator*>(op)->getProcessorSpeedMHz(MHz);
+}
 
-struct irr_SColor;
-CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
-#endif // _CIRRLICHT_IGUIENVIRONMENT_
+bool irr_IOSOperator_getSystemMemory(irr_IOSOperator* op, unsigned int* Total, unsigned int* Avail)
+{
+	return reinterpret_cast<irr::IOSOperator*>(op)->getSystemMemory(Total, Avail);
+}

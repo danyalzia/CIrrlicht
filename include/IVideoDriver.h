@@ -195,7 +195,7 @@ CIRRLICHT_API void irr_IVideoDriver_updateOcclusionQuery(irr_IVideoDriver* drive
 CIRRLICHT_API void irr_IVideoDriver_updateAllOcclusionQueries(irr_IVideoDriver* driver, bool block=true);
 CIRRLICHT_API unsigned int irr_IVideoDriver_getOcclusionQueryResult(irr_IVideoDriver* driver, irr_ISceneNode* node);
 CIRRLICHT_API void irr_IVideoDriver_makeColorKeyTexture(irr_IVideoDriver* driver, irr_ITexture* texture, irr_SColor color, bool zeroTexels = false);
-void irr_IVideoDriver_makeColorKeyTexture(irr_IVideoDriver* driver, irr_ITexture* texture, irr_vector2di colorKeyPixelPos, bool zeroTexels = false);
+CIRRLICHT_API void irr_IVideoDriver_makeColorKeyTexture2(irr_IVideoDriver* driver, irr_ITexture* texture, irr_vector2di colorKeyPixelPos, bool zeroTexels = false);
 
 CIRRLICHT_API void irr_IVideoDriver_makeNormalMapTexture(irr_IVideoDriver* driver, irr_ITexture* texture, float amplitude=1.0f);
 CIRRLICHT_API bool irr_IVideoDriver_setRenderTarget(irr_IVideoDriver* driver, irr_ITexture* texture, bool clearBackBuffer=true, bool clearZBuffer=true, irr_SColor color={0,0,0,0});

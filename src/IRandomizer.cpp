@@ -24,21 +24,25 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIENVIRONMENT_
-#define _CIRRLICHT_IGUIENVIRONMENT_
+#include "IRandomizer.h"
+#include <include/IRandomizer.h>
 
-#include "core.h"
-#include "cirrlicht.h"
-#include "IVideoDriver.h"
+void irr_IRandomizer_reset(irr_IRandomizer* randomizer, int value)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->reset(value);
+}
 
-typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
+int irr_IRandomizer_rand(irr_IRandomizer* randomizer)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->rand();
+}
 
-struct irr_IGUIStaticText;
-struct irr_IGUIImage;
+float irr_IRandomizer_frand(irr_IRandomizer* randomizer)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->frand();
+}
 
-CIRRLICHT_API irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, irr_recti rectangle, bool border=false);
-CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
-
-struct irr_SColor;
-CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
-#endif // _CIRRLICHT_IGUIENVIRONMENT_
+int irr_IRandomizer_randMax(irr_IRandomizer* randomizer)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->randMax();
+}
