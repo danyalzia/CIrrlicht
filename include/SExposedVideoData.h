@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SEXPOSEDVIDEODATA_
-#define _CIRRLICHT_SEXPOSEDVIDEODATA_
+#pragma once
 
 typedef struct irr_SExposedVideoData irr_SExposedVideoData;
-
-#endif // _CIRRLICHT_SEXPOSEDVIDEODATA_

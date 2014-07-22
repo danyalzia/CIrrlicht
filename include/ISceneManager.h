@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ISCENEMANAGER_
-#define _CIRRLICHT_ISCENEMANAGER_
+#pragma once
 
 #include "CompileConfig.h"
 #include "core.h"
@@ -322,5 +321,3 @@ CIRRLICHT_API void irr_ISceneManager_setLightManager(irr_ISceneManager* smgr, ir
 CIRRLICHT_API E_SCENE_NODE_RENDER_PASS irr_ISceneManager_getCurrentRenderPass(irr_ISceneManager* smgr);
 CIRRLICHT_API const irr_IGeometryCreator* irr_ISceneManager_getGeometryCreator(irr_ISceneManager* smgr);
 CIRRLICHT_API bool irr_ISceneManager_isCulled(irr_ISceneManager* smgr, const irr_ISceneNode* node);
-
-#endif // _CIRRLICHT_ISCENEMANAGER_

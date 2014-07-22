@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IRANDOMIZER_
-#define _CIRRLICHT_IRANDOMIZER_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -35,5 +34,3 @@ CIRRLICHT_API void irr_IRandomizer_reset(irr_IRandomizer* randomizer, int value=
 CIRRLICHT_API int irr_IRandomizer_rand(irr_IRandomizer* randomizer);
 CIRRLICHT_API float irr_IRandomizer_frand(irr_IRandomizer* randomizer);
 CIRRLICHT_API int irr_IRandomizer_randMax(irr_IRandomizer* randomizer);
-
-#endif // _CIRRLICHT_IRANDOMIZER_

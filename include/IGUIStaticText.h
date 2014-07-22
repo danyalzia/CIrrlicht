@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUISTATICTEXT_
-#define _CIRRLICHT_IGUISTATICTEXT_
+#pragma once
 
 #include "CompileConfig.h"
 #include "SColor.h"
@@ -57,5 +56,3 @@ CIRRLICHT_API int irr_IGUIStaticText_getTextWidth(irr_IGUIStaticText* txt);
 CIRRLICHT_API bool irr_IGUIStaticText_isTextRestrainedInside(irr_IGUIStaticText* txt);
 CIRRLICHT_API void irr_IGUIStaticText_setRightToLeft(irr_IGUIStaticText* txt, bool rtl);
 CIRRLICHT_API bool irr_IGUIStaticText_isRightToLeft(irr_IGUIStaticText* txt);
-
-#endif // _CIRRLICHT_GUI_

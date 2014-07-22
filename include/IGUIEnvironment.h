@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIENVIRONMENT_
-#define _CIRRLICHT_IGUIENVIRONMENT_
+#pragma once
 
 #include "core.h"
 #include "cirrlicht.h"
@@ -41,4 +40,3 @@ CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* e
 
 struct irr_SColor;
 CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);
-#endif // _CIRRLICHT_IGUIENVIRONMENT_

@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIIMAGE_
-#define _CIRRLICHT_IGUIIMAGE_
+#pragma once
 
 typedef struct irr_IGUIElement irr_IGUIElement;
-
-#endif // _CIRRLICHT_IGUIIMAGE_

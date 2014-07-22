@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ITIMER_
-#define _CIRRLICHT_ITIMER_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -74,5 +73,3 @@ CIRRLICHT_API void irr_ITimer_setSpeed(irr_ITimer* timer, float speed = 1.0f);
 CIRRLICHT_API float irr_ITimer_getSpeed(irr_ITimer* timer);
 CIRRLICHT_API bool irr_ITimer_isStopped(irr_ITimer* timer);
 CIRRLICHT_API void irr_ITimer_tick(irr_ITimer* timer);
-
-#endif // _CIRRLICHT_ITEXTURE_

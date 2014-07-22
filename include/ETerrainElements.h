@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ETERRAINELEMENTS_
-#define _CIRRLICHT_ETERRAINELEMENTS_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! enumeration for patch sizes specifying the size of patches in the TerrainSceneNode
 enum E_TERRAIN_PATCH_SIZE
@@ -50,9 +44,3 @@ enum E_TERRAIN_PATCH_SIZE
     //! patch size of 129, at most, use 8 levels of detail with this patch size.
     ETPS_129 = 129
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_ETERRAINELEMENTS_

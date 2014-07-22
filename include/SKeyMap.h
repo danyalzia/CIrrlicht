@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SKEYMAP_
-#define _CIRRLICHT_SKEYMAP_
+#pragma once
 
 #include "IrrlichtDevice.h"
 
@@ -49,6 +48,3 @@ typedef struct
     EKEY_ACTION Action;
     EKEY_CODE KeyCode;
 } irr_SKeyMap;
-
-
-#endif // _CIRRLICHT_SKEYMAP_

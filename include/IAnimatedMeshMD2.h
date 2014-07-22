@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IANIMATEDMESHMD2_
-#define _CIRRLICHT_IANIMATEDMESHMD2_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -63,5 +62,3 @@ CIRRLICHT_API void irr_IAnimatedMeshMD2_getFrameLoop(irr_IAnimatedMeshMD2* mesh,
 CIRRLICHT_API bool irr_IAnimatedMeshMD2_getFrameLoopByName(irr_IAnimatedMeshMD2* mesh, const char* name, int& outBegin, int& outEnd, int& outFPS);
 CIRRLICHT_API int irr_IAnimatedMeshMD2_getAnimationCount(irr_IAnimatedMeshMD2* mesh);
 CIRRLICHT_API const char* irr_IAnimatedMeshMD2_getAnimationName(irr_IAnimatedMeshMD2* mesh, int nr);
-
-#endif // _CIRRLICHT_IANIMATEDMESHMD2_

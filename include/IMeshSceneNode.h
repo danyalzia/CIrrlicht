@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IMESHSCENENODE_
-#define _CIRRLICHT_IMESHSCENENODE_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -39,5 +38,3 @@ CIRRLICHT_API irr_IMesh* irr_IMeshSceneNode_getMesh(irr_IMeshSceneNode* node);
 CIRRLICHT_API irr_IShadowVolumeSceneNode* irr_IMeshSceneNode_addShadowVolumeSceneNode(irr_IMeshSceneNode* node, const irr_IMesh* shadowMesh=0, int id=-1, bool zfailmethod=true, float infinity=1000.0f);
 CIRRLICHT_API void irr_IMeshSceneNode_setReadOnlyMaterials(irr_IMeshSceneNode* node, bool readonly);
 CIRRLICHT_API bool irr_IMeshSceneNode_isReadOnlyMaterials(irr_IMeshSceneNode* node);
-
-#endif // _CIRRLICHT_IMESHSCENENODE_

@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ESCENENODEANIMATORTYPES_
-#define _CIRRLICHT_ESCENENODEANIMATORTYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! An enumeration for all types of built-in scene node animators
 enum ESCENE_NODE_ANIMATOR_TYPE
@@ -71,9 +65,3 @@ enum ESCENE_NODE_ANIMATOR_TYPE
     //! This enum is never used, it only forces the compiler to compile this enumeration to 32 bit.
     ESNAT_FORCE_32_BIT = 0x7fffffff
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_ESCENENODEANIMATORTYPES_

@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IATTRIBUTESEXCHANGINGOBJECT_
-#define _CIRRLICHT_IATTRIBUTESEXCHANGINGOBJECT_
+#pragma once
 
 typedef struct irr_SAttributeReadWriteOptions irr_SAttributeReadWriteOptions;
-
-#endif // _CIRRLICHT_IATTRIBUTESEXCHANGINGOBJECT_

@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EMATERIALTYPES_
-#define _CIRRLICHT_EMATERIALTYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! Abstracted and easy to use fixed function/programmable pipeline material modes.
 enum E_MATERIAL_TYPE
@@ -217,9 +211,3 @@ enum E_MATERIAL_TYPE
     //! This value is not used. It only forces this enumeration to compile to 32 bit.
     EMT_FORCE_32BIT = 0x7fffffff
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EMATERIALTYPES_

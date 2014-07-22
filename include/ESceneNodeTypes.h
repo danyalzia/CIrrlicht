@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ESCENENODETYPES_
-#define _CIRRLICHT_ESCENENODETYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! An enumeration for all types of built-in scene nodes
 /** A scene node type is represented by a four character code
@@ -115,9 +109,3 @@ enum ESCENE_NODE_TYPE
     //! Will match with any scene node when checking types
     ESNT_ANY
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_ESCENENODETYPES_

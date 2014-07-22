@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_S3DVERTEX_
-#define _CIRRLICHT_S3DVERTEX_
+#pragma once
 
 //! Enumeration for all vertex types there are.
 enum E_VERTEX_TYPE
@@ -52,5 +51,3 @@ const char* const sBuiltInVertexTypeNames[] =
 };
 
 typedef struct irr_S3DVertex irr_S3DVertex;
-
-#endif // _CIRRLICHT_S3DVERTEX_

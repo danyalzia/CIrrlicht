@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IWRITEFILE_
-#define _CIRRLICHT_IWRITEFILE_
+#pragma once
 
 typedef struct irr_IWriteFile irr_IWriteFile;
-
-#endif // _CIRRLICHT_IWRITEFILE_

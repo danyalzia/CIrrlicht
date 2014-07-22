@@ -29,7 +29,6 @@
 #include "assert.h"
 #include "ConvertEvent.h"
 
-
 bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, irr_SEvent event)
 {
 	assert(receiver != 0);

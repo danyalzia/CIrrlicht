@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IREADFILE_
-#define _CIRRLICHT_IREADFILE_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -36,5 +35,3 @@ CIRRLICHT_API bool irr_IReadFile_seek(irr_IReadFile* file, long finalPos, bool r
 CIRRLICHT_API long irr_IReadFile_getSize(irr_IReadFile* file);
 CIRRLICHT_API long irr_IReadFile_getPos(irr_IReadFile* file);
 CIRRLICHT_API const char* irr_IReadFile_getFileName(irr_IReadFile* file);
-
-#endif // _CIRRLICHT_IREADFILE_

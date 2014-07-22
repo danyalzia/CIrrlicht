@@ -1,7 +1,4 @@
-
-
-#ifndef _CIRRLICHT_IKEYCODES_
-#define _CIRRLICHT_IKEYCODES_
+#pragma once
 
 enum EKEY_CODE
 {
@@ -161,6 +158,4 @@ enum EKEY_CODE
 
     KEY_KEY_CODES_COUNT  = 0xFF // this is not a key, but the amount of keycodes there are.
 };
-
-#endif // _CIRRLICHT_IKEYCODES_
 

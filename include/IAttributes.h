@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IATTRIBUTES_
-#define _CIRRLICHT_IATTRIBUTES_
+#pragma once
 
 typedef struct irr_IAttributes irr_IAttributes;
-
-#endif // _CIRRLICHT_IATTRIBUTES_

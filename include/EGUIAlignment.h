@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EGUIALIGNMENT_
-#define _CIRRLICHT_EGUIALIGNMENT_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 enum EGUI_ALIGNMENT
 {
@@ -53,9 +47,3 @@ const char* const GUIAlignmentNames[] =
     "scale",
     0
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EGUIALIGNMENT_

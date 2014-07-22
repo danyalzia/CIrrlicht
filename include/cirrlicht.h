@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_CIRRLICHT_
-#define _CIRRLICHT_CIRRLICHT_
+#pragma once
 
 #include "core.h"
 #include "EAttributes.h"
@@ -91,5 +90,3 @@
  * Using CIrrlicht with C is simple and straighforward.
  *
  */
-
-#endif // _CIRRLICHT_CIRRLICHT_

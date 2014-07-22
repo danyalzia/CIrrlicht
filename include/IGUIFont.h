@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUFONT_
-#define _CIRRLICHT_IGUFONT_
+#pragma once
 
 typedef struct irr_IGUIFont irr_IGUIFont;
-
-#endif // _CIRRLICHT_IGUFONT_

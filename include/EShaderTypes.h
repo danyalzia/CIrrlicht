@@ -24,15 +24,9 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ESHADERTYPES_
-#define _CIRRLICHT_ESHADERTYPES_
+#pragma once
 
 #include <include/irrTypes.h>
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
 
 //! Compile target enumeration for the addHighLevelShaderMaterial() method.
 enum E_VERTEX_SHADER_TYPE
@@ -113,9 +107,3 @@ const c8* const GEOMETRY_SHADER_TYPE_NAMES[] =
     "gs_4_0",
     0
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_ESHADERTYPES_

@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IANIMATEDMESHSCENENODE_
-#define _CIRRLICHT_IANIMATEDMESHSCENENODE_
+#pragma once
 
 #include "ISceneManager.h"
 
@@ -84,5 +83,3 @@ CIRRLICHT_API void irr_IAnimatedMeshSceneNode_setJointMode(irr_IAnimatedMeshScen
 CIRRLICHT_API void irr_IAnimatedMeshSceneNode_setTransitionTime(irr_IAnimatedMeshSceneNode* node, float Time);
 CIRRLICHT_API void irr_IAnimatedMeshSceneNode_animateJoints(irr_IAnimatedMeshSceneNode* node, bool CalculateAbsolutePositions=true);
 CIRRLICHT_API void irr_IAnimatedMeshSceneNode_setRenderFromIdentity(irr_IAnimatedMeshSceneNode* node, bool On);
-
-#endif // _CIRRLICHT_IANIMATEDMESHSCENENODE_

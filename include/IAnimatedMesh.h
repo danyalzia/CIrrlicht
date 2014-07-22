@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IANIMATEDMESH_
-#define _CIRRLICHT_IANIMATEDMESH_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -80,5 +79,3 @@ CIRRLICHT_API unsigned int irr_IAnimatedMesh_getFrameCount(irr_IAnimatedMesh* me
 CIRRLICHT_API float irr_IAnimatedMesh_getAnimationSpeed(irr_IAnimatedMesh* mesh);
 CIRRLICHT_API void irr_IAnimatedMesh_setAnimationSpeed(irr_IAnimatedMesh* mesh, float fps);
 CIRRLICHT_API irr_IMesh* irr_IAnimatedMesh_getMesh(irr_IAnimatedMesh* mesh, int frame, int detailLevel=255, int startFrameLoop=-1, int endFrameLoop=-1);
-
-#endif // _CIRRLICHT_IANIMATEDMESH_

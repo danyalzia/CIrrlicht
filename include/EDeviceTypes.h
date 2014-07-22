@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EDEVICETYPES_
-#define _CIRRLICHT_EDEVICETYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! An enum for the different device types supported by the Irrlicht Engine.
 enum E_DEVICE_TYPE
@@ -77,9 +71,3 @@ enum E_DEVICE_TYPE
     although it may not be able to render anything. */
     EIDT_BEST
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EDEVICETYPES_

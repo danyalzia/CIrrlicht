@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IIMAGELOADER_
-#define _CIRRLICHT_IIMAGELOADER_
+#pragma once
 
 typedef struct irr_IImageLoader irr_IImageLoader;
-
-#endif // _CIRRLICHT_SCOLOR_

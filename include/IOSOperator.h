@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IOSOPERATOR_
-#define _CIRRLICHT_IOSOPERATOR_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -36,5 +35,3 @@ CIRRLICHT_API void irr_IOSOperator_copyToClipboard(irr_IOSOperator* op, const ch
 CIRRLICHT_API const char* irr_IOSOperator_getTextFromClipboard(irr_IOSOperator* op);
 CIRRLICHT_API bool irr_IOSOperator_getProcessorSpeedMHz(irr_IOSOperator* op, unsigned int* MHz);
 CIRRLICHT_API bool irr_IOSOperator_getSystemMemory(irr_IOSOperator* op, unsigned int* Total, unsigned int* Avail);
-
-#endif // _CIRRLICHT_IOSOPERATOR_

@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IMESHMANIPULATOR_
-#define _CIRRLICHT_IMESHMANIPULATOR_
+#pragma once
 
 typedef struct irr_IMeshManipulator irr_IMeshManipulator;
-
-#endif // _CIRRLICHT_IMESHMANIPULATOR_

@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SCOLOR_
-#define _CIRRLICHT_SCOLOR_
+#pragma once
 
 //! An enum for the color format of textures used by the Irrlicht Engine.
 /** A color format specifies how color information is stored. */
@@ -104,5 +103,3 @@ struct irr_SColorf
     float r;
 };
 typedef struct irr_SColorf irr_SColorf;
-
-#endif // _CIRRLICHT_SCOLOR_

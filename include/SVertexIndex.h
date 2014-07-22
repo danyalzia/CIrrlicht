@@ -24,13 +24,10 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SVERTEXINDEX_
-#define _CIRRLICHT_SVERTEXINDEX_
+#pragma once
 
 enum E_INDEX_TYPE
 {
 	EIT_16BIT = 0,
 	EIT_32BIT
 };
-
-#endif // _CIRRLICHT_SVERTEXINDEX_

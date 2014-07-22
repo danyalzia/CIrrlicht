@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EGUIELEMENTTYPES_
-#define _CIRRLICHT_EGUIELEMENTTYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! List of all basic Irrlicht GUI elements.
 /** An IGUIElement returns this when calling IGUIElement::getType(); */
@@ -153,9 +147,3 @@ const char* const GUIElementTypeNames[] =
     "profiler",
     0
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EGUIELEMENTTYPES_

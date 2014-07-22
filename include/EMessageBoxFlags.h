@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EMESSAGEBOXFLAGS_
-#define _CIRRLICHT_EMESSAGEBOXFLAGS_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! enumeration for message box layout flags
 enum EMESSAGE_BOX_FLAG
@@ -50,9 +44,3 @@ enum EMESSAGE_BOX_FLAG
     //! This value is not used. It only forces this enumeration to compile in 32 bit.
     EMBF_FORCE_32BIT = 0x7fffffff
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EMESSAGEBOXFLAGS_

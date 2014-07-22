@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IIMAGEWRITER_
-#define _CIRRLICHT_IIMAGEWRITER_
+#pragma once
 
 typedef struct irr_IImageWriter irr_IImageWriter;
-
-#endif // _CIRRLICHT_IIMAGEWRITER_

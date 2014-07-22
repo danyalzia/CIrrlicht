@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUIIMAGE_
-#define _CIRRLICHT_IGUIIMAGE_
+#pragma once
 
 #include "CompileConfig.h"
 #include "SColor.h"
@@ -47,5 +46,3 @@ CIRRLICHT_API void irr_IGUIImage_setSourceRect(irr_IGUIImage* img, irr_recti sou
 CIRRLICHT_API irr_recti irr_IGUIImage_getSourceRect(irr_IGUIImage* img);
 CIRRLICHT_API void irr_IGUIImage_setDrawBounds(irr_IGUIImage* img, irr_rectf drawBoundUVs = {0.f, 0.f, 1.f, 1.f});
 CIRRLICHT_API irr_rectf irr_IGUIImage_getDrawBounds(irr_IGUIImage* img);
-
-#endif // _CIRRLICHT_IGUIIMAGE_

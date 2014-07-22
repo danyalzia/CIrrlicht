@@ -24,4 +24,6 @@
        source distribution.
 */
 
+#pragma once
+
 #define CIRRLICHT_API extern "C" __attribute__ ((__visibility__ ("default")))

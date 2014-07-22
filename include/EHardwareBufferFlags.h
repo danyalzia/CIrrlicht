@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EHARDWAREBUFFERFLAGS_
-#define _CIRRLICHT_EHARDWAREBUFFERFLAGS_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 enum E_HARDWARE_MAPPING
 {
@@ -58,9 +52,3 @@ enum E_BUFFER_TYPE
     //! Change both vertex and index mapping to the same value
     EBT_VERTEX_AND_INDEX
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EHARDWAREBUFFERFLAGS_

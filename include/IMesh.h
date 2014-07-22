@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IMESH_
-#define _CIRRLICHT_IMESH_
+#pragma once
 
 #include "CompileConfig.h"
 #include "core.h"
@@ -46,5 +45,3 @@ CIRRLICHT_API void irr_IMesh_setBoundingBox(irr_IMesh* mesh, const irr_aabbox3df
 CIRRLICHT_API void irr_IMesh_setMaterialFlag(irr_IMesh* mesh, E_MATERIAL_FLAG flag, bool newvalue);
 CIRRLICHT_API void irr_IMesh_setHardwareMappingHint(irr_IMesh* mesh, E_HARDWARE_MAPPING newMappingHint, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
 CIRRLICHT_API void irr_IMesh_setDirty(irr_IMesh* mesh, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
-
-#endif // _CIRRLICHT_IMESH_

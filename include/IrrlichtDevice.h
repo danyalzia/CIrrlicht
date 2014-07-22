@@ -25,8 +25,7 @@
 */
 
 
-#ifndef _CIRRLICHT_IRRLICHTDEVICE_
-#define _CIRRLICHT_IRRLICHTDEVICE_
+#pragma once
 
 #include "CompileConfig.h"
 #include "core.h"
@@ -115,5 +114,3 @@ CIRRLICHT_API void irr_IrrlichtDevice_clearSystemMessages(irr_IrrlichtDevice* de
 CIRRLICHT_API E_DEVICE_TYPE irr_IrrlichtDevice_getType(irr_IrrlichtDevice* device);
 CIRRLICHT_API bool irr_IrrlichtDevice_isDriverSupported(irr_IrrlichtDevice* device, E_DRIVER_TYPE type);
 CIRRLICHT_API void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device);
-
-#endif // _CIRRLICHT_IRRLICHTDEVICE_

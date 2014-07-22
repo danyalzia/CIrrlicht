@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EDEBUGSCENETYPES_
-#define _CIRRLICHT_EDEBUGSCENETYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! An enumeration for all types of debug data for built-in scene nodes (flags)
 enum E_DEBUG_SCENE_TYPE
@@ -62,9 +56,3 @@ enum E_DEBUG_SCENE_TYPE
     //! Show all debug infos
     EDS_FULL = 0xffffffff
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EDEBUGSCENETYPES_

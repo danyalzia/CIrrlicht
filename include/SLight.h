@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SLIGHT_
-#define _CIRRLICHT_SLIGHT_
+#pragma once
 
 //! Enumeration for different types of lights
 enum E_LIGHT_TYPE
@@ -51,5 +50,3 @@ const char* const LightTypeNames[] =
 };
 
 typedef struct irr_SLight irr_SLight;
-
-#endif // _CIRRLICHT_SLIGHT_

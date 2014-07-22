@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IMATERIALRENDERER_
-#define _CIRRLICHT_IMATERIALRENDERER_
+#pragma once
 
 typedef struct irr_IMaterialRenderer irr_IMaterialRenderer;
-
-#endif // _CIRRLICHT_IMATERIALRENDERER_

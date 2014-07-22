@@ -24,13 +24,8 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_CORE_
-#define _CIRRLICHT_CORE_
+#pragma once
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
 // irr::core::vector2di
 typedef struct
 {
@@ -158,9 +153,3 @@ typedef struct
 {
     void* data;
 } irr_array;
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_CORE_

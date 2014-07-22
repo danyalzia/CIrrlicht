@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGPUPROGRAMMINGSERVICES_
-#define _CIRRLICHT_IGPUPROGRAMMINGSERVICES_
+#pragma once
 
 typedef struct irr_IGPUProgrammingServices irr_IGPUProgrammingServices;
-
-#endif // _CIRRLICHT_IGPUPROGRAMMINGSERVICES_

@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EPRIMITIVETYPES_
-#define _CIRRLICHT_EPRIMITIVETYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! Enumeration for all primitive types there are.
 enum E_PRIMITIVE_TYPE
@@ -70,9 +64,3 @@ enum E_PRIMITIVE_TYPE
     //! The single vertices are expanded to quad billboards on the GPU.
     EPT_POINT_SPRITES
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EPRIMITIVETYPES_

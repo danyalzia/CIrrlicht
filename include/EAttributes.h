@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EATTRIBUTES_
-#define _CIRRLICHT_EATTRIBUTES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! Types of attributes available for IAttributes
 enum E_ATTRIBUTE_TYPE
@@ -116,9 +110,3 @@ enum E_ATTRIBUTE_TYPE
     // unknown attribute
     EAT_UNKNOWN
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EATTRIBUTES_

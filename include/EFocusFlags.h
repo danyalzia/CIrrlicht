@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EFOCUSFLAGS_
-#define _CIRRLICHT_EFOCUSFLAGS_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! Bitflags for defining the the focus behavior of the gui
 // (all names start with SET as we might add REMOVE flags later to control that behavior as well)
@@ -53,9 +47,3 @@ enum EFOCUS_FLAG
     //! When set it's possible to set the focus to disabled elements.
     EFF_CAN_FOCUS_DISABLED = 0x16
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EFOCUSFLAGS_

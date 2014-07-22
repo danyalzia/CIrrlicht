@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_SMATERIAL_
-#define _CIRRLICHT_SMATERIAL_
+#pragma once
 
 typedef struct irr_SMaterial irr_SMaterial;
-
-#endif // _CIRRLICHT_SMATERIAL_

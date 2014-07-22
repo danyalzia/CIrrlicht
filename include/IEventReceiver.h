@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IEVENTRECEIVER_
-#define _CIRRLICHT_IEVENTRECEIVER_
+#pragma once
 
 #include "CompileConfig.h"
 #include "Keycodes.h"
@@ -202,5 +201,3 @@ typedef struct irr_IEventReceiver irr_IEventReceiver;
 struct irr_SEvent;
 
 CIRRLICHT_API bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, irr_SEvent event);
-
-#endif // _CIRRLICHT_IEVENTRECEIVER_

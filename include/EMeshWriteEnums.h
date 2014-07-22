@@ -24,15 +24,9 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EMESHWRITERENUMS_
-#define _CIRRLICHT_EMESHWRITERENUMS_
+#pragma once
 
 #include <include/irrTypes.h>
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
 
 //! An enumeration for all supported types of built-in mesh writers
 /** A scene mesh writers is represented by a four character code
@@ -72,9 +66,3 @@ enum E_MESH_WRITER_FLAGS
     //! write in binary format rather than text
     EMWF_WRITE_BINARY = 0x4
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EMESHWRITERENUMS_

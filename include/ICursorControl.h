@@ -24,11 +24,8 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IGUISTATICTEXT_
-#define _CIRRLICHT_IGUISTATICTEXT_
+#pragma once
 
 typedef struct irr_ICursorControl irr_ICursorControl;
 
 CIRRLICHT_API void irr_ICursorControl_setVisible(irr_ICursorControl* cursor, bool value);
-
-#endif // _CIRRLICHT_GUI_

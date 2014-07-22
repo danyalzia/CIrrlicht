@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_EMATERIALFLAGS_
-#define _CIRRLICHT_EMATERIALFLAGS_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! Material flags
 enum E_MATERIAL_FLAG
@@ -141,9 +135,3 @@ const char* const sBuiltInMaterialTypeNames[] =
     "onetexture_blend",
     0
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_EMATERIALFLAGS_

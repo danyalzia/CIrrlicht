@@ -24,13 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ECULLINGTYPES_
-#define _CIRRLICHT_ECULLINGTYPES_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif // __cplusplus
+#pragma once
 
 //! An enumeration for all types of automatic culling for built-in scene nodes
 enum E_CULLING_TYPE
@@ -52,9 +46,3 @@ const char* const AutomaticCullingNames[] =
     "occ_query",		// occlusion query
     0
 };
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-
-#endif // _CIRRLICHT_ECULLINGTYPES_

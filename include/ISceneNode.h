@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ISCENENODE_
-#define _CIRRLICHT_ISCENENODE_
+#pragma once
 
 #include "CompileConfig.h"
 #include "core.h"
@@ -76,5 +75,3 @@ CIRRLICHT_API void irr_ISceneNode_serializeAttributes(irr_ISceneNode* node, irr_
 CIRRLICHT_API void irr_ISceneNode_deserializeAttributes(irr_ISceneNode* node, irr_IAttributes* in, irr_SAttributeReadWriteOptions* options=0);
 CIRRLICHT_API irr_ISceneNode* irr_ISceneNode_clone(irr_ISceneNode* node, irr_ISceneNode* newParent=0, irr_ISceneManager* newManager=0);
 CIRRLICHT_API irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node);
-
-#endif // _CIRRLICHT_ISCENENODE_

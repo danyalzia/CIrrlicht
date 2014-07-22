@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IVIDEODRIVER_
-#define _CIRRLICHT_IVIDEODRIVER_
+#pragma once
 
 #include "CompileConfig.h"
 #include "core.h"
@@ -356,5 +355,3 @@ CIRRLICHT_API void irr_IVideoDriver_setAmbientLight(irr_IVideoDriver* driver, ir
 CIRRLICHT_API void irr_IVideoDriver_setAllowZWriteOnTransparent(irr_IVideoDriver* driver, bool flag);
 CIRRLICHT_API irr_dimension2du irr_IVideoDriver_getMaxTextureSize(irr_IVideoDriver* driver);
 CIRRLICHT_API void irr_IVideoDriver_convertColor(irr_IVideoDriver* driver, const void* sP, ECOLOR_FORMAT sF, int sN, void* dP, ECOLOR_FORMAT dF);
-
-#endif // _CIRRLICHT_IVIDEODRIVER_

@@ -2,7 +2,7 @@ VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
 
-CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshMD2.o src/IMeshSceneNode.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o src/IReadFile.o src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IImageWriter.o src/IImageLoader.o src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o src/IVideoDriver.o src/IEventReceiver.o src/ITimer.o src/IRandomizer.o src/IOSOperator.o src/ILogger.o 
+CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshMD2.o src/IMeshSceneNode.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o src/IReadFile.o src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IImageWriter.o src/IImageLoader.o src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o src/IVideoDriver.o src/IEventReceiver.o src/ITimer.o src/IRandomizer.o src/IOSOperator.o src/ILogger.o src/ConvertEvent.o 
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
@@ -31,7 +31,7 @@ endif
 #Linux specific options
 staticlib sharedlib install: SYSTEM = Linux
 STATIC_LIB = libCIrrlicht.a
-LIB_PATH = lib/$(SYSTEM)
+LIB_PATH = lib/
 INSTALL_DIR = /usr/local/lib
 sharedlib install: SHARED_LIB = libCIrrlicht.so
 sharedlib: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm
@@ -52,6 +52,10 @@ sharedlib: $(LINKOBJ)
 $(STATIC_LIB): $(LINKOBJ)
 	$(AR) rs $@ $^
 
+install:
+	cd $(LIB_PATH)
+	mv $(SHARED_FULLNAME) /lib
+	
 staticlib staticlib_osx: $(STATIC_LIB)
 	mkdir -p $(LIB_PATH)
 	mv $^ $(LIB_PATH)

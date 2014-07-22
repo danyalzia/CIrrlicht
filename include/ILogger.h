@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IIMAGEWRITER_
-#define _CIRRLICHT_IIMAGEWRITER_
+#pragma once
 
 #include "CompileConfig.h"
 
@@ -61,5 +60,3 @@ CIRRLICHT_API void irr_ILogger_log2(irr_ILogger* logger, const char* text, const
 CIRRLICHT_API void irr_ILogger_log3(irr_ILogger* logger, const char* text, const wchar_t* hint, ELOG_LEVEL ll=ELL_INFORMATION);
 CIRRLICHT_API void irr_ILogger_log4(irr_ILogger* logger, const wchar_t* text, const wchar_t* hint, ELOG_LEVEL ll=ELL_INFORMATION);
 CIRRLICHT_API void irr_ILogger_log5(irr_ILogger* logger, const wchar_t* text, ELOG_LEVEL ll=ELL_INFORMATION);
-
-#endif // _CIRRLICHT_IIMAGEWRITER_

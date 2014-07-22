@@ -2,11 +2,11 @@ Target := HelloWorld
 Sources := main.c
 IrrlichtHome := $(HOME)/irrlicht
 CIrrlichtHome := ../..
-BinPath = ../../bin/$(SYSTEM)
+BinPath = ../../bin/
 
 USERCPPFLAGS = 
 # compiler flags such as optimization flags
-USERCXXFLAGS = -O3 -ffast-math
+USERCXXFLAGS = -O3 -ffast-math -std=c++11
 #USERCXXFLAGS = -g -Wall
 USERLDFLAGS =
 
@@ -19,7 +19,7 @@ all: all_linux
 
 # target specific settings
 all_linux all_win32 static_win32: LDFLAGS += -L$(IrrlichtHome)/lib/$(SYSTEM) 
-LDFLAGS += -L$(CIrrlichtHome)/lib/$(SYSTEM) -lCIrrlicht
+LDFLAGS += -L$(CIrrlichtHome)/lib/ -lCIrrlicht -lIrrlicht
 all_linux: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm -lXext -lX11 -lXcursor
 all_linux clean_linux: SYSTEM=Linux
 all_win32 clean_win32 static_win32: SYSTEM=Win32-gcc

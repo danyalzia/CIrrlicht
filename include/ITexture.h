@@ -24,8 +24,7 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_ITEXTURE_
-#define _CIRRLICHT_ITEXTURE_
+#pragma once
 
 //! Enumeration flags telling the video driver in which format textures should be created.
 enum E_TEXTURE_CREATION_FLAG
@@ -109,5 +108,3 @@ enum E_TEXTURE_SOURCE
 };
 
 typedef struct irr_ITexture irr_ITexture;
-
-#endif // _CIRRLICHT_ITEXTURE_

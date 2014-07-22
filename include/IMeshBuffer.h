@@ -24,9 +24,6 @@
        source distribution.
 */
 
-#ifndef _CIRRLICHT_IMESHBUFFER_
-#define _CIRRLICHT_IMESHBUFFER_
+#pragma once
 
 typedef struct irr_IMeshBuffer irr_IMeshBuffer;
-
-#endif // _CIRRLICHT_IMESHBUFFER_
