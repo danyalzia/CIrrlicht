@@ -24,4 +24,14 @@
        source distribution.
 */
 
-#include "core.h"
+#pragma once
+
+#include "compileconfig.h"
+
+typedef struct irr_IOSOperator irr_IOSOperator;
+
+CIRRLICHT_API const char* irr_IOSOperator_getOperatingSystemVersion(irr_IOSOperator* op);
+CIRRLICHT_API void irr_IOSOperator_copyToClipboard(irr_IOSOperator* op, const char* text);
+CIRRLICHT_API const char* irr_IOSOperator_getTextFromClipboard(irr_IOSOperator* op);
+CIRRLICHT_API bool irr_IOSOperator_getProcessorSpeedMHz(irr_IOSOperator* op, unsigned int* MHz);
+CIRRLICHT_API bool irr_IOSOperator_getSystemMemory(irr_IOSOperator* op, unsigned int* Total, unsigned int* Avail);

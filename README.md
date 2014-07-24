@@ -23,7 +23,7 @@ Installation
 
 On Windows open `Dependencies_Path.bat` in directory and change environment variable of `IRRLICHT_ROOT` to the directory of Irrlicht and run it, then in use `make` or `make sharelib` to create static/dynamic library.
 
-On Linux, open Makefile and set `IrrlichtHome` to the root directory of Irrlicht and then use ``make` or `make sharelib` to create static/dynamic library.
+On Linux, open Makefile and set `IrrlichtHome` to the root directory of Irrlicht and then use ``make` or ```make sharelib``` to create static/dynamic library.
 
 The compiled library will be available in `lib/`.
 
@@ -60,7 +60,7 @@ Contributing
 
 CIrrlicht is currently being used as a backend for DIrrlicht, that means the quality of DIrrlicht is highly dependent on it. The priority is to make the library stable enough that don't break DIrrlicht. Feel free to open issues or send pull requests.
 
-Before making a commit, please try to adhere to the [coding style](https://github.com/Artistic-Games/DIrrlicht/blob/master/CONTRIBUTING.md) of DIrrlicht.
+Before making a commit, please try to adhere to the [coding style](https://github.com/Artistic-Games/CIrrlicht/blob/master/CONTRIBUTING.md) of CIrrlicht.
 
 License
 -------

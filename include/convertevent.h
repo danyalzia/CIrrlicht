@@ -24,4 +24,10 @@
        source distribution.
 */
 
-#include "core.h"
+#pragma once
+
+#include "compileconfig.h"
+#include <IEventReceiver.h>
+#include "eventreceiver.h"
+
+CIRRLICHT_API irr::SEvent convertEvent(irr_SEvent event);

@@ -24,4 +24,25 @@
        source distribution.
 */
 
-#include "core.h"
+#include "randomizer.h"
+#include <IRandomizer.h>
+
+void irr_IRandomizer_reset(irr_IRandomizer* randomizer, int value)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->reset(value);
+}
+
+int irr_IRandomizer_rand(irr_IRandomizer* randomizer)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->rand();
+}
+
+float irr_IRandomizer_frand(irr_IRandomizer* randomizer)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->frand();
+}
+
+int irr_IRandomizer_randMax(irr_IRandomizer* randomizer)
+{
+	return reinterpret_cast<irr::IRandomizer*>(randomizer)->randMax();
+}

@@ -24,4 +24,17 @@
        source distribution.
 */
 
+
+#pragma once
+
+#include "compileconfig.h"
 #include "core.h"
+#include "videodriver.h"
+#include "scenemanager.h"
+#include "guienvironment.h"
+
+typedef struct irr_IFileSystem irr_IFileSystem;
+
+CIRRLICHT_API void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text);
+
+typedef struct irr_SAttributeReadWriteOptions irr_SAttributeReadWriteOptions;

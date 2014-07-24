@@ -24,4 +24,43 @@
        source distribution.
 */
 
-#include "core.h"
+#pragma once
+
+//! An enumeration for all supported types of built-in mesh writers
+/** A scene mesh writers is represented by a four character code
+such as 'irrm' or 'coll' instead of simple numbers, to avoid
+name clashes with external mesh writers.*/
+enum EMESH_WRITER_TYPE
+{
+    //! Irrlicht native mesh writer, for static .irrmesh files.
+    EMWT_IRR_MESH,
+
+    //! COLLADA mesh writer for .dae and .xml files
+    EMWT_COLLADA,
+
+    //! STL mesh writer for .stl files
+    EMWT_STL,
+
+    //! OBJ mesh writer for .obj files
+    EMWT_OBJ,
+
+    //! PLY mesh writer for .ply files
+    EMWT_PLY
+};
+
+
+//! flags configuring mesh writing
+enum E_MESH_WRITER_FLAGS
+{
+    //! no writer flags
+    EMWF_NONE = 0,
+
+    //! write lightmap textures out if possible
+    EMWF_WRITE_LIGHTMAPS = 0x1,
+
+    //! write in a way that consumes less disk space
+    EMWF_WRITE_COMPRESSED = 0x2,
+
+    //! write in binary format rather than text
+    EMWF_WRITE_BINARY = 0x4
+};

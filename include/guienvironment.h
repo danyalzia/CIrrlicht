@@ -24,4 +24,19 @@
        source distribution.
 */
 
+#pragma once
+
 #include "core.h"
+#include "cirrlicht.h"
+#include "videodriver.h"
+
+typedef struct irr_IGUIEnvironment irr_IGUIEnvironment;
+
+struct irr_IGUIStaticText;
+struct irr_IGUIImage;
+
+CIRRLICHT_API irr_IGUIStaticText* irr_IGUIEnvironment_addStaticText(irr_IGUIEnvironment* env, const wchar_t* text, irr_recti rectangle, bool border=false);
+CIRRLICHT_API irr_IGUIImage* irr_IGUIEnvironment_addImage(irr_IGUIEnvironment* env, irr_ITexture* textures, irr_vector2di pos);
+
+struct irr_SColor;
+CIRRLICHT_API void irr_IGUIEnvironment_drawAll(irr_IGUIEnvironment* env);

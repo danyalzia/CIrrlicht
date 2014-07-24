@@ -24,4 +24,17 @@
        source distribution.
 */
 
-#include "core.h"
+#pragma once
+
+#include "compileconfig.h"
+
+typedef struct irr_IMeshSceneNode irr_IMeshSceneNode;
+
+struct irr_IMesh;
+struct irr_IShadowVolumeSceneNode;
+
+CIRRLICHT_API void irr_IMeshSceneNode_setMesh(irr_IMeshSceneNode* node, irr_IMesh* mesh);
+CIRRLICHT_API irr_IMesh* irr_IMeshSceneNode_getMesh(irr_IMeshSceneNode* node);
+CIRRLICHT_API irr_IShadowVolumeSceneNode* irr_IMeshSceneNode_addShadowVolumeSceneNode(irr_IMeshSceneNode* node, const irr_IMesh* shadowMesh=0, int id=-1, bool zfailmethod=true, float infinity=1000.0f);
+CIRRLICHT_API void irr_IMeshSceneNode_setReadOnlyMaterials(irr_IMeshSceneNode* node, bool readonly);
+CIRRLICHT_API bool irr_IMeshSceneNode_isReadOnlyMaterials(irr_IMeshSceneNode* node);

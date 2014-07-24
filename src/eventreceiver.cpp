@@ -24,4 +24,13 @@
        source distribution.
 */
 
-#include "core.h"
+#include <IEventReceiver.h>
+#include "eventreceiver.h"
+#include <assert.h>
+#include "convertevent.h"
+
+bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, irr_SEvent event)
+{
+	assert(receiver != 0);
+	return reinterpret_cast<irr::IEventReceiver*>(receiver)->OnEvent(convertEvent(event));
+}

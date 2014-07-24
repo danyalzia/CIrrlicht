@@ -24,4 +24,14 @@
        source distribution.
 */
 
-#include "core.h"
+#pragma once
+
+#include "compileconfig.h"
+
+typedef struct irr_IReadFile irr_IReadFile;
+
+CIRRLICHT_API int irr_IReadFile_read(irr_IReadFile* file, void* buffer, unsigned int sizeToRead);
+CIRRLICHT_API bool irr_IReadFile_seek(irr_IReadFile* file, long finalPos, bool relativeMovement = false);
+CIRRLICHT_API long irr_IReadFile_getSize(irr_IReadFile* file);
+CIRRLICHT_API long irr_IReadFile_getPos(irr_IReadFile* file);
+CIRRLICHT_API const char* irr_IReadFile_getFileName(irr_IReadFile* file);

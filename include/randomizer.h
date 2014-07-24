@@ -24,4 +24,13 @@
        source distribution.
 */
 
-#include "core.h"
+#pragma once
+
+#include "compileconfig.h"
+
+typedef struct irr_IRandomizer irr_IRandomizer;
+
+CIRRLICHT_API void irr_IRandomizer_reset(irr_IRandomizer* randomizer, int value=0x0f0f0f0f);
+CIRRLICHT_API int irr_IRandomizer_rand(irr_IRandomizer* randomizer);
+CIRRLICHT_API float irr_IRandomizer_frand(irr_IRandomizer* randomizer);
+CIRRLICHT_API int irr_IRandomizer_randMax(irr_IRandomizer* randomizer);

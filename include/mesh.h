@@ -24,4 +24,24 @@
        source distribution.
 */
 
+#pragma once
+
+#include "compileconfig.h"
 #include "core.h"
+#include "materialflags.h"
+#include "hardwarebufferflags.h"
+
+struct irr_IMesh;
+typedef struct irr_IMesh irr_IMesh;
+
+struct irr_IMeshBuffer;
+struct irr_SMaterial;
+
+CIRRLICHT_API unsigned int irr_IMesh_getMeshBufferCount(irr_IMesh* mesh);
+CIRRLICHT_API irr_IMeshBuffer* irr_IMesh_getMeshBuffer(irr_IMesh* mesh, unsigned int nr);
+CIRRLICHT_API irr_IMeshBuffer* irr_IMesh_getMeshBufferByMaterial(irr_IMesh* mesh, const irr_SMaterial* material);
+CIRRLICHT_API irr_aabbox3df irr_IMesh_getBoundingBox(irr_IMesh* mesh);
+CIRRLICHT_API void irr_IMesh_setBoundingBox(irr_IMesh* mesh, const irr_aabbox3df& box);
+CIRRLICHT_API void irr_IMesh_setMaterialFlag(irr_IMesh* mesh, E_MATERIAL_FLAG flag, bool newvalue);
+CIRRLICHT_API void irr_IMesh_setHardwareMappingHint(irr_IMesh* mesh, E_HARDWARE_MAPPING newMappingHint, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);
+CIRRLICHT_API void irr_IMesh_setDirty(irr_IMesh* mesh, E_BUFFER_TYPE buffer=EBT_VERTEX_AND_INDEX);

@@ -2,12 +2,12 @@ VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
 
-CIRRLICHT =  src/core.o  src/IAnimatedMesh.o src/IAnimatedMeshMD2.o src/IMeshSceneNode.o src/IAnimatedMeshSceneNode.o  src/ICursorControl.o  src/IFileSystem.o src/IReadFile.o src/IGUIEnvironment.o  src/IGUIFont.o  src/IGUIImage.o  src/IGUIStaticText.o  src/IImageWriter.o src/IImageLoader.o src/IMesh.o  src/IrrlichtDevice.o   src/ISceneManager.o   src/ISceneNode.o src/IVideoDriver.o src/IEventReceiver.o src/ITimer.o src/IRandomizer.o src/IOSOperator.o src/ILogger.o src/ConvertEvent.o 
+CIRRLICHT =  src/core.o  src/animatedmesh.o src/animatedmeshmd2.o src/meshscenenode.o src/animatedmeshscenenode.o  src/cursorcontrol.o  src/filesystem.o src/readfile.o src/guienvironment.o  src/guifont.o  src/guiimage.o  src/guistatictext.o  src/imagewriter.o src/imageloader.o src/mesh.o  src/irrlichtdevice.o   src/scenemanager.o   src/scenenode.o src/videodriver.o src/eventreceiver.o src/timer.o src/randomizer.o src/osoperator.o src/logger.o src/convertevent.o 
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
 IrrlichtHome = $(HOME)/irrlicht
-CXXINCS = -I $(IrrlichtHome)/ -Iinclude
+CXXINCS = -I $(IrrlichtHome)/include -Iinclude
 CPPFLAGS += $(CXXINCS)
 CXXFLAGS += -std=c++11 -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
 ifndef NDEBUG
@@ -18,17 +18,14 @@ endif
 ifdef PROFILE
 CXXFLAGS += -pg
 endif
-CFLAGS := -std=c++11 -O3 -fexpensive-optimizations
+CFLAGS := -std=c++11
 
-sharedlib sharedlib_osx: CXXFLAGS += -fPIC
-sharedlib sharedlib_osx: CFLAGS += -fPIC
-
-#multilib handling
+# multilib handling
 ifeq ($(HOSTTYPE), x86_64)
 LIBSELECT=64
 endif
 
-#Linux specific options
+# Linux specific options
 staticlib sharedlib install: SYSTEM = Linux
 STATIC_LIB = libCIrrlicht.a
 LIB_PATH = lib/
@@ -54,12 +51,11 @@ $(STATIC_LIB): $(LINKOBJ)
 
 install:
 	cd $(LIB_PATH)
-	mv $(SHARED_FULLNAME) /lib
-	
+	mv $(SHARED_FULLNAME) /usr/lib
+
 staticlib staticlib_osx: $(STATIC_LIB)
 	mkdir -p $(LIB_PATH)
 	mv $^ $(LIB_PATH)
-
 
 TAGS:
 	ctags *.cpp ../../include/*.h *.h
@@ -72,22 +68,18 @@ TAGS:
 %.d:%.c
 	$(CC) $(CPPFLAGS) -MM -MF $@ $<
 
-# Create object files from objective-c code
-%.o:%.mm
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
-
 ifneq ($(MAKECMDGOALS),clean)
 -include $(LINKOBJ:.o=.d)
 endif
 
 help:
-	@echo "Available targets for Irrlicht"
-	@echo " sharedlib: Build shared library Irrlicht.so for Linux"
-	@echo " staticlib: Build static library Irrlicht.a for Linux"
+	@echo "Available targets for DIrrlicht"
+	@echo " sharedlib: Build shared library DIrrlicht.so for Linux"
+	@echo " staticlib: Build static library DIrrlicht.a for Linux"
 	@echo " install: Copy shared library to /usr/local/lib"
 	@echo ""
-	@echo " sharedlib_win32: Build shared library Irrlicht.dll for Windows"
-	@echo " staticlib_win32: Build static library Irrlicht.a for Windows"
+	@echo " sharedlib_win32: Build shared library DIrrlicht.dll for Windows"
+	@echo " staticlib_win32: Build static library DIrrlicht.a for Windows"
 	@echo ""
 	@echo " clean: Clean up directory"
 

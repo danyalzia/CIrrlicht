@@ -24,4 +24,31 @@
        source distribution.
 */
 
-#include "core.h"
+#include "osoperator.h"
+#include <IOSOperator.h>
+
+const char* irr_IOSOperator_getOperatingSystemVersion(irr_IOSOperator* op)
+{
+	auto str = reinterpret_cast<irr::IOSOperator*>(op)->getOperatingSystemVersion();
+	return str.c_str();
+}
+
+void irr_IOSOperator_copyToClipboard(irr_IOSOperator* op, const char* text)
+{
+	reinterpret_cast<irr::IOSOperator*>(op)->copyToClipboard(text);
+}
+
+const char* irr_IOSOperator_getTextFromClipboard(irr_IOSOperator* op)
+{
+	return reinterpret_cast<irr::IOSOperator*>(op)->getTextFromClipboard();
+}
+
+bool irr_IOSOperator_getProcessorSpeedMHz(irr_IOSOperator* op, unsigned int* MHz)
+{
+	return reinterpret_cast<irr::IOSOperator*>(op)->getProcessorSpeedMHz(MHz);
+}
+
+bool irr_IOSOperator_getSystemMemory(irr_IOSOperator* op, unsigned int* Total, unsigned int* Avail)
+{
+	return reinterpret_cast<irr::IOSOperator*>(op)->getSystemMemory(Total, Avail);
+}

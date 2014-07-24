@@ -25,3 +25,10 @@
 */
 
 #include "core.h"
+#include <irrlicht.h>
+#include "filesystem.h"
+
+void irr_IFileSystem_addFileArchive(irr_IFileSystem* filesystem, const char* text)
+{
+    reinterpret_cast<irr::io::IFileSystem*>(filesystem)->addFileArchive(text);
+}

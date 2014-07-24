@@ -1,10 +1,9 @@
-#include "cirrlicht.h"
+#include <cirrlicht.h>
 #include <stdio.h>
 #include <string.h>
 #include <wchar.h>
 
-int main()
-{
+int main() {
     irr_dimension2du dim = {640, 480};
     irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
 
@@ -32,20 +31,17 @@ int main()
 
     int lastFPS = -1;
 
-    while(irr_IrrlichtDevice_run(device))
-    {
-        if (irr_IrrlichtDevice_isWindowActive(device))
-        {
+    while(irr_IrrlichtDevice_run(device)) {
+        if (irr_IrrlichtDevice_isWindowActive(device)) {
             irr_IVideoDriver_beginScene(driver, true, true, col);
             irr_ISceneManager_drawAll(smgr);
             irr_IVideoDriver_endScene(driver);
 
             int fps = irr_IVideoDriver_getFPS(driver);
-            if (lastFPS != fps)
-            {
+            if (lastFPS != fps) {
                 const wchar_t* str = L"CIrrlicht - Quake 3 Map example [";
 
-                // Ugly hack to concatenating wchar_t :/
+                // Ugly hack for concatenating wchar_t :/
                 wchar_t result[300];
 
                 wcscpy(result, str);
@@ -62,8 +58,10 @@ int main()
                 irr_IrrlichtDevice_setWindowCaption(device, result);
                 lastFPS = fps;
             }
-        }
-        else
+        } else {
             irr_IrrlichtDevice_yield(device);
-    }
+		}
+	}
+
+	irr_IrrlichtDevice_drop(device);
 }

@@ -1,7 +1,6 @@
-#include "cirrlicht.h"
+#include <cirrlicht.h>
 
-int main()
-{
+int main() {
     irr_dimension2du dim = {800, 600};
     irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
 
@@ -29,11 +28,12 @@ int main()
 
     irr_SColor col = {255,100,101,140};
 
-    while(irr_IrrlichtDevice_run(device))
-    {
+    while(irr_IrrlichtDevice_run(device)) {
         irr_IVideoDriver_beginScene(driver, true, true, col);
         irr_ISceneManager_drawAll(smgr);
         irr_IGUIEnvironment_drawAll(gui);
         irr_IVideoDriver_endScene(driver);
     }
+
+    irr_IrrlichtDevice_drop(device);
 }

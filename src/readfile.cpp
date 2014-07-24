@@ -24,4 +24,31 @@
        source distribution.
 */
 
-#include "core.h"
+#include <IReadFile.h>
+#include "readfile.h"
+
+int irr_IReadFile_read(irr_IReadFile* file, void* buffer, unsigned int sizeToRead)
+{
+    return reinterpret_cast<irr::io::IReadFile*>(file)->read(buffer, sizeToRead);
+}
+
+bool irr_IReadFile_seek(irr_IReadFile* file, long finalPos, bool relativeMovement)
+{
+    return reinterpret_cast<irr::io::IReadFile*>(file)->seek(finalPos, relativeMovement);
+}
+
+long irr_IReadFile_getSize(irr_IReadFile* file)
+{
+    return reinterpret_cast<irr::io::IReadFile*>(file)->getSize();
+}
+
+long irr_IReadFile_getPos(irr_IReadFile* file)
+{
+    return reinterpret_cast<irr::io::IReadFile*>(file)->getPos();
+}
+
+const char* irr_IReadFile_getFileName(irr_IReadFile* file)
+{
+    auto temp = reinterpret_cast<irr::io::IReadFile*>(file)->getFileName();
+    return temp.c_str();
+}
