@@ -21,11 +21,17 @@ Checkout the [Road Map](https://github.com/Artistic-Games/CIrrlicht/wiki/Roadmap
 Installation
 ------------
 
-On Windows open `Dependencies_Path.bat` in directory and change environment variable of `IRRLICHT_ROOT` to the directory of Irrlicht and run it, then in use `make` or `make sharelib` to create static/dynamic library.
+On Windows open `Dependencies_Path.bat` in directory and change environment variable of `IRRLICHT_ROOT` to the directory of Irrlicht and run it, then do `make` / `make sharedlib` or `make staticlib` to create dynamic/static library.
 
-On Linux, open Makefile and set `IrrlichtHome` to the root directory of Irrlicht and then use ``make` or ```make sharelib``` to create static/dynamic library.
+On Linux, open Makefile and set `IrrlichtHome` to the root directory of Irrlicht and then do `make` / `make sharedlib` or `make staticlib` to create dynamic/static library.
 
 The compiled library will be available in `lib/`.
+
+To use a dynamic library on Linux:
+```
+$ make
+$ sudo make install
+```
 
 Usage
 -----

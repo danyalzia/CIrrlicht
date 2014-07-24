@@ -3,10 +3,10 @@ CIrrlicht wraps the C++ classes of Irrlicht Engine, so we need to make sure to f
 
 ## Coding Style
 
-# Identation/Whitespace
+### Identation/Whitespace
 CIrrlicht follows the rule of identing the blocks with tab of 4 spaces. Do not use spaces!
 
-# Opening braces
+### Opening braces
 Braces should be open on the same line on declaration
 
 ```cpp
@@ -14,8 +14,9 @@ void irr_IrrlichtDevice_drop(irr_IrrlichtDevice* device) {
     reinterpret_cast<irr::IrrlichtDevice*>(device)->drop();
 }
 ```
-# Enum members
+### Enum members
 Enums are represented with whole CAPITALS to emphasizing constant.
+
 ```cpp
 enum Color {
     RED,
@@ -23,7 +24,7 @@ enum Color {
     GREEN
 };
 ```
-# CIrrlicht specific
+### CIrrlicht specific
 We use prefix `irr_` to indicate that they are the part of Irrlicht. Use `_` to separate the method from class name.
 
 ```cppp

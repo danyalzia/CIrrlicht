@@ -1,3 +1,4 @@
+# CIrrlicht follows Irrlicht version numbering
 VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
@@ -39,7 +40,7 @@ VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_RELEASE)
 SHARED_FULLNAME = $(SHARED_LIB).$(VERSION)
 SONAME = $(SHARED_LIB).$(VERSION_MAJOR).$(VERSION_MINOR)
 
-all linux: staticlib
+all: sharedlib
 
 sharedlib: $(LINKOBJ)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -shared -Wl,-soname,$(SONAME) -o $(SHARED_FULLNAME) $^ $(LDFLAGS)
@@ -50,8 +51,9 @@ $(STATIC_LIB): $(LINKOBJ)
 	$(AR) rs $@ $^
 
 install:
-	cd $(LIB_PATH)
-	mv $(SHARED_FULLNAME) /usr/lib
+	cp $(LIB_PATH)/$(SHARED_FULLNAME) $(INSTALL_DIR)
+	cd $(INSTALL_DIR) && ln -s -f $(SHARED_FULLNAME) $(SONAME)
+	cd $(INSTALL_DIR) && ln -s -f $(SONAME) $(SHARED_LIB)
 
 staticlib staticlib_osx: $(STATIC_LIB)
 	mkdir -p $(LIB_PATH)
@@ -87,5 +89,5 @@ help:
 clean:
 	$(RM) $(LINKOBJ) $(SHARED_FULLNAME) $(STATIC_LIB) $(LINKOBJ:.o=.d)
 
-.PHONY: all sharedlib staticlib sharedlib_win32 staticlib_win32 help install clean
+.PHONY: all sharedlib staticlib help install clean
 

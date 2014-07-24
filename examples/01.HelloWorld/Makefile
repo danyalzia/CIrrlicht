@@ -1,16 +1,30 @@
-Target := HelloWorld
+# Makefile for Irrlicht Examples
+# It's usually sufficient to change just the target name and source file list
+# and be sure that CXX is set to a valid compiler
+
+# Name of the executable created (.exe will be added automatically if necessary)
+Target := 01.HelloWorld
+# List of source files, separated by spaces
 Sources := main.c
-IrrlichtHome := $(HOME)/irrlicht
-CIrrlichtHome := ../..
+# Path to Irrlicht directory, should contain include/ and lib/
+IrrlichtHome := ../../include
+# Path for the executable. Note that Irrlicht.dll should usually also be there for win32 systems
 BinPath = ../../bin/
 
+# general compiler settings (might need to be set when compiling the lib, too)
+# preprocessor flags, e.g. defines and include paths
 USERCPPFLAGS = 
 # compiler flags such as optimization flags
 USERCXXFLAGS = -O3 -ffast-math -std=c++11
 #USERCXXFLAGS = -g -Wall
+# linker flags such as additional libraries and link paths
 USERLDFLAGS =
 
-CPPFLAGS = -I$(IrrlichtHome)/ -I$(CIrrlichtHome)/include
+####
+#no changes necessary below this line
+####
+
+CPPFLAGS = -I../../include -I/usr/X11R6/include $(USERCPPFLAGS)
 CXXFLAGS = $(USERCXXFLAGS)
 LDFLAGS = $(USERLDFLAGS)
 
@@ -18,8 +32,7 @@ LDFLAGS = $(USERLDFLAGS)
 all: all_linux
 
 # target specific settings
-all_linux all_win32 static_win32: LDFLAGS += -L$(IrrlichtHome)/lib/$(SYSTEM) 
-LDFLAGS += -L$(CIrrlichtHome)/lib/ -lCIrrlicht -lIrrlicht
+all_linux all_win32 static_win32: LDFLAGS += -L$(IrrlichtHome)/lib/$(SYSTEM) -lCIrrlicht
 all_linux: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm -lXext -lX11 -lXcursor
 all_linux clean_linux: SYSTEM=Linux
 all_win32 clean_win32 static_win32: SYSTEM=Win32-gcc
@@ -50,4 +63,3 @@ endif
 ifeq ($(HOSTTYPE), sun4)
 LDFLAGS += -lrt
 endif
-
