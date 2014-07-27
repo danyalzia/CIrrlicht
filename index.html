@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Cirrlicht : C Bindings of Irrlicht Engine" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Cirrlicht</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Artistic-Games/CIrrlicht">View on GitHub</a>
+
+          <h1 id="project_title">Cirrlicht</h1>
+          <h2 id="project_tagline">C Bindings of Irrlicht Engine</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Artistic-Games/CIrrlicht/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Artistic-Games/CIrrlicht/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><a href="https://travis-ci.org/Artistic-Games/CIrrlicht"><img src="https://travis-ci.org/Artistic-Games/CIrrlicht.png?branch=master" alt="Build Status"></a>
+<a href="https://waffle.io/Artistic-Games/CIrrlicht"><img src="https://badge.waffle.io/Artistic-Games/CIrrlicht.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
+
+<h1>
+<a name="cirrlicht---c-bindings-of-irrlicht-engine" class="anchor" href="#cirrlicht---c-bindings-of-irrlicht-engine"><span class="octicon octicon-link"></span></a>CIrrlicht - C Bindings of Irrlicht Engine</h1>
+
+<h2>
+<a name="details" class="anchor" href="#details"><span class="octicon octicon-link"></span></a>Details</h2>
+
+<p>CIrrlicht is the C Bindings/Interface of Irrlicht Engine which makes it possible to use Irrlicht Engine from C. The original intention of this software is to make Irrlicht cross-language by making it easy to bind Irrlicht Engine for those languages that directly support C but not C++ such as D, Haskell, Swift etc.</p>
+
+<p>It is used as a backend for <a href="https://github.com/Artistic-Games/DIrrlicht">DIrrlicht</a></p>
+
+<h2>
+<a name="status" class="anchor" href="#status"><span class="octicon octicon-link"></span></a>Status</h2>
+
+<p>It's in very early beta stage. Several functions still aren't wrapped. It is subject to API changes.</p>
+
+<p>Checkout the <a href="https://github.com/Artistic-Games/CIrrlicht/wiki/Roadmap">Road Map</a> for the list of things that still needs to be done.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>On Windows open <code>Dependencies_Path.bat</code> in directory and change environment variable of <code>IRRLICHT_ROOT</code> to the directory of Irrlicht and run it, then do <code>make</code> / <code>make sharedlib</code> or <code>make staticlib</code> to create dynamic/static library.</p>
+
+<p>On Linux, open Makefile and set <code>IrrlichtHome</code> to the root directory of Irrlicht and then do <code>make</code> / <code>make sharedlib</code> or <code>make staticlib</code> to create dynamic/static library.</p>
+
+<p>The compiled library will be available in <code>lib/</code>.</p>
+
+<p>To use a dynamic library on Linux:</p>
+
+<pre><code>$ make
+$ sudo make install
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>CIrrlicht is based on Irrlicht which separates the interface from implementation, which means every method of base class must be implementated as separate functions instead of casting pointer to base class. Following is the short example that can be used to test CIrrlicht, it shows the simple window with a black background that can be minimized, resized and closed:</p>
+
+<hr><div class="highlight highlight-C"><pre><span class="cp">#include &lt;cirrlicht.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">irr_dimension2du</span> <span class="n">dim</span> <span class="o">=</span> <span class="p">{</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">};</span>
+    <span class="n">irr_IrrlichtDevice</span><span class="o">*</span> <span class="n">device</span> <span class="o">=</span> <span class="n">irr_createDevice</span><span class="p">(</span><span class="n">EDT_OPENGL</span><span class="p">,</span> <span class="n">dim</span><span class="p">);</span>
+
+    <span class="n">irr_IrrlichtDevice_setWindowCaption</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="s">L"CIrrlicht Test!"</span><span class="p">);</span>
+    <span class="n">irr_IrrlichtDevice_setResizable</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+
+    <span class="n">irr_IVideoDriver</span><span class="o">*</span> <span class="n">driver</span> <span class="o">=</span> <span class="n">irr_IrrlichtDevice_getVideoDriver</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">irr_IrrlichtDevice_run</span><span class="p">(</span><span class="n">device</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">irr_IVideoDriver_beginScene</span><span class="p">(</span><span class="n">driver</span><span class="p">);</span>
+        <span class="n">irr_IVideoDriver_endScene</span><span class="p">(</span><span class="n">driver</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">irr_IrrlichtDevice_drop</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>See <a href="https://github.com/Artistic-Games/CIrrlicht/wiki/">wiki</a> for more usage and tutorials</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>CIrrlicht is currently being used as a backend for DIrrlicht, that means the quality of DIrrlicht is highly dependent on it. The priority is to make the library stable enough that don't break DIrrlicht. Feel free to open issues or send pull requests.</p>
+
+<p>Before making a commit, please try to adhere to the <a href="https://github.com/Artistic-Games/CIrrlicht/blob/master/CONTRIBUTING.md">coding style</a> of CIrrlicht.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>It is released under permissive zlib license same as Irrlicht Engine.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cirrlicht maintained by <a href="https://github.com/Artistic-Games">Artistic-Games</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
