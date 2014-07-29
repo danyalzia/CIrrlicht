@@ -24,7 +24,6 @@
        source distribution.
 */
 
-#include <irrlicht.h>
 #include "core.h"
 #include "irrlichtdevice.h"
 #include <assert.h>
@@ -150,9 +149,9 @@ const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device)
     return reinterpret_cast<irr::IrrlichtDevice*>(device)->getVersion();
 }
 
-void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventReceiver* receiver)
+void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr::IEventReceiver* receiver)
 {
-    reinterpret_cast<irr::IrrlichtDevice*>(device)->setEventReceiver(reinterpret_cast<irr::IEventReceiver*>(receiver));
+    reinterpret_cast<irr::IrrlichtDevice*>(device)->setEventReceiver(receiver);
 }
 
 irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device)

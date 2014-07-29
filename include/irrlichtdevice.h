@@ -33,6 +33,7 @@
 #include "scenemanager.h"
 #include "guienvironment.h"
 #include "filesystem.h"
+#include <irrlicht.h>
 
 struct irr_IrrlichtDevice;
 typedef struct irr_IrrlichtDevice irr_IrrlichtDevice;
@@ -95,7 +96,10 @@ CIRRLICHT_API bool irr_IrrlichtDevice_isFullscreen(irr_IrrlichtDevice* device);
 CIRRLICHT_API ECOLOR_FORMAT irr_IrrlichtDevice_getColorFormat(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_closeDevice(irr_IrrlichtDevice* device);
 CIRRLICHT_API const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device);
-CIRRLICHT_API void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventReceiver* receiver);
+//CIRRLICHT_API void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventReceiver* receiver);
+
+CIRRLICHT_API void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr::IEventReceiver* receiver);
+
 CIRRLICHT_API irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device);
 CIRRLICHT_API bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent event);
 CIRRLICHT_API void irr_IrrlichtDevice_setInputReceivingSceneManager(irr_IrrlichtDevice* device, irr_ISceneManager* smgr);

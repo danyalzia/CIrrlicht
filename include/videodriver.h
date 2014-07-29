@@ -35,6 +35,7 @@
 #include "vertex.h"
 #include "vertexindex.h"
 #include "primitivetypes.h"
+#include "attributeexchangingobject.h"
 
 //! enumeration for geometry transformation states
 enum E_TRANSFORMATION_STATE
@@ -155,7 +156,6 @@ struct irr_SExposedVideoData;
 struct irr_IGPUProgrammingServices;
 struct irr_IMeshManipulator;
 struct irr_IAttributes;
-struct irr_SAttributeReadWriteOptions;
 struct irr_S3DVertex2TCoords;
 struct irr_S3DVertexTangents;
 
@@ -300,7 +300,7 @@ CIRRLICHT_API void irr_IVideoDriver_drawMeshBuffer(irr_IVideoDriver* driver, irr
 CIRRLICHT_API void irr_IVideoDriver_drawMeshBufferNormals(irr_IVideoDriver* driver, irr_IMeshBuffer* mb, float length=10.f, irr_SColor color={0,0,0,0});
 
 CIRRLICHT_API void irr_IVideoDriver_setFog(irr_IVideoDriver* driver, irr_SColor color={0,255,255,255}, E_FOG_TYPE fogType=EFT_FOG_LINEAR, float start=50.0f, float end=100.0f, float density=0.01f, bool pixelFog=false, bool rangeFog=false);
-CIRRLICHT_API void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor* color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog);
+CIRRLICHT_API void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor& color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog);
 CIRRLICHT_API ECOLOR_FORMAT irr_IVideoDriver_getColorFormat(irr_IVideoDriver* driver);
 CIRRLICHT_API irr_dimension2du irr_IVideoDriver_getScreenSize(irr_IVideoDriver* driver);
 CIRRLICHT_API irr_dimension2du irr_IVideoDriver_getCurrentRenderTargetSize(irr_IVideoDriver* driver);

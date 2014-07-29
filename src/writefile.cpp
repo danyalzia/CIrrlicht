@@ -24,13 +24,22 @@
        source distribution.
 */
 
-#pragma once
+#include <IWriteFile.h>
+#include "writefile.h"
 
-#include "compileconfig.h"
+int irr_IWriteFile_write(irr_IWriteFile* file, const void* buffer, unsigned int sizeToWrite)  {
+	return reinterpret_cast<irr::io::IWriteFile*>(file)->write(buffer, sizeToWrite);
+}
 
-struct irr_IWriteFile;
+bool irr_IWriteFile_seek(irr_IWriteFile* file, long finalPos, bool relativeMovement) {
+	return reinterpret_cast<irr::io::IWriteFile*>(file)->seek(finalPos, relativeMovement);
+}
 
-CIRRLICHT_API int irr_IWriteFile_write(irr_IWriteFile* file, const void* buffer, unsigned int sizeToWrite);
-CIRRLICHT_API bool irr_IWriteFile_seek(irr_IWriteFile* file, long finalPos, bool relativeMovement=false);
-CIRRLICHT_API long irr_IWriteFile_getPos(irr_IWriteFile* file);
-CIRRLICHT_API const char* irr_IWriteFile_getFileName(irr_IWriteFile* file);
+long irr_IWriteFile_getPos(irr_IWriteFile* file) {
+	return reinterpret_cast<irr::io::IWriteFile*>(file)->getPos();
+}
+
+const char* irr_IWriteFile_getFileName(irr_IWriteFile* file) {
+	auto temp = reinterpret_cast<irr::io::IWriteFile*>(file)->getFileName();
+	return temp.c_str();
+}

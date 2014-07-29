@@ -342,9 +342,9 @@ void irr_IVideoDriver_setFog(irr_IVideoDriver* driver, irr_SColor color, E_FOG_T
     reinterpret_cast<irr::video::IVideoDriver*>(driver)->setFog(irr::video::SColor(color.a, color.b, color.g, color.r), irr::video::E_FOG_TYPE(fogType), start, end, density, pixelFog, rangeFog);
 }
 
-void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor* color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog)
+void irr_IVideoDriver_getFog(irr_IVideoDriver* driver, irr_SColor& color, E_FOG_TYPE& fogType, float& start, float& end, float& density, bool& pixelFog, bool& rangeFog)
 {
-    irr::video::SColor tempcol = irr::video::SColor(color->a, color->b, color->g, color->r);
+    irr::video::SColor tempcol = irr::video::SColor(color.a, color.b, color.g, color.r);
     irr::video::E_FOG_TYPE tempfog = irr::video::E_FOG_TYPE(fogType);
     reinterpret_cast<irr::video::IVideoDriver*>(driver)->getFog(tempcol, tempfog, start, end, density, pixelFog, rangeFog);
 }
@@ -495,7 +495,10 @@ void irr_IVideoDriver_setMaterialRendererName(irr_IVideoDriver* driver, int idx,
 
 irr_IAttributes* irr_IVideoDriver_createAttributesFromMaterial(irr_IVideoDriver* driver, irr_SMaterial* material, irr_SAttributeReadWriteOptions* options)
 {
-    return reinterpret_cast<irr_IAttributes*>(reinterpret_cast<irr::video::IVideoDriver*>(driver)->createAttributesFromMaterial(*reinterpret_cast<irr::video::SMaterial*>(material), reinterpret_cast<irr::io::SAttributeReadWriteOptions*>(options)));
+	irr::io::SAttributeReadWriteOptions tempattr;
+	tempattr.Flags = options->Flags;
+	tempattr.Filename = options->Filename;
+    return reinterpret_cast<irr_IAttributes*>(reinterpret_cast<irr::video::IVideoDriver*>(driver)->createAttributesFromMaterial(*reinterpret_cast<irr::video::SMaterial*>(material), &tempattr));
 }
 
 void irr_IVideoDriver_fillMaterialStructureFromAttributes(irr_IVideoDriver* driver, irr_SMaterial* outMaterial, irr_IAttributes* attributes)

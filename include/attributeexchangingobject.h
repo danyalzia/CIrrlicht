@@ -26,4 +26,10 @@
 
 #pragma once
 
-typedef struct irr_SAttributeReadWriteOptions irr_SAttributeReadWriteOptions;
+struct irr_SAttributeReadWriteOptions {
+	//! Combination of E_ATTRIBUTE_READ_WRITE_FLAGS or other, custom ones
+	int Flags;
+
+	//! Optional filename
+	const char* Filename;
+};
