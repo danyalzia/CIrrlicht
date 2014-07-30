@@ -29,7 +29,7 @@ install:
   - if [ "$CXX" == "clang++" ]; then export CXX="clang++-3.4"; fi
 
 before_script:
-  - if [ "$CXX" == "g++" ]; then g++ --version; fi
+  - $CXX --version
   - sudo apt-get install libxxf86vm-dev
   - sudo svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
   - cd irrlicht/source/Irrlicht/
