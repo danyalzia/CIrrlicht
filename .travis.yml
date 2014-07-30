@@ -9,5 +9,6 @@ before_script:
   - sudo svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
   - cd irrlicht/source/Irrlicht/
   - sudo make sharedlib && sudo make install
+  - cd ../../../
   
-script: sudo make sharedlib
+script: sudo make sharedlib && sudo make install
