@@ -7,7 +7,7 @@ CIRRLICHT =  src/core.o  src/animatedmesh.o src/animatedmeshmd2.o src/meshscenen
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
-IrrlichtHome = $(HOME)/irrlicht
+IrrlichtHome = irrlicht
 CXXINCS = -I $(IrrlichtHome)/include -Iinclude
 CPPFLAGS += $(CXXINCS)
 CXXFLAGS += -std=c++0x -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
@@ -33,7 +33,7 @@ LIB_PATH = lib/
 INSTALL_DIR = /usr/local/lib
 sharedlib install: SHARED_LIB = libCIrrlicht.so
 sharedlib: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm
-sharedlib: LDFLAGS += -L/home/danyalzia/irrlicht/lib/Linux -lIrrlicht
+sharedlib: LDFLAGS += -L$(IrrlichtHome)/lib/Linux -lIrrlicht
 staticlib sharedlib: CXXINCS += -I/usr/X11R6/include
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_RELEASE)
