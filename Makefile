@@ -10,7 +10,7 @@ LINKOBJ = $(CIRRLICHT)
 IrrlichtHome = irrlicht
 CXXINCS = -I $(IrrlichtHome)/include -Iinclude
 CPPFLAGS += $(CXXINCS)
-CXXFLAGS += -std=c++0x -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
+CXXFLAGS += -std=c++11 -Wall -pipe -fno-exceptions -fno-rtti -fstrict-aliasing
 ifndef NDEBUG
 CXXFLAGS += -g -D_DEBUG
 else
@@ -19,7 +19,7 @@ endif
 ifdef PROFILE
 CXXFLAGS += -pg
 endif
-CFLAGS := -std=c++0x
+CFLAGS := -std=c++11
 
 # multilib handling
 ifeq ($(HOSTTYPE), x86_64)
