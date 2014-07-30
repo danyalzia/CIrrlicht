@@ -8,6 +8,7 @@ before_script:
   - sudo apt-get install libxxf86vm-dev
   - sudo svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht
   - cd irrlicht/source/Irrlicht/
+  - pwd
   - sudo make sharedlib && sudo make install
   - cd ../../../
   
