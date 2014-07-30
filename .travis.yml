@@ -28,6 +28,7 @@ install:
 
   - if [ "$CXX" == "clang++" ]; then export CXX="clang++-3.4"; fi
 
+  - if [ "$CXX" == "clang++" ]; then cd /home/travis/build/Artistic-Games/CIrrlicht; fi
 before_script:
   - $CXX --version
   - sudo apt-get install libxxf86vm-dev
