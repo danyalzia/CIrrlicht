@@ -13,7 +13,7 @@ int main() {
     irr_ISceneManager* smgr = irr_IrrlichtDevice_getSceneManager(device);
 
     irr_IFileSystem* filesystem = irr_IrrlichtDevice_getFileSystem(device);
-    irr_IFileSystem_addFileArchive(filesystem, "../../media/map-20kdm2.pk3");
+    irr_IFileSystem_addFileArchive(filesystem, "../media/map-20kdm2.pk3");
 
     irr_IAnimatedMesh* mesh = irr_ISceneManager_getMesh(smgr, "20kdm2.bsp");
     irr_IAnimatedMeshSceneNode* node = irr_ISceneManager_addAnimatedMeshSceneNode(smgr, mesh);

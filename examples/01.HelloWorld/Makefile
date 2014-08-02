@@ -7,7 +7,7 @@ Target := 01.HelloWorld
 # List of source files, separated by spaces
 Sources := main.c
 # Path to Irrlicht directory, should contain include/ and lib/
-IrrlichtHome := ../../include
+IrrlichtHome := ../../irrlicht
 # Path for the executable. Note that Irrlicht.dll should usually also be there for win32 systems
 BinPath = ../../bin/
 
@@ -24,7 +24,7 @@ USERLDFLAGS =
 #no changes necessary below this line
 ####
 
-CPPFLAGS = -I../../include -I/usr/X11R6/include $(USERCPPFLAGS)
+CPPFLAGS = -I../../include -I$(IrrlichtHome)/include -I/usr/X11R6/include $(USERCPPFLAGS)
 CXXFLAGS = $(USERCXXFLAGS)
 LDFLAGS = $(USERLDFLAGS)
 
