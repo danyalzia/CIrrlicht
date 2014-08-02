@@ -27,11 +27,11 @@
 #include <IXMLWriter.h>
 #include "xmlwriter.h"
 
-void irr_XMLWriter_writeXMLHeader(irr_XMLWriter* writer) {
+void irr_IXMLWriter_writeXMLHeader(irr_IXMLWriter* writer) {
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeXMLHeader();
 }
 
-void irr_XMLWriter_writeElement(irr_XMLWriter* writer, const wchar_t* name, bool empty,
+void irr_IXMLWriter_writeElement(irr_IXMLWriter* writer, const wchar_t* name, bool empty,
 			const wchar_t* attr1Name, const wchar_t* attr1Value,
 			const wchar_t* attr2Name, const wchar_t* attr2Value,
 			const wchar_t* attr3Name, const wchar_t* attr3Value,
@@ -40,24 +40,24 @@ void irr_XMLWriter_writeElement(irr_XMLWriter* writer, const wchar_t* name, bool
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeElement(name, empty, attr1Name, attr1Value, attr2Name, attr2Value, attr3Name, attr3Value, attr4Name, attr4Value, attr5Name, attr5Value);
 }
 
-void irr_XMLWriter_writeElement2(irr_XMLWriter* writer, const wchar_t* name, bool empty,
+void irr_IXMLWriter_writeElement2(irr_IXMLWriter* writer, const wchar_t* name, bool empty,
 				irr_array* names, irr_array* values) {
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeElement(name, empty, *reinterpret_cast<irr::core::array<irr::core::stringw>*>(names->data), *reinterpret_cast<irr::core::array<irr::core::stringw>*>(values->data));
 }
 
-void irr_XMLWriter_writeComment(irr_XMLWriter* writer, const wchar_t* comment) {
+void irr_IXMLWriter_writeComment(irr_IXMLWriter* writer, const wchar_t* comment) {
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeComment(comment);
 }
 
-void irr_XMLWriter_writeClosingTag(irr_XMLWriter* writer, const wchar_t* name) {
+void irr_IXMLWriter_writeClosingTag(irr_IXMLWriter* writer, const wchar_t* name) {
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeClosingTag(name);
 }
 
-void irr_XMLWriter_writeText(irr_XMLWriter* writer, const wchar_t* text) {
+void irr_IXMLWriter_writeText(irr_IXMLWriter* writer, const wchar_t* text) {
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeText(text);
 }
 
-void irr_XMLWriter_writeLineBreak(irr_XMLWriter* writer) {
+void irr_IXMLWriter_writeLineBreak(irr_IXMLWriter* writer) {
 	reinterpret_cast<irr::io::IXMLWriter*>(writer)->writeLineBreak();
 }
 

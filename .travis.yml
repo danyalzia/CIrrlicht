@@ -39,4 +39,7 @@ before_script:
   - sudo make sharedlib && sudo make install
   - cd ../../../
 
-script: sudo make sharedlib && sudo make install
+script:
+  - export CXX="g++"
+  - $CXX --version
+  - sudo make sharedlib && sudo make install
