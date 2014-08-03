@@ -40,6 +40,6 @@ before_script:
   - cd ../../../
 
 script:
-  - export CXX="g++"
+  - export CXX="g++-4.8"
   - $CXX --version
   - sudo make sharedlib && sudo make install
