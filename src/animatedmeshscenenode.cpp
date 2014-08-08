@@ -74,7 +74,7 @@ void irr_IAnimatedMeshSceneNode_setCurrentFrame(irr_IAnimatedMeshSceneNode* node
 
 bool irr_IAnimatedMeshSceneNode_setFrameLoop(irr_IAnimatedMeshSceneNode* node, int begin, int end)
 {
-    reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setFrameLoop(begin, end);
+    return reinterpret_cast<irr::scene::IAnimatedMeshSceneNode*>(node)->setFrameLoop(begin, end);
 }
 
 void irr_IAnimatedMeshSceneNode_setAnimationSpeed(irr_IAnimatedMeshSceneNode* node, float framesPerSecond)

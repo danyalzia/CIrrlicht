@@ -21,8 +21,10 @@ CXXFLAGS += -pg
 endif
 CFLAGS := -std=c++11
 
+MACHINE := $(shell uname -m)
+
 # multilib handling
-ifeq ($(HOSTTYPE), x86_64)
+ifeq ($(MACHINE), x86_64)
 LIBSELECT=64
 endif
 
@@ -35,6 +37,10 @@ sharedlib install: SHARED_LIB = libCIrrlicht.so
 sharedlib: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm
 sharedlib: LDFLAGS += -L$(IrrlichtHome)/lib/Linux -lIrrlicht
 staticlib sharedlib: CXXINCS += -I/usr/X11R6/include
+
+ifeq ($(MACHINE), x86_64)
+sharedlib: CPPFLAGS += -fPIC
+endif
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_RELEASE)
 SHARED_FULLNAME = $(SHARED_LIB).$(VERSION)
