@@ -19,7 +19,6 @@ endif
 ifdef PROFILE
 CXXFLAGS += -pg
 endif
-CFLAGS := -std=c++11
 
 MACHINE := $(shell uname -m)
 
@@ -60,7 +59,8 @@ install:
 	cp $(LIB_PATH)/$(SHARED_FULLNAME) $(INSTALL_DIR)
 	cd $(INSTALL_DIR) && ln -s -f $(SHARED_FULLNAME) $(SONAME)
 	cd $(INSTALL_DIR) && ln -s -f $(SONAME) $(SHARED_LIB)
-
+	ldconfig -n $(INSTALL_DIR)
+	
 staticlib staticlib_osx: $(STATIC_LIB)
 	mkdir -p $(LIB_PATH)
 	mv $^ $(LIB_PATH)
@@ -81,13 +81,13 @@ ifneq ($(MAKECMDGOALS),clean)
 endif
 
 help:
-	@echo "Available targets for DIrrlicht"
-	@echo " sharedlib: Build shared library DIrrlicht.so for Linux"
-	@echo " staticlib: Build static library DIrrlicht.a for Linux"
+	@echo "Available targets for CIrrlicht:"
+	@echo " sharedlib: Build shared library CIrrlicht.so for Linux"
+	@echo " staticlib: Build static library CIrrlicht.a for Linux"
 	@echo " install: Copy shared library to /usr/local/lib"
 	@echo ""
-	@echo " sharedlib_win32: Build shared library DIrrlicht.dll for Windows"
-	@echo " staticlib_win32: Build static library DIrrlicht.a for Windows"
+	@echo " sharedlib_win32: Build shared library CIrrlicht.dll for Windows"
+	@echo " staticlib_win32: Build static library CIrrlicht.a for Windows"
 	@echo ""
 	@echo " clean: Clean up directory"
 
