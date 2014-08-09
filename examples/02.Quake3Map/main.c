@@ -52,9 +52,9 @@ int main() {
                 wcscat(result, str);
 
                 wchar_t fpsTemp[300];
-                wprintf(fpsTemp, L"%d", fps);
+                swprintf(fpsTemp, 300, L"%d", fps);
                 wcscat(result, fpsTemp);
-
+				
                 irr_IrrlichtDevice_setWindowCaption(device, result);
                 lastFPS = fps;
             }
