@@ -26,26 +26,28 @@
 
 #pragma once
 
+#include "irrtypes.h"
+
 //! An enumeration for all supported types of built-in mesh writers
 /** A scene mesh writers is represented by a four character code
 such as 'irrm' or 'coll' instead of simple numbers, to avoid
 name clashes with external mesh writers.*/
 enum EMESH_WRITER_TYPE
 {
-    //! Irrlicht native mesh writer, for static .irrmesh files.
-    EMWT_IRR_MESH,
+	//! Irrlicht native mesh writer, for static .irrmesh files.
+	EMWT_IRR_MESH     = MAKE_CIRR_ID('i','r','r','m'),
 
-    //! COLLADA mesh writer for .dae and .xml files
-    EMWT_COLLADA,
+	//! COLLADA mesh writer for .dae and .xml files
+	EMWT_COLLADA      = MAKE_CIRR_ID('c','o','l','l'),
 
-    //! STL mesh writer for .stl files
-    EMWT_STL,
+	//! STL mesh writer for .stl files
+	EMWT_STL          = MAKE_CIRR_ID('s','t','l',0),
 
-    //! OBJ mesh writer for .obj files
-    EMWT_OBJ,
+	//! OBJ mesh writer for .obj files
+	EMWT_OBJ          = MAKE_CIRR_ID('o','b','j',0),
 
-    //! PLY mesh writer for .ply files
-    EMWT_PLY
+	//! PLY mesh writer for .ply files
+	EMWT_PLY          = MAKE_CIRR_ID('p','l','y',0)
 };
 
 

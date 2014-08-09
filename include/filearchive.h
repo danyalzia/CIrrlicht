@@ -26,6 +26,8 @@
 
 #pragma once
 
+#include "irrtypes.h"
+
 //! FileSystemType: which Filesystem should be used for e.g. browsing
 enum EFileSystemType
 {
@@ -37,26 +39,26 @@ enum EFileSystemType
 enum E_FILE_ARCHIVE_TYPE
 {
 	//! A PKZIP archive
-	EFAT_ZIP,
+	EFAT_ZIP     = MAKE_CIRR_ID('Z','I','P', 0),
 
 	//! A gzip archive
-	EFAT_GZIP,
+	EFAT_GZIP    = MAKE_CIRR_ID('g','z','i','p'),
 
 	//! A virtual directory
-	EFAT_FOLDER,
+	EFAT_FOLDER  = MAKE_CIRR_ID('f','l','d','r'),
 
 	//! An ID Software PAK archive
-	EFAT_PAK,
+	EFAT_PAK     = MAKE_CIRR_ID('P','A','K', 0),
 
 	//! A Nebula Device archive
-	EFAT_NPK,
+	EFAT_NPK     = MAKE_CIRR_ID('N','P','K', 0),
 
 	//! A Tape ARchive
-	EFAT_TAR,
+	EFAT_TAR     = MAKE_CIRR_ID('T','A','R', 0),
 
 	//! A wad Archive, Quake2, Halflife
-	EFAT_WAD,
+	EFAT_WAD     = MAKE_CIRR_ID('W','A','D', 0),
 
 	//! The type of this archive is unknown
-	EFAT_UNKNOWN
+	EFAT_UNKNOWN = MAKE_CIRR_ID('u','n','k','n')
 };

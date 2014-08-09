@@ -26,8 +26,8 @@
 
 #include "core.h"
 #include "irrlichtdevice.h"
-#include <assert.h>
 #include "convertevent.h"
+#include <irrlicht.h>
 
 irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync, irr_IEventReceiver* receiver)
 {
@@ -151,14 +151,12 @@ const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device)
 
 void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr::IEventReceiver* receiver)
 {
-    reinterpret_cast<irr::IrrlichtDevice*>(device)->setEventReceiver(receiver);
+	reinterpret_cast<irr::IrrlichtDevice*>(device)->setEventReceiver(reinterpret_cast<irr::IEventReceiver*>(receiver));
 }
 
 irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device)
 {
-    auto receiver = reinterpret_cast<irr_IEventReceiver*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getEventReceiver());
-	assert(receiver != 0);
-	return receiver;
+    return reinterpret_cast<irr_IEventReceiver*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getEventReceiver());
 }
 
 bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent event)
