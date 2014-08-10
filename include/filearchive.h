@@ -27,6 +27,7 @@
 #pragma once
 
 #include "irrtypes.h"
+#include "compileconfig.h"
 
 //! FileSystemType: which Filesystem should be used for e.g. browsing
 enum EFileSystemType
@@ -62,3 +63,23 @@ enum E_FILE_ARCHIVE_TYPE
 	//! The type of this archive is unknown
 	EFAT_UNKNOWN = MAKE_CIRR_ID('u','n','k','n')
 };
+
+struct irr_IFileArchive;
+struct irr_IReadFile;
+struct irr_IFileList;
+
+CIRRLICHT_API irr_IReadFile* irr_IFileArchive_createAndOpenFile(irr_IFileArchive* filearchive, const char* filename);
+CIRRLICHT_API irr_IReadFile* irr_IFileArchive_createAndOpenFile2(irr_IFileArchive* filearchive, unsigned int index);
+CIRRLICHT_API const irr_IFileList* irr_IFileArchive_getFileList(irr_IFileArchive* filearchive);
+CIRRLICHT_API E_FILE_ARCHIVE_TYPE irr_IFileArchive_getType(irr_IFileArchive* filearchive);
+CIRRLICHT_API const char* irr_IFileArchive_getArchiveName(irr_IFileArchive* filearchive);
+CIRRLICHT_API void irr_IFileArchive_setPassword(irr_IFileArchive* filearchive, const char* pass);
+CIRRLICHT_API const char* irr_IFileArchive_getPassword(irr_IFileArchive* filearchive);
+
+struct irr_IArchiveLoader;
+
+CIRRLICHT_API bool irr_IArchiveLoader_isALoadableFileFormat(irr_IArchiveLoader* loader, const char* filename);
+CIRRLICHT_API bool irr_IArchiveLoader_isALoadableFileFormat2(irr_IArchiveLoader* loader, irr_IReadFile* file);
+CIRRLICHT_API bool irr_IArchiveLoader_isALoadableFileFormat3(irr_IArchiveLoader* loader, E_FILE_ARCHIVE_TYPE fileType);
+CIRRLICHT_API irr_IFileArchive* irr_IArchiveLoader_createArchive(irr_IArchiveLoader* loader, const char* filename, bool ignoreCase, bool ignorePaths);
+CIRRLICHT_API irr_IFileArchive* irr_IArchiveLoader_createArchive2(irr_IArchiveLoader* loader, irr_IReadFile* file, bool ignoreCase, bool ignorePaths);
