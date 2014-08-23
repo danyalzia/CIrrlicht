@@ -3,7 +3,7 @@ VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
 
-CIRRLICHT =  src/core.o  src/animatedmesh.o src/animatedmeshmd2.o src/meshscenenode.o src/animatedmeshscenenode.o  src/cursorcontrol.o  src/filesystem.o src/readfile.o src/guienvironment.o  src/guifont.o  src/guiimage.o  src/guistatictext.o  src/imagewriter.o src/imageloader.o src/mesh.o  src/irrlichtdevice.o   src/scenemanager.o   src/scenenode.o src/videodriver.o src/eventreceiver.o src/timer.o src/randomizer.o src/osoperator.o src/logger.o src/convertevent.o src/writefile.o src/xmlwriter.o src/filelist.o src/filearchive.o
+CIRRLICHT =  src/core.o  src/animatedmesh.o src/animatedmeshmd2.o src/meshscenenode.o src/animatedmeshscenenode.o  src/cursorcontrol.o  src/filesystem.o src/readfile.o src/guienvironment.o  src/guifont.o  src/guiimage.o  src/guistatictext.o  src/imagewriter.o src/imageloader.o src/mesh.o  src/irrlichtdevice.o   src/scenemanager.o   src/scenenode.o src/videodriver.o src/eventreceiver.o src/timer.o src/randomizer.o src/osoperator.o src/logger.o src/convertevent.o src/writefile.o src/xmlwriter.o src/filelist.o src/filearchive.o src/irrxml.o
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
