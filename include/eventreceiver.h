@@ -28,6 +28,9 @@
 
 #include "compileconfig.h"
 #include "keycodes.h"
+#include "IEventReceiver.h"
+#include "convertevent.h"
+#include <IrrlichtDevice.h>
 
 enum EEVENT_TYPE
 {
@@ -193,11 +196,15 @@ struct irr_SEvent
 		struct irr_SLogEvent LogEvent;
 		struct irr_SUserEvent UserEvent;
 	};
-
 };
 
-typedef struct irr_IEventReceiver irr_IEventReceiver;
+struct irr_IEventReceiver {
+};
 
-struct irr_SEvent;
-
-CIRRLICHT_API bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, irr_SEvent event);
+class IEventReceiverInheritor : public irr::IEventReceiver {
+	public:
+		IEventReceiverInheritor(bool (*_OnEvent)(const irr_SEvent& event));
+		bool OnEvent(const irr::SEvent& event);
+		
+		bool (*_OnEvent)(const irr_SEvent& event);
+};

@@ -26,4 +26,52 @@
 
 #pragma once
 
-typedef struct irr_IGPUProgrammingServices irr_IGPUProgrammingServices;
+#include "compileconfig.h"
+#include "shadertypes.h"
+#include "materialtypes.h"
+#include "primitivetypes.h"
+
+enum E_GPU_SHADING_LANGUAGE {
+	EGSL_DEFAULT = 0,
+	EGSL_CG
+};
+
+struct irr_IGPUProgrammingServices;
+struct irr_IShaderConstantSetCallBack;
+struct irr_IReadFile;
+
+CIRRLICHT_API int irr_IGPUProgrammingServices_addHighLevelShaderMaterial(irr_IGPUProgrammingServices* services,
+		const char* vertexShaderProgram,
+		const char* vertexShaderEntryPointName,
+		E_VERTEX_SHADER_TYPE vsCompileTarget,
+		const char* pixelShaderProgram,
+		const char* pixelShaderEntryPointName,
+		E_PIXEL_SHADER_TYPE psCompileTarget,
+		const char* geometryShaderProgram,
+		const char* geometryShaderEntryPointName = "main",
+		E_GEOMETRY_SHADER_TYPE gsCompileTarget = EGST_GS_4_0,
+		E_PRIMITIVE_TYPE inType = EPT_TRIANGLES,
+		E_PRIMITIVE_TYPE outType = EPT_TRIANGLE_STRIP,
+		unsigned int verticesOut = 0,
+		irr_IShaderConstantSetCallBack* callback = 0,
+		E_MATERIAL_TYPE baseMaterial = EMT_SOLID,
+		int userData = 0,
+		E_GPU_SHADING_LANGUAGE shadingLang = EGSL_DEFAULT);
+
+CIRRLICHT_API int irr_IGPUProgrammingServices_addShaderMaterial(irr_IGPUProgrammingServices* services, const char* vertexShaderProgram = 0,
+		const char* pixelShaderProgram = 0,
+		irr_IShaderConstantSetCallBack* callback = 0,
+		E_MATERIAL_TYPE baseMaterial = EMT_SOLID,
+		int userData = 0);
+		
+CIRRLICHT_API int irr_IGPUProgrammingServices_addShaderMaterialFromFiles(irr_IGPUProgrammingServices* services, irr_IReadFile* vertexShaderProgram,
+		irr_IReadFile* pixelShaderProgram,
+		irr_IShaderConstantSetCallBack* callback = 0,
+		E_MATERIAL_TYPE baseMaterial = EMT_SOLID,
+		int userData = 0);
+		
+CIRRLICHT_API int irr_IGPUProgrammingServices_addShaderMaterialFromFiles2(irr_IGPUProgrammingServices* services, const char* vertexShaderProgramFileName,
+		const char* pixelShaderProgramFileName,
+		irr_IShaderConstantSetCallBack* callback = 0,
+		E_MATERIAL_TYPE baseMaterial = EMT_SOLID,
+		int userData = 0);

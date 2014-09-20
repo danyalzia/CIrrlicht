@@ -71,7 +71,7 @@ enum E_DEVICE_TYPE
     EIDT_BEST
 };
 
-CIRRLICHT_API irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false, irr_IEventReceiver* receiver=0);
+CIRRLICHT_API irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, unsigned int resX, unsigned int resY, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false, irr_IEventReceiver* receiver=0);
 CIRRLICHT_API bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_yield(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_sleep(irr_IrrlichtDevice* device, unsigned int timeMs, bool pauseTimer=false);
@@ -95,9 +95,8 @@ CIRRLICHT_API bool irr_IrrlichtDevice_isFullscreen(irr_IrrlichtDevice* device);
 CIRRLICHT_API ECOLOR_FORMAT irr_IrrlichtDevice_getColorFormat(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_closeDevice(irr_IrrlichtDevice* device);
 CIRRLICHT_API const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device);
-CIRRLICHT_API void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr_IEventReceiver* receiver);
+CIRRLICHT_API void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, bool (*_OnEvent)(const irr_SEvent& event));
 
-CIRRLICHT_API irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device);
 CIRRLICHT_API bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent event);
 CIRRLICHT_API void irr_IrrlichtDevice_setInputReceivingSceneManager(irr_IrrlichtDevice* device, irr_ISceneManager* smgr);
 CIRRLICHT_API void irr_IrrlichtDevice_setResizable(irr_IrrlichtDevice* device, bool value = false);

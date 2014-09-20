@@ -3,7 +3,7 @@ VERSION_MAJOR = 1
 VERSION_MINOR = 9
 VERSION_RELEASE = 0
 
-CIRRLICHT =  src/core.o  src/animatedmesh.o src/animatedmeshmd2.o src/meshscenenode.o src/animatedmeshscenenode.o  src/cursorcontrol.o  src/filesystem.o src/readfile.o src/guienvironment.o  src/guifont.o  src/guiimage.o  src/guistatictext.o  src/imagewriter.o src/imageloader.o src/mesh.o  src/irrlichtdevice.o   src/scenemanager.o   src/scenenode.o src/videodriver.o src/eventreceiver.o src/timer.o src/randomizer.o src/osoperator.o src/logger.o src/convertevent.o src/writefile.o src/xmlwriter.o src/filelist.o src/filearchive.o src/irrxml.o
+CIRRLICHT =  src/core.o  src/animatedmesh.o src/animatedmeshmd2.o src/meshscenenode.o src/animatedmeshscenenode.o  src/cursorcontrol.o  src/filesystem.o src/readfile.o src/guienvironment.o  src/guifont.o  src/guiimage.o  src/guistatictext.o  src/imagewriter.o src/imageloader.o src/mesh.o  src/irrlichtdevice.o   src/scenemanager.o   src/scenenode.o src/videodriver.o src/eventreceiver.o src/timer.o src/randomizer.o src/osoperator.o src/logger.o src/convertevent.o src/writefile.o src/xmlwriter.o src/filelist.o src/filearchive.o src/irrxml.o src/gpuprogrammingservices.o
 EXTRAOBJ =
 LINKOBJ = $(CIRRLICHT)
 
@@ -33,7 +33,7 @@ STATIC_LIB = libCIrrlicht.a
 LIB_PATH = lib
 INSTALL_DIR = /usr/local/lib
 sharedlib install: SHARED_LIB = libCIrrlicht.so
-sharedlib: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm
+sharedlib: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm -lXext -lX11 -lXcursor
 sharedlib: LDFLAGS += -L$(IrrlichtHome)/lib/Linux -lIrrlicht
 staticlib sharedlib: CXXINCS += -I/usr/X11R6/include
 

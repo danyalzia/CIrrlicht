@@ -4,8 +4,7 @@
 #include <wchar.h>
 
 int main() {
-    irr_dimension2du dim = {640, 480};
-    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
+    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, 640, 480, 16, false, false, false);
 
     irr_IrrlichtDevice_setResizable(device, true);
 

@@ -1,8 +1,7 @@
 #include <cirrlicht.h>
 
 int main() {
-    irr_dimension2du dim = {800, 600};
-    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim, 16, false, false, false);
+    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, 800, 600, 16, false, false, false);
 
     irr_IrrlichtDevice_setWindowCaption(device, L"Hello World!");
     irr_IrrlichtDevice_setResizable(device, true);

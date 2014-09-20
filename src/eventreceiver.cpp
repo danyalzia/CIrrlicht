@@ -24,13 +24,16 @@
        source distribution.
 */
 
-#include <IEventReceiver.h>
 #include "eventreceiver.h"
-#include <assert.h>
+#include <IrrlichtDevice.h>
 #include "convertevent.h"
 
-bool irr_IEventReceiver_OnEvent(irr_IEventReceiver* receiver, irr_SEvent event)
-{
-	assert(receiver != 0);
-	return reinterpret_cast<irr::IEventReceiver*>(receiver)->OnEvent(convertEvent(event));
+struct irr_IrrlichtDevice;
+
+IEventReceiverInheritor::IEventReceiverInheritor(bool (*_OnEvent)(const irr_SEvent& event)) {
+	this->_OnEvent = _OnEvent;
+}
+
+bool IEventReceiverInheritor::OnEvent(const irr::SEvent& event) {
+	return _OnEvent(convertEvent(event));
 }

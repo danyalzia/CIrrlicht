@@ -29,9 +29,9 @@
 #include "convertevent.h"
 #include <irrlicht.h>
 
-irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, irr_dimension2du res, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync, irr_IEventReceiver* receiver)
+irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, unsigned int resX, unsigned int resY, unsigned bits, bool fullscreen, bool stencilbuffer, bool vsync, irr_IEventReceiver* receiver)
 {
-    return reinterpret_cast<irr_IrrlichtDevice*>(irr::createDevice(static_cast<irr::video::E_DRIVER_TYPE>(driver), irr::core::dimension2du(res.Width, res.Height), bits, fullscreen, stencilbuffer, vsync, reinterpret_cast<irr::IEventReceiver*>(receiver)));
+    return reinterpret_cast<irr_IrrlichtDevice*>(irr::createDevice(static_cast<irr::video::E_DRIVER_TYPE>(driver), irr::core::dimension2du(resX, resY), bits, fullscreen, stencilbuffer, vsync, reinterpret_cast<irr::IEventReceiver*>(receiver)));
 }
 
 bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device)
@@ -149,19 +149,23 @@ const char* irr_IrrlichtDevice_getVersion(irr_IrrlichtDevice* device)
     return reinterpret_cast<irr::IrrlichtDevice*>(device)->getVersion();
 }
 
-void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, irr::IEventReceiver* receiver)
-{
-	reinterpret_cast<irr::IrrlichtDevice*>(device)->setEventReceiver(reinterpret_cast<irr::IEventReceiver*>(receiver));
+class TestEventReceiver : public irr::IEventReceiver {
+	public:
+		bool OnEvent(const irr::SEvent& event) {
+			return false;
+		}
+};
+
+void irr_IrrlichtDevice_setEventReceiver(irr_IrrlichtDevice* device, bool (*_OnEvent)(const irr_SEvent& event)) {
+	
+	auto receiver = new IEventReceiverInheritor(_OnEvent);
+	//auto receiver = new TestEventReceiver();
+	reinterpret_cast<irr::IrrlichtDevice*>(device)->setEventReceiver(receiver);
 }
 
 irr_IEventReceiver* irr_IrrlichtDevice_getEventReceiver(irr_IrrlichtDevice* device)
 {
     return reinterpret_cast<irr_IEventReceiver*>(reinterpret_cast<irr::IrrlichtDevice*>(device)->getEventReceiver());
-}
-
-bool irr_IrrlichtDevice_postEventFromUser(irr_IrrlichtDevice* device, irr_SEvent event)
-{
-    return reinterpret_cast<irr::IrrlichtDevice*>(device)->postEventFromUser(convertEvent(event));
 }
 
 void irr_IrrlichtDevice_setInputReceivingSceneManager(irr_IrrlichtDevice* device, irr_ISceneManager* smgr)

@@ -30,4 +30,6 @@
 #include <IEventReceiver.h>
 #include "eventreceiver.h"
 
-CIRRLICHT_API irr::SEvent convertEvent(irr_SEvent event);
+struct irr_SEvent;
+
+CIRRLICHT_API irr_SEvent convertEvent(irr::SEvent event);

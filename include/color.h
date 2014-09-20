@@ -89,17 +89,17 @@ enum ECOLOR_FORMAT
 struct irr_SColor
 {
     unsigned int a;
-    unsigned int b;
-    unsigned int g;
     unsigned int r;
+    unsigned int g;
+    unsigned int b;
 };
 typedef struct irr_SColor irr_SColor;
 
 struct irr_SColorf
 {
     float a;
-    float b;
-    float g;
     float r;
+    float g;
+    float b;
 };
 typedef struct irr_SColorf irr_SColorf;

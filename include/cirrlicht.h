@@ -78,6 +78,7 @@
 #include "light.h"
 #include "material.h"
 #include "vertexindex.h"
+#include "timer.h"
 
 /*! \mainpage CIrrlicht API documentation
  *

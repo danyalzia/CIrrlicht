@@ -26,38 +26,56 @@
 
 #include "convertevent.h"
 
-irr::SEvent convertEvent(irr_SEvent event)
-{
-	irr::SEvent temp;
-	temp.EventType = irr::EEVENT_TYPE(event.EventType);
+irr_SEvent convertEvent(irr::SEvent event) {
+	irr_SEvent temp;
+	temp.EventType = EEVENT_TYPE(event.EventType);
+	
 	auto tempgui = temp.GUIEvent;
-    tempgui.Caller = reinterpret_cast<irr::gui::IGUIElement*>(event.GUIEvent.Caller);
-    tempgui.Element = reinterpret_cast<irr::gui::IGUIElement*>(event.GUIEvent.Element);
-    tempgui.EventType = irr::gui::EGUI_EVENT_TYPE(event.GUIEvent.EventType);
+	tempgui.Caller = reinterpret_cast<irr_IGUIElement*>(event.GUIEvent.Caller);
+    tempgui.Element = reinterpret_cast<irr_IGUIElement*>(event.GUIEvent.Element);
+    tempgui.EventType = EGUI_EVENT_TYPE(event.GUIEvent.EventType);
+    temp.GUIEvent = tempgui;
+    
+    auto tempmouse = temp.MouseInput;
+    tempmouse.X = event.MouseInput.X;
+    tempmouse.Y = event.MouseInput.Y;
+    tempmouse.Wheel = event.MouseInput.Wheel;
+    tempmouse.Shift = event.MouseInput.Shift;
+    tempmouse.Control = event.MouseInput.Control;
+	tempmouse.ButtonStates = event.MouseInput.ButtonStates;
+	// isLeftPressed
+	// isRightPressed
+	// isMiddlePressed
+	tempmouse.Event = EMOUSE_INPUT_EVENT(event.MouseInput.Event);
+	
+	temp.MouseInput = tempmouse;
+	
+	auto tempkeyinput = temp.KeyInput;
+	tempkeyinput.Char = event.KeyInput.Char;
+	tempkeyinput.Key = EKEY_CODE(event.KeyInput.Key);
+	tempkeyinput.PressedDown = event.KeyInput.PressedDown;
+	tempkeyinput.Shift = event.KeyInput.Shift;
+	tempkeyinput.Control = event.KeyInput.Control;
 
-	auto tempjoystick = temp.JoystickEvent;
-//    tempjoystick.NUMBER_OF_BUTTONS = event.JoystickEvent.NUMBER_OF_BUTTONS;
-//    tempjoystick.AXIS_X = event.JoystickEvent.AXIS_X;
-//    tempjoystick.AXIS_Y = event.JoystickEvent.AXIS_Y;
-//    tempjoystick.AXIS_Z = event.JoystickEvent.AXIS_Z;
-//    tempjoystick.AXIS_R = event.JoystickEvent.AXIS_R;
-//    tempjoystick.AXIS_U = event.JoystickEvent.AXIS_U;
-//    tempjoystick.AXIS_V = event.JoystickEvent.AXIS_V;
-//    tempjoystick.NUMBER_OF_AXES = event.JoystickEvent.NUMBER_OF_AXES;
-
+	temp.KeyInput = tempkeyinput;
+	
+    auto tempjoystick = temp.JoystickEvent;
     tempjoystick.ButtonStates = event.JoystickEvent.ButtonStates;
     tempjoystick.Axis[tempjoystick.NUMBER_OF_AXES] = event.JoystickEvent.Axis[event.JoystickEvent.NUMBER_OF_AXES];
 	tempjoystick.POV = event.JoystickEvent.POV;
 	tempjoystick.Joystick = event.JoystickEvent.Joystick;
-	//tempjoystick.IsButtonPressed = event.JoystickEvent.IsButtonPressed;
-
-	auto tempkeyinput = temp.KeyInput;
-	tempkeyinput.Char = temp.KeyInput.Char;
-	tempkeyinput.Key = temp.KeyInput.Key;
-	tempkeyinput.PressedDown = temp.KeyInput.PressedDown;
-	tempkeyinput.Shift = temp.KeyInput.Shift;
-	tempkeyinput.Control = temp.KeyInput.Control;
-
-	temp.KeyInput = tempkeyinput;
+	// IsButtonPressed
+	temp.JoystickEvent = tempjoystick;
+	
+	auto templog = temp.LogEvent;
+	templog.Text = event.LogEvent.Text;
+	templog.Level = event.LogEvent.Level;
+	temp.LogEvent = templog;
+	
+	auto tempuser = temp.UserEvent;
+	tempuser.UserData1 = event.UserEvent.UserData1;
+	tempuser.UserData2 = event.UserEvent.UserData2;
+	temp.UserEvent = tempuser;
+	
 	return temp;
 }
