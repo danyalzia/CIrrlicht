@@ -21,15 +21,13 @@ Checkout the [Road Map](https://github.com/Artistic-Games/CIrrlicht/wiki/Roadmap
 Installation
 ------------
 
-On Windows open `Dependencies_Path.bat` in directory and change environment variable of `IRRLICHT_ROOT` to the directory of Irrlicht and run it, then do `make` / `make sharedlib` or `make staticlib` to create dynamic/static library.
+**Note: Works only on Linux**
 
-On Linux, open Makefile and set `IrrlichtHome` to the root directory of Irrlicht and then do `make` / `make sharedlib` or `make staticlib` to create dynamic/static library.
+Open Makefile and set `IrrlichtHome` to the root directory of Irrlicht. If you don't have Irrlicht installed already then you can simply get it through `svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht` in the same directory as CIrrlicht, that way you won't have to set `IrrlichtHome` yourself. Please note that you need to compile Irrlicht as a static library.
 
-The compiled library will be available in `lib/`.
-
-To use a dynamic library on Linux:
+To compile and install dynamic library on Linux:
 ```
-$ make
+$ make sharedlib
 $ sudo make install
 ```
 
@@ -43,8 +41,7 @@ CIrrlicht is based on Irrlicht which separates the interface from implementation
 #include <cirrlicht.h>
 
 int main() {
-    irr_dimension2du dim = {800, 600};
-    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, dim);
+    irr_IrrlichtDevice* device = irr_createDevice(EDT_OPENGL, 800, 600);
     
     irr_IrrlichtDevice_setWindowCaption(device, L"CIrrlicht Test!");
     irr_IrrlichtDevice_setResizable(device, true);
@@ -64,7 +61,7 @@ See [wiki](https://github.com/Artistic-Games/CIrrlicht/wiki/) for more usage and
 Contributing
 ------------
 
-CIrrlicht is currently being used as a backend for DIrrlicht, that means the quality of DIrrlicht is highly dependent on it. The priority is to make the library stable enough that don't break DIrrlicht. Feel free to open issues or send pull requests.
+CIrrlicht is currently being used as a backend for DIrrlicht, that means the quality of DIrrlicht is highly dependent on it. The priority is to make the library stable enough that doesn't break DIrrlicht. Feel free to open issues or send pull requests.
 
 Before making a commit, please try to adhere to the [coding style](https://github.com/Artistic-Games/CIrrlicht/blob/master/CONTRIBUTING.md) of CIrrlicht.
 
