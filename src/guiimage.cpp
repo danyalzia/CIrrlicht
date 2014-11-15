@@ -77,7 +77,7 @@ void irr_IGUIImage_setSourceRect(irr_IGUIImage* img, irr_recti sourceRect)
 
 irr_recti irr_IGUIImage_getSourceRect(irr_IGUIImage* img)
 {
-    irr::core::recti temp = reinterpret_cast<irr::gui::IGUIImage*>(img)->getSourceRect();
+	irr::core::recti temp = reinterpret_cast<irr::gui::IGUIImage*>(img)->getSourceRect();
     irr_recti rec = {temp.UpperLeftCorner.X, temp.UpperLeftCorner.Y, temp.LowerRightCorner.X, temp.LowerRightCorner.Y};
     return rec;
 }

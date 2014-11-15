@@ -25,7 +25,7 @@
 */
 
 #include "irrxml.h"
-#include <irrXML.h>
+#include <irrlicht.h>
 
 int irr_IFileReadCallBack_read(irr_IFileReadCallBack* callback, void* buffer, int sizeToRead) {
 	return reinterpret_cast<irr::io::IFileReadCallBack*>(callback)->read(buffer, sizeToRead);

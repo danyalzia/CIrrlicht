@@ -201,7 +201,9 @@ irr_ISceneManager* irr_ISceneNode_getSceneManager(irr_ISceneNode* node)
     return reinterpret_cast<irr_ISceneManager*>(reinterpret_cast<irr::scene::ISceneNode*>(node)->getSceneManager());
 }
 
+/*
 irr_IAnimatedMesh* irr_ISceneManager_getMesh(irr_ISceneManager* smgr, const char* file)
 {
     return reinterpret_cast<irr_IAnimatedMesh*>(reinterpret_cast<irr::scene::ISceneManager*>(smgr)->getMesh(file));
 }
+*/
