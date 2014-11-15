@@ -71,7 +71,7 @@ enum E_DEVICE_TYPE
     EIDT_BEST
 };
 
-CIRRLICHT_API irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, unsigned int resX, unsigned int resY, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false, irr_IEventReceiver* receiver=0);
+CIRRLICHT_API irr_IrrlichtDevice* irr_createDevice(E_DRIVER_TYPE driver, unsigned int resX, unsigned int resY, unsigned bits = 16, bool fullscreen = false, bool stencilbuffer = false, bool vsync = false, struct irr_IEventReceiver* receiver=0);
 CIRRLICHT_API bool irr_IrrlichtDevice_run(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_yield(irr_IrrlichtDevice* device);
 CIRRLICHT_API void irr_IrrlichtDevice_sleep(irr_IrrlichtDevice* device, unsigned int timeMs, bool pauseTimer=false);

@@ -1,3 +1,5 @@
+Only for the "unforked" repositry:
+
 [![Build Status](https://travis-ci.org/Artistic-Games/CIrrlicht.png?branch=master)](https://travis-ci.org/Artistic-Games/CIrrlicht)
 [![Stories in Ready](https://badge.waffle.io/Artistic-Games/CIrrlicht.png?label=ready&title=Ready)](https://waffle.io/Artistic-Games/CIrrlicht)
 
@@ -20,9 +22,7 @@ Checkout the [Road Map](https://github.com/Artistic-Games/CIrrlicht/wiki/Roadmap
 
 Installation
 ------------
-
-**Note: Works only on Linux**
-
+###Linux
 Open Makefile and set `IrrlichtHome` to the root directory of Irrlicht. If you don't have Irrlicht installed already then you can simply get it through `svn checkout svn://svn.code.sf.net/p/irrlicht/code/trunk irrlicht` in the same directory as CIrrlicht, that way you won't have to set `IrrlichtHome` yourself. Please note that you need to compile Irrlicht as a static library.
 
 To compile and install dynamic library on Linux:
@@ -30,6 +30,11 @@ To compile and install dynamic library on Linux:
 $ make sharedlib
 $ sudo make install
 ```
+
+###Windows with Visual Studio
+Get the lastest Irrlicht Sourcecode from `svn://svn.code.sf.net/p/irrlicht/code/trunk` using e.g. [TortoiseSVN](http://tortoisesvn.net) or with git from https://github.com/zaki/irrlicht into the CIrrlicht directory. Then you must compile it. Simply open the Visual Studio Solution in [CIrrlicht folder]/irrlicht/source/ for your VS version and compile it. I only tried it with the Release Configuration which compiles an Dynamic Library, but an the Release Static configuration should also work. 
+
+Now you must open the Visual Studio Solution in the windows folder and compile it. When it's compiling done, you will your find .dll and .lib files in the bin folder
 
 Usage
 -----

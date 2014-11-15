@@ -27,7 +27,7 @@
 #include "convertevent.h"
 
 irr_SEvent convertEvent(irr::SEvent event) {
-	irr_SEvent temp;
+	irr_SEvent temp = {};
 	temp.EventType = EEVENT_TYPE(event.EventType);
 	
 	auto tempgui = temp.GUIEvent;
