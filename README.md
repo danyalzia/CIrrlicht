@@ -1,7 +1,7 @@
 Only for the "unforked" repositry:
 
-[![Build Status](https://travis-ci.org/Artistic-Games/CIrrlicht.png?branch=master)](https://travis-ci.org/Artistic-Games/CIrrlicht)
-[![Stories in Ready](https://badge.waffle.io/Artistic-Games/CIrrlicht.png?label=ready&title=Ready)](https://waffle.io/Artistic-Games/CIrrlicht)
+[![Build Status](https://travis-ci.org/danyalzia/CIrrlicht.png?branch=master)](https://travis-ci.org/danyalzia/CIrrlicht)
+[![Stories in Ready](https://badge.waffle.io/danyalzia/CIrrlicht.png?label=ready&title=Ready)](https://waffle.io/danyalzia/CIrrlicht)
 
 CIrrlicht - C Bindings of Irrlicht Engine
 ==========================================
@@ -11,14 +11,14 @@ Details
 
 CIrrlicht is the C Bindings/Interface of Irrlicht Engine which makes it possible to use Irrlicht Engine from C. The original intention of this software is to make Irrlicht cross-language by making it easy to bind Irrlicht Engine for those languages that directly support C but not C++ such as D, Haskell, Swift etc.
 
-It is used as a backend for [DIrrlicht](https://github.com/Artistic-Games/DIrrlicht)
+It is used as a backend for [DIrrlicht](https://github.com/danyalzia/DIrrlicht)
 
 Status
 ------
 
 It's in very early beta stage. Several functions still aren't wrapped. It is subject to API changes.
 
-Checkout the [Road Map](https://github.com/Artistic-Games/CIrrlicht/wiki/Roadmap) for the list of things that still needs to be done.
+Checkout the [Road Map](https://github.com/danyalzia/CIrrlicht/wiki/Roadmap) for the list of things that still needs to be done.
 
 Installation
 ------------
@@ -61,7 +61,7 @@ int main() {
 }
 ```
 
-See [wiki](https://github.com/Artistic-Games/CIrrlicht/wiki/) for more usage and tutorials
+See [wiki](https://github.com/danyalzia/CIrrlicht/wiki/) for more usage and tutorials
 
 Contributing
 ------------
